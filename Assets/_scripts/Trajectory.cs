@@ -15,10 +15,14 @@ public class Trajectory : MonoBehaviour
 			return _instance;
 		}
 	}
+
+
 	private void OnApplicationQuit () { _instance = null; }
 	#endregion
 
     public float MinDistance = 50;
+
+    public GameObject Rocket;
 
     private List<Vector3> Points { get; set; }
     private LineRenderer lRenderer;
@@ -61,11 +65,14 @@ public class Trajectory : MonoBehaviour
                 }
                 var p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
                 if (Points.Count < maxLRC)
-                    AddVertex(new Vector3(p.x, p.y, 0));
+                    AddVertex(new Vector3(p.x, 0, p.z));
             }
 
             if (Input.GetMouseButtonUp(0))
+            {
                 inConstruction = false;
+                CreateRocket();
+            }
 
             yield return new WaitForSeconds(0.002f);
         }
@@ -84,6 +91,13 @@ public class Trajectory : MonoBehaviour
             lRenderer.SetPosition(i, p);
     }
    
+    private void CreateRocket()
+    {
+        var rocky = ((GameObject)Instantiate(Rocket, Points[0], Quaternion.identity));
+        rocky.GetComponent<Rocket>().SetWaypoints(Points);
+        
+    }
+
     private void Refresh()
     {
         Points.Clear();

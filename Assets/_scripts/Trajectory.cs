@@ -51,15 +51,15 @@ public class Trajectory : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
-				if (Points.Count < 2)
-				{
-					inConstruction = false;
-					lineRenderer.enabled = false;
-					break;
-				}
                 inConstruction = false;
-				AddVertex((Points.Last() - Points[Points.Count - 2]).normalized * 100);
-                CreateRocket();
+                if (Points.Count < 2)
+                    lineRenderer.enabled = false;
+                else
+                {
+                    CreateRocket();
+                    for (int i = currVertCount; i < maxVertCount; i++)
+                        lineRenderer.SetPosition(i, Points.Last());
+                }
             }
 
             yield return new WaitForSeconds(0.002f);

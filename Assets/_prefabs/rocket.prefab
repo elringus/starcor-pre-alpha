@@ -11,8 +11,8 @@ GameObject:
   - 33: {fileID: 3300000}
   - 135: {fileID: 13500000}
   - 23: {fileID: 2300000}
-  - 114: {fileID: 11400000}
   - 54: {fileID: 5400000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: rocket
   m_TagString: Untagged
@@ -88,7 +88,7 @@ MonoBehaviour:
   GameObject: {fileID: 0}
   Transform: {fileID: 0}
   Damage: 2
-  Speed: 1
+  Speed: 5
   UseITween: 0
 --- !u!135 &13500000
 SphereCollider:

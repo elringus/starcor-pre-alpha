@@ -47,4 +47,11 @@ public class Enemy : MonoBehaviour
 		targetPlanet.HP -= .1f;
 		Destroy(GameObject);
 	}
+
+    public void TakeDamage(float dmg)
+    {
+        HP -= dmg;
+        if (HP <= 0)
+            Destroy(GameObject);
+    }
 }

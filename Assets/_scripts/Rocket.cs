@@ -16,38 +16,28 @@ public class Rocket : MonoBehaviour
     //public bool UseITween;
 
 	private Vector3[] Waypoints;
-	private float stepLength;
-    private int accValue = 1000;
-    private Vector3 deathPoint;
 	private void Awake () 
 	{
 		GameObject = gameObject;
 		Transform = transform;
 	}
 
-	private void Start ()
-	{
+    private void Start()
+    {
         float sumLength = 0;
-        for(int i=0; i<Waypoints.Length-1; i++)
-            sumLength+=Vector3.Distance(Waypoints[i], Waypoints[i + 1]);
+        for (int i = 0; i < Waypoints.Length - 1; i++)
+            sumLength += Vector3.Distance(Waypoints[i], Waypoints[i + 1]);
         GameObject.MoveTo(Waypoints, sumLength / Speed, 0, EaseType.linear);
-	}
+    }
 
-    public void Initialize(List<Vector3> points, float stepLength)
+    public void Initialize(List<Vector3> points)
     {
         Waypoints = points.ToArray();
-		this.stepLength = stepLength;
     }
 
     public void Update()
     {
-        if (Mathf.Round(Vector3.Distance(Waypoints.Last(), Transform.position) * accValue) / accValue == 0)
-        {
-            Vector3 lp = Waypoints[Waypoints.Length - 1];
-            Vector3 prelp = Waypoints[Waypoints.Length - 2];
-            deathPoint = (lp - prelp).normalized * 100 + lp;
-            GameObject.MoveTo(deathPoint, Vector3.Distance(lp, deathPoint) / Speed, 0, EaseType.linear);
-        }
+       
     }
 
     public void OnCollisionEnter(Collision col)

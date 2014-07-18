@@ -5,29 +5,14 @@ using System.Linq;
 
 public class Trajectory : MonoBehaviour
 {
-	#region SINGLETON
-	private static Trajectory _instance;
-	public static Trajectory I
-	{
-		get
-		{
-			if (_instance == null) _instance = FindObjectOfType(typeof(Trajectory)) as Trajectory;
-			return _instance;
-		}
-	}
-
-
-	private void OnApplicationQuit () { _instance = null; }
-	#endregion
-
-    public float MinDistance = 50;
-
-    public GameObject Rocket;
+    public float StepLength;
+    public GameObject RocketPrototype;
 
     private List<Vector3> Points { get; set; }
-    private LineRenderer lRenderer;
-    private int maxLRC = 200;
-    private int currLRC = 0;
+    private LineRenderer lineRenderer;
+    private int maxVertCount = 200;
+    private int currVertCount = 0;
+	private bool inConstruction = false;
 
 	private void Awake () 
 	{
@@ -38,10 +23,9 @@ public class Trajectory : MonoBehaviour
     {
         StartCoroutine(GenPoints());
        
-        //Line Renderer
-        lRenderer = GetComponent<LineRenderer>();
-        lRenderer.enabled = false;
-        lRenderer.SetVertexCount(maxLRC);
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = false;
+        lineRenderer.SetVertexCount(maxVertCount);
     }
 
 	private void Update () 
@@ -49,28 +33,32 @@ public class Trajectory : MonoBehaviour
         
 	}
 
-    private bool inConstruction = false;
     private IEnumerator GenPoints()
     {
         while (true)
         {
-
             if (Input.GetMouseButton(0))
             {
-
                 if (!inConstruction)
                 {
                     Refresh();
                     inConstruction = true;
                 }
                 var p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
-                if (Points.Count < maxLRC)
+                if (Points.Count < maxVertCount)
                     AddVertex(new Vector3(p.x, 0, p.z));
             }
 
             if (Input.GetMouseButtonUp(0))
             {
+				if (Points.Count < 2)
+				{
+					inConstruction = false;
+					lineRenderer.enabled = false;
+					break;
+				}
                 inConstruction = false;
+				AddVertex((Points.Last() - Points[Points.Count - 2]).normalized * 100);
                 CreateRocket();
             }
 
@@ -80,29 +68,27 @@ public class Trajectory : MonoBehaviour
 
     private void AddVertex(Vector3 p)
     {
-        if (Points.Count==0||Vector3.Distance(Points.Last(), p) > MinDistance)
+        if (Points.Count == 0 || Vector3.Distance(Points.Last(), p) >= StepLength)
         {
             Points.Add(p);
-            lRenderer.SetPosition(currLRC, p);
-            currLRC++;
+            lineRenderer.SetPosition(currVertCount, p);
+            currVertCount++;
         }
 
-        for (int i = currLRC; i < maxLRC; i++)
-            lRenderer.SetPosition(i, p);
+        for (int i = currVertCount; i < maxVertCount; i++)
+            lineRenderer.SetPosition(i, p);
     }
    
     private void CreateRocket()
     {
-        var rocky = ((GameObject)Instantiate(Rocket, Points[0], Quaternion.identity));
-        rocky.GetComponent<Rocket>().SetWaypoints(Points);
-        
+        var rocky = ((GameObject)Instantiate(RocketPrototype, Points[0], Quaternion.identity));
+        rocky.GetComponent<Rocket>().Initialize(Points, StepLength);
     }
 
     private void Refresh()
     {
         Points.Clear();
-        lRenderer.enabled = true;
-        currLRC = 0;
-        //lRender.set
+        lineRenderer.enabled = true;
+        currVertCount = 0;
     }
 }

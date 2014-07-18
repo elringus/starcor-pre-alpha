@@ -88,8 +88,8 @@ MonoBehaviour:
   GameObject: {fileID: 0}
   Transform: {fileID: 0}
   Damage: 2
-  Speed: 5
-  UseITween: 1
+  Speed: 1
+  UseITween: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

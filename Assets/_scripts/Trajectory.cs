@@ -81,7 +81,7 @@ public class Trajectory : MonoBehaviour
    
     private void CreateRocket()
     {
-        var rocky = ((GameObject)Instantiate(RocketPrototype, Points[0], Quaternion.identity));
+        var rocky = ((GameObject)Instantiate(RocketPrototype, Points[0], Quaternion.Euler(new Vector3(90, 0, 0))));
         var v=(Points[Points.Count - 1] - Points[Points.Count - 2]).normalized;
         var lastpoint =Points[Points.Count - 1];
         for (int i = 1; i <= 20; i++)

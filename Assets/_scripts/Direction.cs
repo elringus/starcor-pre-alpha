@@ -33,7 +33,6 @@ public class Direction : MonoBehaviour
         lineRenderer.SetPosition(0, origin);
         lineRenderer.SetVertexCount(2);
 
-        //renderer.enabled = false;
         transform.localScale = new Vector3(0, 0, 0);
     }
 
@@ -54,7 +53,7 @@ public class Direction : MonoBehaviour
                 var p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
                 direction = new Vector3(p.x, 0, p.z);
 
-                //Ограничения по радиусу прицеливания
+                //Limitation of targeting radius
                 if (Vector3.Distance(origin, direction) > TargetingRadius)
                     FinishTargeting(false);
                 else
@@ -89,6 +88,5 @@ public class Direction : MonoBehaviour
         isTargeting = true;
         lineRenderer.enabled = true;
         transform.localScale = new Vector3(TargetingRadius * 2, 0, TargetingRadius * 2);
-        //renderer.enabled = true;
     }
 }

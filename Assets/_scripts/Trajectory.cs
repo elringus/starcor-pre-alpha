@@ -6,7 +6,10 @@ using System.Linq;
 public class Trajectory : MonoBehaviour
 {
     public float StepLength;
+    public float DeathDistanse;
+    public float InteropFactor;
     public GameObject RocketPrototype;
+    
 
     private List<Vector3> Points { get; set; }
     private LineRenderer lineRenderer;
@@ -78,15 +81,31 @@ public class Trajectory : MonoBehaviour
         for (int i = currVertCount; i < maxVertCount; i++)
             lineRenderer.SetPosition(i, p);
     }
-   
+
+    private List<Vector3> GetInteropPoints()
+    {
+        int iCount; 
+        float iStep = StepLength/InteropFactor; //length of intrepolation step
+        List<Vector3> iPoinst = new List<Vector3>();
+        for (int i = 0; i < Points.Count - 1; i++)
+        {
+            iCount = Mathf.CeilToInt(Vector3.Distance(Points[i], Points[i + 1]) / iStep);
+            for (int j = 0; j < iCount - 1; j++)
+                iPoinst.Add((Points[i + 1] - Points[i]).normalized * iStep * j + Points[i]);
+        }
+
+        return iPoinst;
+    }
+
+
     private void CreateRocket()
     {
         var rocky = ((GameObject)Instantiate(RocketPrototype, Points[0], Quaternion.Euler(new Vector3(90, 0, 0))));
         var v=(Points[Points.Count - 1] - Points[Points.Count - 2]).normalized;
         var lastpoint =Points[Points.Count - 1];
-        for (int i = 1; i <= 20; i++)
+        for (int i = 1; i <= Mathf.CeilToInt(DeathDistanse / StepLength); i++)
             Points.Add(v * StepLength * i + lastpoint);
-        rocky.GetComponent<Rocket>().Initialize(Points);
+        rocky.GetComponent<Rocket>().Initialize(GetInteropPoints());
     }
 
     private void Refresh()

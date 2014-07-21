@@ -7,22 +7,24 @@ public class Direction : MonoBehaviour
 {
     public Transform OriginTransform;
     public GameObject LaserBeamPrototype;
+    public float TargetingRadius;
 
     private float MaxDistance = 10f;
     private Vector3 direction;
     private Vector3 origin;
     private LineRenderer lineRenderer;
 
-    private bool isSighting = false;
+    private bool isTargeting = false;
   
 
 	private void Awake () 
 	{
+        
 	}
 
     private void Start()
     {
-        StartCoroutine(Sighting());
+        StartCoroutine(Targeting());
 
         origin = OriginTransform.position;
         
@@ -30,6 +32,9 @@ public class Direction : MonoBehaviour
         lineRenderer.enabled = false;
         lineRenderer.SetPosition(0, origin);
         lineRenderer.SetVertexCount(2);
+
+        //renderer.enabled = false;
+        transform.localScale = new Vector3(0, 0, 0);
     }
 
 	private void Update () 
@@ -37,29 +42,40 @@ public class Direction : MonoBehaviour
         
 	}
 
-    private IEnumerator Sighting()
+    private IEnumerator Targeting()
     {
         while (true)
         {
             if (Input.GetMouseButton(0))
             {
-                if (!isSighting)
+                if (!isTargeting)
                     Refresh();
 
                 var p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
                 direction = new Vector3(p.x, 0, p.z);
-                lineRenderer.SetPosition(1, direction);
+
+                //Ограничения по радиусу прицеливания
+                if (Vector3.Distance(origin, direction) > TargetingRadius)
+                    FinishTargeting(false);
+                else
+                    lineRenderer.SetPosition(1, direction);
             }
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                isSighting = false;
-                lineRenderer.enabled = false;
-                CreateLaserBeam();
-            }
+            if (Input.GetMouseButtonUp(0) && isTargeting)
+                FinishTargeting(true);
 
             yield return new WaitForSeconds(0.002f);
         }
+    }
+
+
+    private void FinishTargeting(bool createLaser)
+    {
+        isTargeting = false;
+        lineRenderer.enabled = false;
+        transform.localScale = new Vector3(0, 0, 0);
+        if (createLaser)
+            CreateLaserBeam();
     }
 
     private void CreateLaserBeam()
@@ -70,7 +86,9 @@ public class Direction : MonoBehaviour
 
     private void Refresh()
     {
-        isSighting = true;
+        isTargeting = true;
         lineRenderer.enabled = true;
+        transform.localScale = new Vector3(TargetingRadius * 2, 0, TargetingRadius * 2);
+        //renderer.enabled = true;
     }
 }

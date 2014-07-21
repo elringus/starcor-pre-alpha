@@ -13,6 +13,7 @@ public class Rocket : MonoBehaviour
 
 	public float Damage;
 	public float Speed;
+    public float AngularSpeed;
     //public bool UseITween;
 
 	private Vector3[] Waypoints;
@@ -44,19 +45,32 @@ public class Rocket : MonoBehaviour
         currTime += Time.deltaTime;
         int pointIndex=Mathf.CeilToInt(currTime/stepTime);
         if (pointIndex < Waypoints.Length)
-            GameObject.LookTo(Waypoints[pointIndex], 2f, 0);
+        {
+            GameObject.LookTo(Waypoints[pointIndex], 2, 0);
+            //float angularDistance = Transform.rotation.eulerAngles.y - eMath.Angle2Dplus(Transform.position, Waypoints[pointIndex]) * Mathf.Rad2Deg;
+            //if (angularDistance > 180)
+            //    angularDistance = 360 - angularDistance;
+            //angularDistance=Math.Abs(angularDistance);
+            //Debug.Log(angularDistance / AngularSpeed);
+            //GameObject.LookTo(Waypoints[pointIndex], angularDistance / AngularSpeed, 0);
+        }
+        
     }
 
     public void OnCollisionEnter(Collision col)
     {
-		if (col.collider.CompareTag("Enemy"))
-		{
-			Destroy(col.gameObject);
-			Destroy(GameObject);
-		}
-		else if (col.collider.CompareTag("Obstacle"))
-		{
-			Destroy(GameObject);
-		}
+        switch (col.collider.tag)
+        {
+            case "Enemy":
+                Destroy(col.gameObject);
+                Destroy(GameObject);
+                break;
+            case "Obstacle":
+                Destroy(GameObject);
+                break;
+            case "Static":
+                Destroy(gameObject);
+                break;
+        }
     }
 }

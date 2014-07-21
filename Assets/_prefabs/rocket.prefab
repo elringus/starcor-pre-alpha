@@ -10,13 +10,10 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
-<<<<<<< HEAD
-  - 136: {fileID: 13600000}
-=======
   - 114: {fileID: 11400002}
->>>>>>> origin/master
+  - 54: {fileID: 5400000}
+  - 136: {fileID: 13600000}
   m_Layer: 0
   m_Name: rocket
   m_TagString: Untagged
@@ -31,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.68958282, y: 13.6037369, z: .627702951}
+  m_LocalPosition: {x: 4.57766342, y: -2.82976818, z: -1.72033894}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +73,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -91,13 +88,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObject: {fileID: 0}
   Transform: {fileID: 0}
-  Damage: 2
-<<<<<<< HEAD
+  Damage: 3
   Speed: 1
---- !u!136 &13600000
-CapsuleCollider:
-=======
-  Speed: 5
+  AngularSpeed: 3600
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,10 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7bfc870e4aa04147a9ba047ecc4a21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThrowPower: 3
---- !u!135 &13500000
-SphereCollider:
->>>>>>> origin/master
+  ThrowPower: 10
+--- !u!136 &13600000
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -120,10 +112,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .00350000011
-  m_Height: .0250000004
+  m_Radius: .00449999981
+  m_Height: .0274999999
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: .0130719058}
+  m_Center: {x: 0, y: 5.82076609e-10, z: .00211917376}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

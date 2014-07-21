@@ -49,7 +49,14 @@ public class Rocket : MonoBehaviour
 
     public void OnCollisionEnter(Collision col)
     {
-        Destroy(col.gameObject);
-        Destroy(GameObject);
+		if (col.collider.CompareTag("Enemy"))
+		{
+			Destroy(col.gameObject);
+			Destroy(GameObject);
+		}
+		else if (col.collider.CompareTag("Obstacle"))
+		{
+			Destroy(GameObject);
+		}
     }
 }

@@ -16,6 +16,8 @@ public class Rocket : MonoBehaviour
     //public bool UseITween;
 
 	private Vector3[] Waypoints;
+    private float stepTime;
+    private float currTime = 0;
 	private void Awake () 
 	{
 		GameObject = gameObject;
@@ -27,7 +29,9 @@ public class Rocket : MonoBehaviour
         float sumLength = 0;
         for (int i = 0; i < Waypoints.Length - 1; i++)
             sumLength += Vector3.Distance(Waypoints[i], Waypoints[i + 1]);
+        Transform.LookAt(Waypoints[1]);
         GameObject.MoveTo(Waypoints, sumLength / Speed, 0, EaseType.linear);
+        stepTime = sumLength / (Speed * Waypoints.Length);
     }
 
     public void Initialize(List<Vector3> points)
@@ -37,7 +41,10 @@ public class Rocket : MonoBehaviour
 
     public void Update()
     {
-       
+        currTime += Time.deltaTime;
+        int pointIndex=Mathf.CeilToInt(currTime/stepTime);
+        if (pointIndex < Waypoints.Length)
+            GameObject.LookTo(Waypoints[pointIndex], 2f, 0);
     }
 
     public void OnCollisionEnter(Collision col)

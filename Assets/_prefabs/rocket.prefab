@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   - 54: {fileID: 5400000}
-  - 136: {fileID: 13600000}
+  - 64: {fileID: 6400000}
   m_Layer: 0
   m_Name: rocket
   m_TagString: Untagged
@@ -75,6 +75,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &6400000
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: ae5afd550b0c7554d819ba27c3ca44da, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7bfc870e4aa04147a9ba047ecc4a21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   ThrowPower: 3
   ExplosionRadius: 1.5
 --- !u!136 &13600000
@@ -117,6 +131,10 @@ CapsuleCollider:
   m_Height: .0274999999
   m_Direction: 2
   m_Center: {x: 0, y: 5.82076609e-10, z: .00211917376}
+=======
+  ThrowPower: 10
+  ExplosionRadius: 2
+>>>>>>> origin/master
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

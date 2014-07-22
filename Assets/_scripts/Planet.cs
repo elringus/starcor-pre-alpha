@@ -20,4 +20,10 @@ public class Planet : MonoBehaviour
 	{
 		GUILayout.Box("Planet HP: " + HP);
 	}
+
+	private void OnMouseDown ()
+	{
+		if (!dfGUIManager.HitTestAll(Input.mousePosition))
+			DGUI.I.ToggleRadMenu();
+	}
 }

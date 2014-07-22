@@ -5027,7 +5027,9 @@ MonoBehaviour:
   panelRadialMenu: {fileID: 917291938}
   buttonRocketLauncher: {fileID: 169731172}
   buttonLaserBeam: {fileID: 1830100656}
+  buttonRocketVolley: {fileID: 0}
   RocketLauncher: {fileID: 947425490}
+  RocketVolley: {fileID: 0}
   LaserBeam: {fileID: 117815518}
 --- !u!1 &527718023
 GameObject:
@@ -5630,6 +5632,38 @@ Prefab:
     - target: {fileID: 400010, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: d1d97913b0f6787458d3c03100685567, type: 2}
+      propertyPath: m_Name
+      value: button_rocket-volley
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: d1d97913b0f6787458d3c03100685567, type: 2}
+      propertyPath: backgroundSprite
+      value: OUYA_Y 24px
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: d1d97913b0f6787458d3c03100685567, type: 2}
+      propertyPath: layout.margins.left
+      value: 35.046875
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: d1d97913b0f6787458d3c03100685567, type: 2}
+      propertyPath: layout.margins.top
+      value: 37.3554688
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: d1d97913b0f6787458d3c03100685567, type: 2}
+      propertyPath: layout.margins.right
+      value: 214.953125
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: d1d97913b0f6787458d3c03100685567, type: 2}
+      propertyPath: layout.margins.bottom
+      value: 212.644531
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: d1d97913b0f6787458d3c03100685567, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.2342453
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: d1d97913b0f6787458d3c03100685567, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .228233337
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1d97913b0f6787458d3c03100685567, type: 2}
@@ -13185,7 +13219,7 @@ GameObject:
   - 65: {fileID: 1544117268}
   - 114: {fileID: 1544117267}
   m_Layer: 8
-  m_Name: button_find-minerals
+  m_Name: button_rocket-volley
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13198,7 +13232,7 @@ Transform:
   m_PrefabInternal: {fileID: 588694144}
   m_GameObject: {fileID: 1544117265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.234242767, y: .228230804, z: 0}
+  m_LocalPosition: {x: -.2342453, y: .228233337, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 917291935}
@@ -13295,17 +13329,17 @@ MonoBehaviour:
   layout:
     anchorStyle: 6
     margins:
-      left: 35.0507812
-      top: 37.359375
-      right: 214.949219
-      bottom: 212.640625
+      left: 35.046875
+      top: 37.3554688
+      right: 214.953125
+      bottom: 212.644531
     owner: {fileID: 1544117269}
   renderOrder: 7
   isLocalized: 0
   hotZoneScale: {x: 1, y: 1}
   allowSignalEvents: 1
   atlas: {fileID: 11400000, guid: 061b63b910d71734eb8a953efb83a358, type: 2}
-  backgroundSprite: tex_ButtonFindMineralsNormal
+  backgroundSprite: OUYA_Y 24px
   hoverSprite: tex_ButtonFindMineralsHover
   disabledSprite: tex_ButtonFindMineralsDisabled
   focusSprite: tex_ButtonFindMineralsNormal

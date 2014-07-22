@@ -19,8 +19,10 @@ public class DGUI : MonoBehaviour
 	public dfPanel panelRadialMenu;
 	public dfButton buttonRocketLauncher;
 	public dfButton buttonLaserBeam;
+	public dfButton buttonRocketVolley;
 
 	public GameObject RocketLauncher;
+	public GameObject RocketVolley;
 	public GameObject LaserBeam;
 
 	private void Awake () 
@@ -30,6 +32,7 @@ public class DGUI : MonoBehaviour
 			panelRadialMenu.IsVisible = false;
 			RocketLauncher.SetActive(true);
 			LaserBeam.SetActive(false);
+			RocketVolley.SetActive(false);
 		};
 
 		buttonLaserBeam.Click += (c, e) =>
@@ -37,6 +40,15 @@ public class DGUI : MonoBehaviour
 			panelRadialMenu.IsVisible = false;
 			RocketLauncher.SetActive(false);
 			LaserBeam.SetActive(true);
+			RocketVolley.SetActive(false);
+		};
+
+		buttonRocketVolley.Click += (c, e) =>
+		{
+			panelRadialMenu.IsVisible = false;
+			RocketLauncher.SetActive(false);
+			LaserBeam.SetActive(false);
+			RocketVolley.SetActive(true);
 		};
 	}
 

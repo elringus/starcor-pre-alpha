@@ -68,14 +68,14 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: .0500000007
-    endWidth: .0500000007
+    startWidth: .0199999996
+    endWidth: .0199999996
     m_StartColor:
       serializedVersion: 2
-      rgba: 4293974208
+      rgba: 1777391808
     m_EndColor:
       serializedVersion: 2
-      rgba: 4288895505
+      rgba: 1621318161
   m_UseWorldSpace: 1
 --- !u!1001 &100100000
 Prefab:

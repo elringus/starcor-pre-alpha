@@ -15,7 +15,7 @@ GameObject:
   - 54: {fileID: 5400000}
   m_Layer: 0
   m_Name: rocket
-  m_TagString: Untagged
+  m_TagString: Rocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   Transform: {fileID: 0}
   Damage: 3
   Speed: 1
-  AngularSpeed: 360
+  AngularSpeed: 30
   ThrowPower: 3
   ExplosionRadius: 1.5
 --- !u!136 &13600000

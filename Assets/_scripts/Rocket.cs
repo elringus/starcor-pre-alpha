@@ -18,6 +18,9 @@ public class Rocket : MonoBehaviour
 	public float ThrowPower;
 	public float ExplosionRadius;
 
+    private int currIndex = 0;
+    private int lastIndex = -1;
+
 	private Vector3[] Waypoints;
     private float stepTime;
     private float currTime = 0;
@@ -45,16 +48,13 @@ public class Rocket : MonoBehaviour
     public void Update()
     {
         currTime += Time.deltaTime;
-        int pointIndex=Mathf.CeilToInt(currTime/stepTime);
-        if (pointIndex < Waypoints.Length)
+        currIndex=Mathf.CeilToInt(currTime/stepTime);
+        if (currIndex != lastIndex && currIndex < Waypoints.Length)
         {
-            GameObject.LookTo(Waypoints[pointIndex], 2, 0);
-            //float angularDistance = Transform.rotation.eulerAngles.y - eMath.Angle2Dplus(Transform.position, Waypoints[pointIndex]) * Mathf.Rad2Deg;
-            //if (angularDistance > 180)
-            //    angularDistance = 360 - angularDistance;
-            //angularDistance=Math.Abs(angularDistance);
-            //Debug.Log(angularDistance / AngularSpeed);
-            //GameObject.LookTo(Waypoints[pointIndex], angularDistance / AngularSpeed, 0);
+            float angularDistance = Math.Abs(Transform.rotation.eulerAngles.y - eMath.Angle2Dplus(Transform.position, Waypoints[currIndex]) * Mathf.Rad2Deg);
+            if (angularDistance > 180) angularDistance = 360 - angularDistance;
+            GameObject.LookTo(Waypoints[currIndex], angularDistance / AngularSpeed, 0);
+            lastIndex = currIndex;
         }
         
     }

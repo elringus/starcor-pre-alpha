@@ -57,7 +57,7 @@ public class Rocket : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider col)
+    public void OnCollisionEnter(Collision col)
     {
         switch (col.collider.tag)
         {

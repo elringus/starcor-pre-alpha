@@ -48,9 +48,11 @@ public class Rocket : MonoBehaviour
     public void Update()
     {
         currTime += Time.deltaTime;
+
         currIndex=Mathf.CeilToInt(currTime/stepTime);
         if (currIndex != lastIndex && currIndex < Waypoints.Length)
         {
+            //GameObject.LookTo(Waypoints[currIndex], 2, 0);
             float angularDistance = Math.Abs(Transform.rotation.eulerAngles.y - eMath.Angle2Dplus(Transform.position, Waypoints[currIndex]) * Mathf.Rad2Deg);
             if (angularDistance > 180) angularDistance = 360 - angularDistance;
             GameObject.LookTo(Waypoints[currIndex], angularDistance / AngularSpeed, 0);
@@ -61,16 +63,15 @@ public class Rocket : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.tag);
         bool needExplode = true;
         switch (col.collider.tag)
         {
             case "Enemy":
                 Destroy(col.gameObject);
                 break;
-            case "Rocket":
-                Destroy(col.gameObject);
-                break;
+            //case "Rocket":
+            //    Destroy(col.gameObject);
+            //    break;
             case "Obstacle":
                 break;
             case "Static":

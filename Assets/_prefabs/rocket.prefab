@@ -89,7 +89,7 @@ MonoBehaviour:
   Transform: {fileID: 0}
   Damage: 3
   Speed: 1
-  AngularSpeed: 30
+  AngularSpeed: 45
   ThrowPower: 3
   ExplosionRadius: 1.5
 --- !u!136 &13600000

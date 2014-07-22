@@ -14,7 +14,9 @@ public class Rocket : MonoBehaviour
 	public float Damage;
 	public float Speed;
     public float AngularSpeed;
-    //public bool UseITween;
+
+	public float ThrowPower;
+	public float ExplosionRadius;
 
 	private Vector3[] Waypoints;
     private float stepTime;
@@ -66,10 +68,14 @@ public class Rocket : MonoBehaviour
                 Destroy(GameObject);
                 break;
             case "Obstacle":
+				var colliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
+				foreach (var hit in colliders) 
+					if (hit && hit.rigidbody) 
+						hit.rigidbody.AddExplosionForce(ThrowPower, transform.position, ExplosionRadius, 0.1f, ForceMode.Impulse);
                 Destroy(GameObject);
                 break;
             case "Static":
-                Destroy(gameObject);
+				Destroy(GameObject);
                 break;
         }
     }

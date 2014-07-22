@@ -62,22 +62,31 @@ public class Rocket : MonoBehaviour
     public void OnTriggerEnter(Collider col)
     {
         Debug.Log(col.tag);
+        bool needExplode = true;
         switch (col.collider.tag)
         {
             case "Enemy":
                 Destroy(col.gameObject);
-                Destroy(GameObject);
                 break;
             case "Obstacle":
-				var colliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
-				foreach (var hit in colliders) 
-					if (hit && hit.rigidbody) 
-						hit.rigidbody.AddExplosionForce(ThrowPower, transform.position, ExplosionRadius, 0.1f, ForceMode.Impulse);
-                Destroy(GameObject);
                 break;
             case "Static":
-				Destroy(GameObject);
+                break;
+            default:
+                needExplode = false;
                 break;
         }
+
+        if (needExplode)
+            Explode();
+    }
+
+    private void Explode()
+    {
+        var colliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
+        foreach (var hit in colliders)
+            if (hit && hit.rigidbody)
+                hit.rigidbody.AddExplosionForce(ThrowPower, transform.position, ExplosionRadius, 0.1f, ForceMode.Impulse);
+        Destroy(GameObject);
     }
 }

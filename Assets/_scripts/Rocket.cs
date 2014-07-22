@@ -59,6 +59,7 @@ public class Rocket : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
+        Debug.Log(col.tag);
         switch (col.collider.tag)
         {
             case "Enemy":

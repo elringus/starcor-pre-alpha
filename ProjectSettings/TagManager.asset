@@ -6,6 +6,7 @@ TagManager:
   - Enemy
   - Obstacle
   - Static
+  - Rocket
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

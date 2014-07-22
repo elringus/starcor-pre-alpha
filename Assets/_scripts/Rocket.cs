@@ -68,6 +68,9 @@ public class Rocket : MonoBehaviour
             case "Enemy":
                 Destroy(col.gameObject);
                 break;
+            case "Rocket":
+                Destroy(col.gameObject);
+                break;
             case "Obstacle":
                 break;
             case "Static":

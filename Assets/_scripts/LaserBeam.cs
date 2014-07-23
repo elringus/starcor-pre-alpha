@@ -14,10 +14,13 @@ public class LaserBeam : MonoBehaviour
     public void Instantiate(Vector3 origin, Vector3 destination)
     {
         lineRenderer.SetPosition(0, origin);
-        lineRenderer.SetPosition(1, destination);
-        Hit(origin, destination);
+        var hit = Hit(origin, destination);
+        if (hit.transform == null)
+            lineRenderer.SetPosition(1, destination);
+        else
+            lineRenderer.SetPosition(1, hit.transform.position);
+        
     }
-
 
     private void Awake()
     {
@@ -25,7 +28,7 @@ public class LaserBeam : MonoBehaviour
         lineRenderer.SetWidth(BeamWidth, BeamWidth);
     }
 
-    private void Hit(Vector3 origin, Vector3 destination)
+    private RaycastHit Hit(Vector3 origin, Vector3 destination)
     {
         RaycastHit hit;
         if (Physics.SphereCast(new Ray(origin, destination), BeamWidth / 2, out hit))
@@ -33,6 +36,7 @@ public class LaserBeam : MonoBehaviour
             if (hit.transform.tag == "Enemy")
                 hit.transform.GetComponent<Enemy>().TakeDamage(8);
         }
+        return hit;
     }
 
 	private void Update () 

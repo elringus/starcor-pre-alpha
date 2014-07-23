@@ -9,6 +9,7 @@ public class Launcher : Tower
     public float StepLength;
     public float DeathDistanse;
     public float InteropFactor;
+    public float MinRadius;
 
     protected List<Vector3> Points = new List<Vector3>();
     protected LineRenderer lineRenderer;
@@ -69,7 +70,6 @@ public class Launcher : Tower
     
     #endregion
     #region Methods
-
     protected List<Vector3> GetInteropPoints(List<Vector3> points)
     {
         int iCount;
@@ -84,7 +84,6 @@ public class Launcher : Tower
 
         return iPoinst;
     }
-
     protected void AddVertex(Vector3 p)
     {
         if (Points.Count == 0 || Vector3.Distance(Points.Last(), p) >= StepLength)
@@ -97,13 +96,25 @@ public class Launcher : Tower
         for (int i = currVertCount; i < maxVertCount; i++)
             lineRenderer.SetPosition(i, p);
     }
-
     protected void AddDeathPath()
     {
         var v = (Points[Points.Count - 1] - Points[Points.Count - 2]).normalized;
         var lastpoint = Points[Points.Count - 1];
         for (int i = 1; i <= Mathf.CeilToInt(DeathDistanse / StepLength); i++)
             Points.Add(v * StepLength * i + lastpoint);
+    }
+
+    private int stepCount;
+    private float stepAngle;
+    private void IntialCorrect()
+    {
+        stepCount = Mathf.CeilToInt(Mathf.PI / (Mathf.Asin(StepLength / MinRadius)));
+        stepAngle = Mathf.PI / stepCount;
+    }
+
+    protected void Correct()
+    {
+
     }
 
     #endregion

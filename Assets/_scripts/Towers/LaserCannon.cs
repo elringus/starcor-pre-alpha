@@ -5,13 +5,14 @@ using System.Linq;
 
 public class LaserCannon : Tower
 {
+    #region Definition
     public float TargetingRadius;
     public float AttackRange = 10f;
 
     private Vector3 direction;
     private Vector3 origin;
     private LineRenderer lineRenderer;
-
+    #endregion
     #region Base
     protected override void Awake()
     {

@@ -71,7 +71,6 @@ public class DefenceSpot : MonoBehaviour
 				TowerIcon.SpriteName = "tex_LaserBeam";
 				break;
 		}
-		CurrentTower.RechargeTimer = CurrentTower.RechargeCD = 10;
 	}
 
 	public void SelectTower ()

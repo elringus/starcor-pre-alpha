@@ -5,7 +5,6 @@ using System.Linq;
 
 public class LaserCannon : Tower
 {
-    public Transform OriginTransform;
     public float TargetingRadius;
     public float AttackRange = 10f;
 
@@ -17,7 +16,7 @@ public class LaserCannon : Tower
     protected override void Awake()
     {
         base.Awake();
-        origin = OriginTransform.position;
+        origin = Transform.position;
         
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;

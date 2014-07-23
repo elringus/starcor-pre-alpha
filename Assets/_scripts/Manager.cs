@@ -38,7 +38,7 @@ public class Manager : MonoBehaviour
 	{
 		while (true)
 		{
-			if (SelectedTower)
+			if (SelectedTower && !dfGUIManager.HitTestAll(Input.mousePosition))
 			{
 				if (Input.GetMouseButtonDown(0)) SelectedTower.Targeting(TargetingType.Start);
 				else if (Input.GetMouseButton(0)) SelectedTower.Targeting(TargetingType.InProcess);

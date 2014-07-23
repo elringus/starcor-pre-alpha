@@ -20,9 +20,13 @@ public class DefenceSpot : MonoBehaviour
 		TowerIcon.Size = new Vector2(60, 60);
 		TowerIcon.ZOrder = 0;
 
-		TowerIcon.Click += (c, e) =>
+		TowerIcon.MouseDown += (c, e) =>
 		{
-			if (CurrentTower) SelectTower();
+			if (CurrentTower)
+			{
+				Manager.I.StartedTargetting = true;
+				SelectTower();
+			}
 			else
 			{
 				RadMenu.I.ToggleRadMenu(this);

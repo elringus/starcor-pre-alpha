@@ -18,6 +18,7 @@ public class Manager : MonoBehaviour
 	#endregion
 
 	public Tower SelectedTower;
+	public bool StartedTargetting;
 
 	private void Awake () 
 	{
@@ -38,12 +39,11 @@ public class Manager : MonoBehaviour
 	{
 		while (true)
 		{
-			if (SelectedTower)
+			if (SelectedTower && StartedTargetting)
 			{
 				if (Input.GetMouseButtonDown(0)) SelectedTower.Targeting(TargetingType.Start);
-				else if (Input.GetMouseButton(0)) SelectedTower.Targeting(TargetingType.InProcess);
-				else if (Input.GetMouseButtonUp(0) && !dfGUIManager.HitTestAll(Input.mousePosition)) 
-					SelectedTower.Targeting(TargetingType.Finish);
+				if (Input.GetMouseButton(0)) SelectedTower.Targeting(TargetingType.InProcess);
+				else if (Input.GetMouseButtonUp(0)) { SelectedTower.Targeting(TargetingType.Finish); StartedTargetting = false; }
 				else SelectedTower.Targeting(TargetingType.None);
 			}
 			yield return new WaitForSeconds(.002f);

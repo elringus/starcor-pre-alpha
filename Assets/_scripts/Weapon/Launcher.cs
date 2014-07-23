@@ -3,39 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Trajectory : MonoBehaviour
+public class Launcher : MonoBehaviour
 {
+    //For All Rocket
     public float StepLength;
     public float DeathDistanse;
     public float InteropFactor;
     public GameObject RocketPrototype;
-    
 
-    private List<Vector3> Points { get; set; }
+    private List<Vector3> Points = new List<Vector3>();
     private LineRenderer lineRenderer;
     private int maxVertCount = 200;
     private int currVertCount = 0;
-	private bool inConstruction = false;
+    private bool inConstruction = false;
+    //Multy Rocket Only
+    public bool MultyRocket;
+    public int[] OrderVolley;
+    public float OffsetValue;
+    public float WaveDelay;
 
-	private void Awake () 
-	{
-        Points = new List<Vector3>();
-	}
-
-    private void Start()
-    {
-        StartCoroutine(GenPoints());
-       
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.enabled = false;
-        lineRenderer.SetVertexCount(maxVertCount);
-    }
-
-	private void Update () 
-	{
-        
-	}
-
+    private Vector3 StartVollyePoint;
+    #region Input
     private IEnumerator GenPoints()
     {
         while (true)
@@ -82,10 +70,52 @@ public class Trajectory : MonoBehaviour
             lineRenderer.SetPosition(i, p);
     }
 
-    private List<Vector3> GetInteropPoints(List<Vector3> points )
+    private void Refresh()
     {
-        int iCount; 
-        float iStep = StepLength/InteropFactor; //length of intrepolation step
+        Points.Clear();
+        lineRenderer.enabled = true;
+        currVertCount = 0;
+    }
+    #endregion
+    #region Main
+    private void Start()
+    {
+        StartCoroutine(GenPoints());
+
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = false;
+        lineRenderer.SetVertexCount(maxVertCount);
+    }
+    private void CreateRocket()
+    {
+        AddDeathPath();
+
+        if (MultyRocket)
+        {
+            StartVollyePoint = (Points[0] - Points[1]).normalized * 1 + Points[0];
+            StartCoroutine(GenVolleys());
+        }
+        else
+        {
+            var rocky = ((GameObject)Instantiate(RocketPrototype, Points[0], Quaternion.identity));
+            rocky.GetComponent<Rocket>().Initialize(GetInteropPoints(Points));
+        }
+    }
+    #endregion
+    #region Processing
+    #region ForAllRocket
+    private void AddDeathPath()
+    {
+        var v = (Points[Points.Count - 1] - Points[Points.Count - 2]).normalized;
+        var lastpoint = Points[Points.Count - 1];
+        for (int i = 1; i <= Mathf.CeilToInt(DeathDistanse / StepLength); i++)
+            Points.Add(v * StepLength * i + lastpoint);
+    }
+
+    private List<Vector3> GetInteropPoints(List<Vector3> points)
+    {
+        int iCount;
+        float iStep = StepLength / InteropFactor; //length of intrepolation step
         List<Vector3> iPoinst = new List<Vector3>();
         for (int i = 0; i < points.Count - 1; i++)
         {
@@ -96,30 +126,14 @@ public class Trajectory : MonoBehaviour
 
         return iPoinst;
     }
-
-
-    private void CreateRocket()
-    {
-        var v=(Points[Points.Count - 1] - Points[Points.Count - 2]).normalized;
-        var lastpoint =Points[Points.Count - 1];
-        for (int i = 1; i <= Mathf.CeilToInt(DeathDistanse / StepLength); i++)
-            Points.Add(v * StepLength * i + lastpoint);
-        StartVollyePoint = (Points[0] - Points[1]).normalized * 1+Points[0];
-        StartCoroutine(GenVolleys());
-        //var rocky = ((GameObject)Instantiate(RocketPrototype, Points[0], Quaternion.identity));
-        //rocky.GetComponent<Rocket>().Initialize(GetInteropPoints(Points));
-    }
-
-    private int[] OrderVolley = { 1, 2, 3 };
-    private float OffsetValue = 0.25f;
-    private Vector3 StartVollyePoint;
-
+    #endregion
+    #region MultyRocket
     private IEnumerator GenVolleys()
     {
         for (int i = 0; i < OrderVolley.Length; i++ )
         {
             MakeVolley(OrderVolley[i]);
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(WaveDelay);
         }
     }
 
@@ -155,12 +169,9 @@ public class Trajectory : MonoBehaviour
             offsetPoints.Add(basePoints[i] + v);
 
         return offsetPoints;
-        
+
     }
-    private void Refresh()
-    {
-        Points.Clear();
-        lineRenderer.enabled = true;
-        currVertCount = 0;
-    }
+    #endregion
+    #endregion
+
 }

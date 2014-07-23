@@ -50,14 +50,18 @@ public class Rocket : MonoBehaviour
         currTime += Time.deltaTime;
 
         currIndex=Mathf.CeilToInt(currTime/stepTime);
-        if (currIndex != lastIndex && currIndex < Waypoints.Length)
+        if (currIndex < Waypoints.Length)
         {
-            //GameObject.LookTo(Waypoints[currIndex], 2, 0);
-            float angularDistance = Math.Abs(Transform.rotation.eulerAngles.y - eMath.Angle2Dplus(Transform.position, Waypoints[currIndex]) * Mathf.Rad2Deg);
-            if (angularDistance > 180) angularDistance = 360 - angularDistance;
-            GameObject.LookTo(Waypoints[currIndex], angularDistance / AngularSpeed, 0);
-            lastIndex = currIndex;
+            if (currIndex != lastIndex)
+            {
+                float angularDistance = Math.Abs(Transform.rotation.eulerAngles.y - eMath.Angle2Dplus(Transform.position, Waypoints[currIndex]) * Mathf.Rad2Deg);
+                if (angularDistance > 180) angularDistance = 360 - angularDistance;
+                GameObject.LookTo(Waypoints[currIndex], angularDistance / AngularSpeed, 0);
+                lastIndex = currIndex;
+            }
         }
+        else
+            Destroy(GameObject);
         
     }
 

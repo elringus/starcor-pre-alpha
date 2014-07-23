@@ -25,6 +25,7 @@ public class Launcher : Tower
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
         lineRenderer.SetVertexCount(maxVertCount);
+        StartPoint = Transform.position;
     }
     protected override void StartTargeting()
     {
@@ -52,9 +53,16 @@ public class Launcher : Tower
 
         InProcess = false;
     }
+
+    protected override void CancelTargeting()
+    {
+        InProcess = false;
+        lineRenderer.enabled = false;
+    }
     protected virtual void Produce()
     {
         AddDeathPath();
+        Points.Insert(0, StartPoint);
         var rocky = ((GameObject)Instantiate(Prototype, Points[0], Quaternion.identity));
         rocky.GetComponent<Rocket>().Initialize(GetInteropPoints(Points));
     }

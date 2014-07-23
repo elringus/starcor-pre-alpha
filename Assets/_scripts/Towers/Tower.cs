@@ -30,27 +30,27 @@ public abstract class Tower : MonoBehaviour
 	}
 
     public virtual void Targeting(TargetingType targetingType)
-	{
-        if(IsAborted)
+    {
+        switch (targetingType)
         {
-            StartTargeting();
-            IsAborted = false;
-        }
-        else
-            switch (targetingType)
-            {
-                case TargetingType.Start:
-                    StartTargeting();
-                    break;
-                case TargetingType.InProcess:
+            case TargetingType.Start:
+                StartTargeting();
+                break;
+            case TargetingType.InProcess:
+                if (InProcess)
                     OnTargeting();
-                    break;
-                case TargetingType.Finish:
-                    FinishTargeting();
-                    break;
-            }
-	}
+                break;
+            case TargetingType.Finish:
+                FinishTargeting();
+                break;
+            case TargetingType.None:
+                if (InProcess)
+                    CancelTargeting();
+                break;
+        }
+    }
     protected abstract void StartTargeting();
     protected abstract void OnTargeting();
     protected abstract void FinishTargeting();
+    protected abstract void CancelTargeting();
 }

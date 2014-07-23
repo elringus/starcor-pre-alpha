@@ -24,7 +24,6 @@ public class LaserCannon : Tower
         lineRenderer.SetPosition(0, origin);
         Transform.localScale = new Vector3(0, 0, 0);
     }
-
     protected override void StartTargeting()
     {
         InProcess = true;
@@ -37,27 +36,28 @@ public class LaserCannon : Tower
         direction = new Vector3(p.x, 0, p.z);
 
         if (Vector3.Distance(origin, direction) > TargetingRadius)
-        {
-            InProcess = false;
-            IsAborted = true;
             FinishTargeting();
-        }
         else
             lineRenderer.SetPosition(1, direction);
     }
-
     protected override void FinishTargeting()
     {
+        if (!InProcess)
+            return;
+
         lineRenderer.enabled = false;
         Transform.localScale = new Vector3(0, 0, 0);
 
-        if (InProcess)
-        {
-            InProcess = false;
-            Produce();
-        }
+        InProcess = false;
+        Produce();
     }
 
+    protected override void CancelTargeting()
+    {
+        lineRenderer.enabled = false;
+        Transform.localScale = new Vector3(0, 0, 0);
+        InProcess = false;
+    }
     private void Produce()
     {
         var destination = (direction - origin).normalized * AttackRange + origin;

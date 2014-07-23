@@ -38,11 +38,12 @@ public class Manager : MonoBehaviour
 	{
 		while (true)
 		{
-			if (SelectedTower && !dfGUIManager.HitTestAll(Input.mousePosition))
+			if (SelectedTower)
 			{
 				if (Input.GetMouseButtonDown(0)) SelectedTower.Targeting(TargetingType.Start);
 				else if (Input.GetMouseButton(0)) SelectedTower.Targeting(TargetingType.InProcess);
-				else if (Input.GetMouseButtonUp(0)) SelectedTower.Targeting(TargetingType.Finish);
+				else if (Input.GetMouseButtonUp(0) && !dfGUIManager.HitTestAll(Input.mousePosition)) 
+					SelectedTower.Targeting(TargetingType.Finish);
 				else SelectedTower.Targeting(TargetingType.None);
 			}
 			yield return new WaitForSeconds(.002f);

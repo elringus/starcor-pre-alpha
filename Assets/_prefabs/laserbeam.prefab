@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ca84b094e4bc646a254f0c58e6fe3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeTime: 1
-  BeamWidth: .5
+  LifeTime: .5
+  BeamWidth: .150000006
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -61,6 +61,7 @@ public class LaserCannon : Tower
     }
     private void Produce()
     {
+        base.Produce();
         var destination = (direction - origin).normalized * AttackRange + origin;
         ((GameObject)Instantiate(Prototype, origin, Quaternion.identity)).GetComponent<LaserBeam>().Instantiate(origin, destination);
     }

@@ -27,6 +27,7 @@ public class Launcher : Tower
         lineRenderer.enabled = false;
         lineRenderer.SetVertexCount(maxVertCount);
         StartPoint = Transform.position;
+        IntialCorrect();
     }
     protected override void StartTargeting()
     {
@@ -60,8 +61,9 @@ public class Launcher : Tower
         InProcess = false;
         lineRenderer.enabled = false;
     }
-    protected virtual void Produce()
+    protected override void Produce()
     {
+        base.Produce();
         AddDeathPath();
         Points.Insert(0, StartPoint);
         var rocky = ((GameObject)Instantiate(Prototype, Points[0], Quaternion.identity));
@@ -88,9 +90,12 @@ public class Launcher : Tower
     {
         if (Points.Count == 0 || Vector3.Distance(Points.Last(), p) >= StepLength)
         {
-            Points.Add(p);
-            lineRenderer.SetPosition(currVertCount, p);
-            currVertCount++;
+            if (Correct(p))
+            {
+                Points.Add(p);
+                lineRenderer.SetPosition(currVertCount, p);
+                currVertCount++;
+            }
         }
 
         for (int i = currVertCount; i < maxVertCount; i++)
@@ -108,19 +113,26 @@ public class Launcher : Tower
     private float stepAngle;
     private void IntialCorrect()
     {
-        stepCount = Mathf.CeilToInt(Mathf.PI / (Mathf.Asin(StepLength / MinRadius)));
-        stepAngle = Mathf.PI / stepCount;
+        stepCount = Mathf.CeilToInt(Mathf.PI / (Mathf.Asin(StepLength / 2 * MinRadius)) / 2);
+        stepAngle = Mathf.PI / (2 * stepCount);
     }
 
-    protected void Correct()
+    protected bool Correct(Vector3 p)
     {
-        int checkVert=currVertCount-stepCount;
+        if (Points.Count < 2)
+            return true;
+        int checkVert = Points.Count - stepCount;
+        int n=2;
         if (checkVert < 0)
             checkVert = 0;
-        for(int i=currVertCount; i>=checkVert;i--)
+        for (int i = Points.Count - 2; i >= checkVert; i--)
         {
-
+            if (Vector3.Distance(p, Points[i]) < 2 * MinRadius * Mathf.Sin(stepAngle * n))
+                return false;
+            n++;
         }
+
+        return true;
     }
 
     #endregion

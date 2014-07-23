@@ -28,7 +28,10 @@ public abstract class Tower : MonoBehaviour
 
     protected virtual void Update() 
 	{
-    	
+        if (RechargeTimer > 0)
+            RechargeTimer -= Time.deltaTime;
+        else
+            RechargeTimer = 0;
 	}
 
     public virtual void Targeting(TargetingType targetingType)
@@ -56,4 +59,9 @@ public abstract class Tower : MonoBehaviour
     protected abstract void OnTargeting();
     protected abstract void FinishTargeting();
     protected abstract void CancelTargeting();
+
+    protected virtual void Produce()
+    {
+        RechargeTimer = RechargeCD;
+    }
 }

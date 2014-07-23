@@ -66,13 +66,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 930e53bb09581564691fbc1601656031, type: 3}
+  m_Script: {fileID: 11500000, guid: 5daf1f8cbb1eace448fc7c8e07432f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 0}
   GameObject: {fileID: 0}
+  RechargeTimer: 0
   Prototype: {fileID: 100000, guid: bfee641106a594e42ae3139c235e66ef, type: 2}
-  ColdDown: 0
+  RechargeCD: 1
   TargetingRadius: 2.5
   AttackRange: 10
 --- !u!120 &12000000

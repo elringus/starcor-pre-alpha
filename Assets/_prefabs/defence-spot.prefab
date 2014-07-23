@@ -43,6 +43,7 @@ MonoBehaviour:
   RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
   LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
   TowerIcon: {fileID: 0}
+  TowerCDIcon: {fileID: 0}
   CurrentTower: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

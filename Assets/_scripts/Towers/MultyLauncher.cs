@@ -14,6 +14,7 @@ public class MultyLauncher : Launcher
 
     protected override void Produce()
     {
+        base.Produce();
         AddDeathPath();
         Points.Insert(0, StartPoint);
         StartCoroutine(GenVolleys());

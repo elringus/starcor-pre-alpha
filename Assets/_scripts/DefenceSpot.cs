@@ -9,7 +9,7 @@ public class DefenceSpot : MonoBehaviour
 
 	[HideInInspector]
 	public dfSprite TowerIcon;
-	[HideInInspector]
+	//[HideInInspector]
 	public Tower CurrentTower;
 
 	private void Awake () 
@@ -53,6 +53,7 @@ public class DefenceSpot : MonoBehaviour
 				TowerIcon.SpriteName = "tex_LaserBeam";
 				break;
 		}
+		SelectTower();
 	}
 
 	public void SelectTower ()

@@ -832,7 +832,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0, y: 0, z: 0}
+  m_Size: {x: .390625, y: .390625, z: .00100000005}
   m_Center: {x: .1953125, y: -.1953125, z: 0}
 --- !u!114 &68813108
 MonoBehaviour:
@@ -1552,12 +1552,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 117815518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0a04d817695c254bae246d28a7ecb0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 930e53bb09581564691fbc1601656031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginTransform: {fileID: 700265627}
-  LaserBeamPrototype: {fileID: 100000, guid: bfee641106a594e42ae3139c235e66ef, type: 2}
+  Transform: {fileID: 0}
+  GameObject: {fileID: 0}
+  Prototype: {fileID: 100000, guid: bfee641106a594e42ae3139c235e66ef, type: 2}
+  ColdDown: 0
   TargetingRadius: 4
+  AttackRange: 10
 --- !u!120 &117815522
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1806,7 +1809,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0, y: 0, z: 0}
+  m_Size: {x: .15625, y: .15625, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &169731172
 MonoBehaviour:
@@ -3386,7 +3389,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0, y: 0, z: 0}
+  m_Size: {x: .15625, y: .15625, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &282430218
 MonoBehaviour:
@@ -4831,9 +4834,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 0}
-  RocketVolley: {fileID: 0}
-  LaserBeam: {fileID: 0}
+  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
+  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
+  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
   TowerIcon: {fileID: 0}
   CurrentTower: {fileID: 0}
 --- !u!1 &510798219
@@ -5403,9 +5406,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 0}
-  RocketVolley: {fileID: 0}
-  LaserBeam: {fileID: 0}
+  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
+  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
+  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
   TowerIcon: {fileID: 0}
   CurrentTower: {fileID: 0}
 --- !u!1 &584374728
@@ -5906,7 +5909,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684390249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00130208337, y: .00130208337, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 516872265}
@@ -5951,9 +5954,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 0}
-  RocketVolley: {fileID: 0}
-  LaserBeam: {fileID: 0}
+  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
+  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
+  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
   TowerIcon: {fileID: 0}
   CurrentTower: {fileID: 0}
 --- !u!1 &700265624
@@ -7233,7 +7236,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0, y: 0, z: 0}
+  m_Size: {x: .520833373, y: .520833373, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &917291938
 MonoBehaviour:
@@ -7514,14 +7517,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033e09f2dbc68b14c963970c56bb5688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Transform: {fileID: 0}
+  GameObject: {fileID: 0}
+  Prototype: {fileID: 100000, guid: 5d3118e7260dc374fa0a932509a3a83a, type: 2}
+  ColdDown: 0
   StepLength: .25
   DeathDistanse: 20
   InteropFactor: 5
-  RocketPrototype: {fileID: 100000, guid: 5d3118e7260dc374fa0a932509a3a83a, type: 2}
-  MultyRocket: 1
-  OrderVolley: 010000000300000005000000070000000b000000
-  OffsetValue: .25
-  WaveDelay: .330000013
 --- !u!4 &947425493
 Transform:
   m_ObjectHideFlags: 0
@@ -7574,7 +7576,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0, y: 0, z: 0}
+  m_Size: {x: .260416687, y: .260416687, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &961708482
 MonoBehaviour:
@@ -10332,15 +10334,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500012, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.x
-      value: 0
+      value: .390625
       objectReference: {fileID: 0}
     - target: {fileID: 6500012, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.y
-      value: 0
+      value: .390625
       objectReference: {fileID: 0}
     - target: {fileID: 6500012, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.z
-      value: 0
+      value: .00100000005
       objectReference: {fileID: 0}
     - target: {fileID: 6500004, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Enabled
@@ -10348,15 +10350,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500004, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.x
-      value: 0
+      value: .15625
       objectReference: {fileID: 0}
     - target: {fileID: 6500004, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.y
-      value: 0
+      value: .15625
       objectReference: {fileID: 0}
     - target: {fileID: 6500004, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.z
-      value: 0
+      value: .00100000005
       objectReference: {fileID: 0}
     - target: {fileID: 6500014, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Enabled
@@ -10364,15 +10366,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500014, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.x
-      value: 0
+      value: .15625
       objectReference: {fileID: 0}
     - target: {fileID: 6500014, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.y
-      value: 0
+      value: .15625
       objectReference: {fileID: 0}
     - target: {fileID: 6500014, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.z
-      value: 0
+      value: .00100000005
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Enabled
@@ -10380,15 +10382,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.x
-      value: 0
+      value: .520833373
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.y
-      value: 0
+      value: .520833373
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.z
-      value: 0
+      value: .00100000005
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: isVisible
@@ -10400,15 +10402,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500006, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.x
-      value: 0
+      value: .260416687
       objectReference: {fileID: 0}
     - target: {fileID: 6500006, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.y
-      value: 0
+      value: .260416687
       objectReference: {fileID: 0}
     - target: {fileID: 6500006, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.z
-      value: 0
+      value: .00100000005
       objectReference: {fileID: 0}
     - target: {fileID: 6500010, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Enabled
@@ -10416,15 +10418,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500010, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.x
-      value: 0
+      value: .15625
       objectReference: {fileID: 0}
     - target: {fileID: 6500010, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.y
-      value: 0
+      value: .15625
       objectReference: {fileID: 0}
     - target: {fileID: 6500010, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.z
-      value: 0
+      value: .00100000005
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Enabled
@@ -10432,15 +10434,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.x
-      value: 0
+      value: .15625
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.y
-      value: 0
+      value: .15625
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: m_Size.z
-      value: 0
+      value: .00100000005
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: d1d97913b0f6787458d3c03100685567, type: 2}
       propertyPath: color.rgba
@@ -13215,7 +13217,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0, y: 0, z: 0}
+  m_Size: {x: .15625, y: .15625, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1544117269
 MonoBehaviour:
@@ -14807,7 +14809,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0, y: 0, z: 0}
+  m_Size: {x: .15625, y: .15625, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1830100656
 MonoBehaviour:
@@ -15043,9 +15045,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 0}
-  RocketVolley: {fileID: 0}
-  LaserBeam: {fileID: 0}
+  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
+  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
+  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
   TowerIcon: {fileID: 0}
   CurrentTower: {fileID: 0}
 --- !u!1001 &1834313289
@@ -16640,9 +16642,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 0}
-  RocketVolley: {fileID: 0}
-  LaserBeam: {fileID: 0}
+  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
+  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
+  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
   TowerIcon: {fileID: 0}
   CurrentTower: {fileID: 0}
 --- !u!4 &2092526262

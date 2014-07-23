@@ -39,7 +39,7 @@ public class RadMenu : MonoBehaviour
 
 		buttonLaserBeam.Click += (c, e) =>
 		{
-			selectedDefenceSpot.SpawnTower(TowerType.RocketLauncher);
+			selectedDefenceSpot.SpawnTower(TowerType.LaserBeam);
 			ToggleRadMenu(null);
 		};
 	}

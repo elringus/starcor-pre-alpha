@@ -114,7 +114,13 @@ public class Launcher : Tower
 
     protected void Correct()
     {
+        int checkVert=currVertCount-stepCount;
+        if (checkVert < 0)
+            checkVert = 0;
+        for(int i=currVertCount; i>=checkVert;i--)
+        {
 
+        }
     }
 
     #endregion

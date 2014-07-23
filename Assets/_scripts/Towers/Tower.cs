@@ -7,23 +7,25 @@ public abstract class Tower : MonoBehaviour
 	public Transform Transform;
     [HideInInspector]
 	public GameObject GameObject;
+    [HideInInspector]
+    public float RechargeTimer;
 
     public GameObject Prototype;
-    public float ColdDown;
+    public float RechargeCD;
 
     protected bool InProcess { get; set; }
-    protected bool IsAborted { get; set; }
     protected virtual void Awake()
     {
         Transform = transform;
         GameObject = gameObject;
         InProcess = false;
-        IsAborted = false;
     }
+
     protected virtual void Start()
 	{
 
 	}
+
     protected virtual void Update() 
 	{
     	
@@ -49,6 +51,7 @@ public abstract class Tower : MonoBehaviour
                 break;
         }
     }
+
     protected abstract void StartTargeting();
     protected abstract void OnTargeting();
     protected abstract void FinishTargeting();

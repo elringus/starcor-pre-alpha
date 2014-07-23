@@ -6,7 +6,6 @@ using System.Linq;
 public class MultyLauncher : Launcher
 {
     #region Definition
-    public bool MultyRocket;
     public int[] OrderVolley;
     public float OffsetValue;
     public float WaveDelay;

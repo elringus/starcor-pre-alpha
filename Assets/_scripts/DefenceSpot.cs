@@ -8,24 +8,35 @@ public class DefenceSpot : MonoBehaviour
 	public Tower LaserBeam;
 
 	[HideInInspector]
-	public dfSprite TowerIcon;
+	public dfRadialSprite TowerIcon;
+	[HideInInspector]
+	public dfSprite TowerCDIcon;
 	//[HideInInspector]
 	public Tower CurrentTower;
 
 	private void Awake () 
 	{
-		TowerIcon = FindObjectOfType<dfGUIManager>().AddControl<dfSprite>();
+		TowerIcon = FindObjectOfType<dfGUIManager>().AddControl<dfRadialSprite>();
 		TowerIcon.SpriteName = "tex_TowerEmpty";
 		TowerIcon.Pivot = dfPivotPoint.MiddleCenter;
 		TowerIcon.Size = new Vector2(60, 60);
-		TowerIcon.ZOrder = 0;
+		TowerIcon.ZOrder = 1;
+
+		TowerCDIcon = FindObjectOfType<dfGUIManager>().AddControl<dfSprite>();
+		TowerCDIcon.SpriteName = "tex_TowerCD";
+		TowerCDIcon.Pivot = dfPivotPoint.MiddleCenter;
+		TowerCDIcon.Size = new Vector2(60, 60);
+		TowerCDIcon.ZOrder = 0;
 
 		TowerIcon.MouseDown += (c, e) =>
 		{
 			if (CurrentTower)
 			{
-				Manager.I.StartedTargetting = true;
-				SelectTower();
+				if (CurrentTower.RechargeTimer == 0)
+				{
+					Manager.I.StartedTargetting = true;
+					SelectTower();
+				}
 			}
 			else
 			{
@@ -38,6 +49,9 @@ public class DefenceSpot : MonoBehaviour
 	{
 		Vector2 guiPos = TowerIcon.GetManager().WorldPointToGUI(transform.position);
 		TowerIcon.RelativePosition = new Vector2(guiPos.x - TowerIcon.Size.x / 2, guiPos.y - TowerIcon.Size.y / 2);
+		TowerCDIcon.RelativePosition = new Vector2(guiPos.x - TowerCDIcon.Size.x / 2, guiPos.y - TowerCDIcon.Size.y / 2);
+
+		if (CurrentTower) TowerIcon.FillAmount = Mathf.Lerp(TowerIcon.FillAmount, 1 - CurrentTower.RechargeTimer / CurrentTower.RechargeCD, Time.deltaTime * 100);
 	}
 
 	public void SpawnTower (TowerType towerType)
@@ -57,7 +71,7 @@ public class DefenceSpot : MonoBehaviour
 				TowerIcon.SpriteName = "tex_LaserBeam";
 				break;
 		}
-		SelectTower();
+		CurrentTower.RechargeTimer = CurrentTower.RechargeCD = 10;
 	}
 
 	public void SelectTower ()

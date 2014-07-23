@@ -44,8 +44,8 @@ MonoBehaviour:
   - name: BLANK_TEXTURE
     region:
       serializedVersion: 2
-      x: .16796875
-      y: .939453125
+      x: .395507812
+      y: .951171875
       width: .009765625
       height: .009765625
     border:
@@ -61,8 +61,8 @@ MonoBehaviour:
   - name: button-disabled
     region:
       serializedVersion: 2
-      x: .549804688
-      y: .95703125
+      x: .724609375
+      y: .322265625
       width: .11328125
       height: .03125
     border:
@@ -78,8 +78,8 @@ MonoBehaviour:
   - name: button-hilite
     region:
       serializedVersion: 2
-      x: .665039062
-      y: .95703125
+      x: .749023438
+      y: .951171875
       width: .11328125
       height: .03125
     border:
@@ -95,8 +95,8 @@ MonoBehaviour:
   - name: button-normal
     region:
       serializedVersion: 2
-      x: .62890625
-      y: .2578125
+      x: .755859375
+      y: .19140625
       width: .11328125
       height: .03125
     border:
@@ -112,8 +112,8 @@ MonoBehaviour:
   - name: callout
     region:
       serializedVersion: 2
-      x: .83203125
-      y: 0
+      x: .62890625
+      y: .2578125
       width: .09375
       height: .0517578125
     border:
@@ -129,8 +129,8 @@ MonoBehaviour:
   - name: check-checked
     region:
       serializedVersion: 2
-      x: .205078125
-      y: .939453125
+      x: .9609375
+      y: .143554688
       width: .0205078125
       height: .0205078125
     border:
@@ -146,8 +146,8 @@ MonoBehaviour:
   - name: check-unchecked
     region:
       serializedVersion: 2
-      x: .780273438
-      y: .21484375
+      x: .85546875
+      y: .17578125
       width: .0126953125
       height: .0126953125
     border:
@@ -163,8 +163,8 @@ MonoBehaviour:
   - name: crosshairs-highlight
     region:
       serializedVersion: 2
-      x: .6328125
-      y: 0
+      x: 0
+      y: .880859375
       width: .09765625
       height: .09765625
     border:
@@ -180,8 +180,8 @@ MonoBehaviour:
   - name: crosshairs-highlight 24px
     region:
       serializedVersion: 2
-      x: .420898438
-      y: .96875
+      x: .87109375
+      y: .232421875
       width: .0234375
       height: .0234375
     border:
@@ -197,8 +197,8 @@ MonoBehaviour:
   - name: crosshairs-plain
     region:
       serializedVersion: 2
-      x: .732421875
-      y: 0
+      x: .099609375
+      y: .880859375
       width: .09765625
       height: .09765625
     border:
@@ -214,8 +214,8 @@ MonoBehaviour:
   - name: crosshairs-plain 24px
     region:
       serializedVersion: 2
-      x: .83203125
-      y: .0537109375
+      x: .911132812
+      y: .0927734375
       width: .0234375
       height: .0234375
     border:
@@ -231,8 +231,8 @@ MonoBehaviour:
   - name: dark-fill
     region:
       serializedVersion: 2
-      x: .1796875
-      y: .939453125
+      x: .884765625
+      y: .143554688
       width: .0234375
       height: .0234375
     border:
@@ -248,8 +248,8 @@ MonoBehaviour:
   - name: dark-fill-trans
     region:
       serializedVersion: 2
-      x: .10546875
-      y: .880859375
+      x: .91015625
+      y: .143554688
       width: .0234375
       height: .0234375
     border:
@@ -265,8 +265,8 @@ MonoBehaviour:
   - name: dot
     region:
       serializedVersion: 2
-      x: .20703125
-      y: .8984375
+      x: .407226562
+      y: .951171875
       width: .009765625
       height: .009765625
     border:
@@ -282,8 +282,8 @@ MonoBehaviour:
   - name: frame-basic
     region:
       serializedVersion: 2
-      x: .62890625
-      y: .58984375
+      x: .904296875
+      y: .232421875
       width: .046875
       height: .046875
     border:
@@ -299,8 +299,8 @@ MonoBehaviour:
   - name: frame-basic-opaque
     region:
       serializedVersion: 2
-      x: .8203125
-      y: .182617188
+      x: .82421875
+      y: .06640625
       width: .046875
       height: .046875
     border:
@@ -316,8 +316,8 @@ MonoBehaviour:
   - name: frame-blurred
     region:
       serializedVersion: 2
-      x: .549804688
-      y: .892578125
+      x: .62890625
+      y: .364257812
       width: .0625
       height: .0625
     border:
@@ -333,8 +333,8 @@ MonoBehaviour:
   - name: frame-bracketed
     region:
       serializedVersion: 2
-      x: .83203125
-      y: .0791015625
+      x: .919921875
+      y: .194335938
       width: .0263671875
       height: .017578125
     border:
@@ -350,8 +350,8 @@ MonoBehaviour:
   - name: frame-bracketed-filled
     region:
       serializedVersion: 2
-      x: .3828125
-      y: .91015625
+      x: .9453125
+      y: .168945312
       width: .0263671875
       height: .017578125
     border:
@@ -367,8 +367,8 @@ MonoBehaviour:
   - name: frame-info
     region:
       serializedVersion: 2
-      x: .614257812
-      y: .892578125
+      x: .62890625
+      y: .428710938
       width: .0625
       height: .0625
     border:
@@ -384,8 +384,8 @@ MonoBehaviour:
   - name: frame-style4
     region:
       serializedVersion: 2
-      x: .454101562
-      y: .9453125
+      x: .653320312
+      y: .951171875
       width: .09375
       height: .046875
     border:
@@ -401,8 +401,8 @@ MonoBehaviour:
   - name: frame-style5
     region:
       serializedVersion: 2
-      x: .354492188
-      y: .96875
+      x: .873046875
+      y: .06640625
       width: .064453125
       height: .0244140625
     border:
@@ -418,8 +418,8 @@ MonoBehaviour:
   - name: frame-style6
     region:
       serializedVersion: 2
-      x: .927734375
-      y: 0
+      x: .62890625
+      y: .493164062
       width: .0625
       height: .0625
     border:
@@ -435,8 +435,8 @@ MonoBehaviour:
   - name: frame-style7
     region:
       serializedVersion: 2
-      x: .860351562
-      y: .0537109375
+      x: .62890625
+      y: .557617188
       width: .0625
       height: .0625
     border:
@@ -452,8 +452,8 @@ MonoBehaviour:
   - name: frame-thick
     region:
       serializedVersion: 2
-      x: .924804688
-      y: .064453125
+      x: .630859375
+      y: .622070312
       width: .0625
       height: .0625
     border:
@@ -469,8 +469,8 @@ MonoBehaviour:
   - name: generic-fill
     region:
       serializedVersion: 2
-      x: .860351562
-      y: .118164062
+      x: .693359375
+      y: .364257812
       width: .0625
       height: .0625
     border:
@@ -486,8 +486,8 @@ MonoBehaviour:
   - name: generic-fill-opaque
     region:
       serializedVersion: 2
-      x: .924804688
-      y: .12890625
+      x: .724609375
+      y: .2578125
       width: .0625
       height: .0625
     border:
@@ -503,8 +503,8 @@ MonoBehaviour:
   - name: grid
     region:
       serializedVersion: 2
-      x: .780273438
-      y: .193359375
+      x: .948242188
+      y: .188476562
       width: .01953125
       height: .01953125
     border:
@@ -520,8 +520,8 @@ MonoBehaviour:
   - name: group
     region:
       serializedVersion: 2
-      x: .454101562
-      y: .892578125
+      x: .62890625
+      y: .311523438
       width: .09375
       height: .05078125
     border:
@@ -537,8 +537,8 @@ MonoBehaviour:
   - name: guillemet
     region:
       serializedVersion: 2
-      x: .482421875
-      y: .880859375
+      x: .953125
+      y: .231445312
       width: .0107421875
       height: .0087890625
     border:
@@ -554,8 +554,8 @@ MonoBehaviour:
   - name: heading-style1
     region:
       serializedVersion: 2
-      x: .62890625
-      y: .291015625
+      x: .755859375
+      y: .224609375
       width: .11328125
       height: .03125
     border:
@@ -571,8 +571,8 @@ MonoBehaviour:
   - name: heading-style2
     region:
       serializedVersion: 2
-      x: .227539062
-      y: .880859375
+      x: .3046875
+      y: .921875
       width: .224609375
       height: .02734375
     border:
@@ -588,8 +588,8 @@ MonoBehaviour:
   - name: heading-style3
     region:
       serializedVersion: 2
-      x: .10546875
-      y: .91015625
+      x: .426757812
+      y: .951171875
       width: .224609375
       height: .02734375
     border:
@@ -605,8 +605,8 @@ MonoBehaviour:
   - name: heading-style4
     region:
       serializedVersion: 2
-      x: .6328125
-      y: .099609375
+      x: .3046875
+      y: .892578125
       width: .225585938
       height: .02734375
     border:
@@ -622,8 +622,8 @@ MonoBehaviour:
   - name: heading-style5
     region:
       serializedVersion: 2
-      x: .227539062
-      y: .939453125
+      x: .53125
+      y: .921875
       width: .224609375
       height: .02734375
     border:
@@ -639,8 +639,8 @@ MonoBehaviour:
   - name: heading-style6
     region:
       serializedVersion: 2
-      x: .227539062
-      y: .96875
+      x: .7890625
+      y: .291015625
       width: .125
       height: .02734375
     border:
@@ -656,8 +656,8 @@ MonoBehaviour:
   - name: hex-tileable
     region:
       serializedVersion: 2
-      x: .62890625
-      y: .533203125
+      x: .87109375
+      y: .17578125
       width: .046875
       height: .0546875
     border:
@@ -673,7 +673,7 @@ MonoBehaviour:
   - name: left-arrow
     region:
       serializedVersion: 2
-      x: 0
+      x: .19921875
       y: .880859375
       width: .103515625
       height: .083984375
@@ -690,8 +690,8 @@ MonoBehaviour:
   - name: list
     region:
       serializedVersion: 2
-      x: .755859375
-      y: .193359375
+      x: .948242188
+      y: .209960938
       width: .01953125
       height: .01953125
     border:
@@ -707,8 +707,8 @@ MonoBehaviour:
   - name: medium-fill
     region:
       serializedVersion: 2
-      x: .130859375
-      y: .880859375
+      x: .921875
+      y: .118164062
       width: .0234375
       height: .0234375
     border:
@@ -724,8 +724,8 @@ MonoBehaviour:
   - name: medium-fill-blurred
     region:
       serializedVersion: 2
-      x: .62890625
-      y: .423828125
+      x: .759765625
+      y: .06640625
       width: .0625
       height: .052734375
     border:
@@ -741,8 +741,8 @@ MonoBehaviour:
   - name: medium-fill-blurred-trans
     region:
       serializedVersion: 2
-      x: .62890625
-      y: .478515625
+      x: .8203125
+      y: .12109375
       width: .0625
       height: .052734375
     border:
@@ -809,8 +809,8 @@ MonoBehaviour:
   - name: OUYA_A 24px
     region:
       serializedVersion: 2
-      x: .15625
-      y: .880859375
+      x: .936523438
+      y: .0927734375
       width: .0234375
       height: .0234375
     border:
@@ -826,8 +826,8 @@ MonoBehaviour:
   - name: OUYA_L1 24px
     region:
       serializedVersion: 2
-      x: .8203125
-      y: .12890625
+      x: .873046875
+      y: .0927734375
       width: .0361328125
       height: .0234375
     border:
@@ -843,8 +843,8 @@ MonoBehaviour:
   - name: OUYA_O 24px
     region:
       serializedVersion: 2
-      x: .181640625
-      y: .880859375
+      x: .919921875
+      y: .168945312
       width: .0234375
       height: .0234375
     border:
@@ -860,8 +860,8 @@ MonoBehaviour:
   - name: OUYA_R1 24px
     region:
       serializedVersion: 2
-      x: .8203125
-      y: .154296875
+      x: .884765625
+      y: .118164062
       width: .03515625
       height: .0234375
     border:
@@ -877,8 +877,8 @@ MonoBehaviour:
   - name: OUYA_U 24px
     region:
       serializedVersion: 2
-      x: .33203125
-      y: .91015625
+      x: .935546875
+      y: .143554688
       width: .0234375
       height: .0234375
     border:
@@ -894,8 +894,8 @@ MonoBehaviour:
   - name: OUYA_Y 24px
     region:
       serializedVersion: 2
-      x: .357421875
-      y: .91015625
+      x: .947265625
+      y: .118164062
       width: .0234375
       height: .0234375
     border:
@@ -912,7 +912,7 @@ MonoBehaviour:
     region:
       serializedVersion: 2
       x: .755859375
-      y: .12890625
+      y: .126953125
       width: .0625
       height: .0625
     border:
@@ -945,8 +945,8 @@ MonoBehaviour:
   - name: progress-fill
     region:
       serializedVersion: 2
-      x: .411132812
-      y: .91015625
+      x: .8203125
+      y: .17578125
       width: .033203125
       height: .013671875
     border:
@@ -962,8 +962,8 @@ MonoBehaviour:
   - name: progress-frame
     region:
       serializedVersion: 2
-      x: .10546875
-      y: .955078125
+      x: .904296875
+      y: .28125
       width: .072265625
       height: .0078125
     border:
@@ -996,8 +996,8 @@ MonoBehaviour:
   - name: resize
     region:
       serializedVersion: 2
-      x: .20703125
-      y: .880859375
+      x: .919921875
+      y: .213867188
       width: .015625
       height: .015625
     border:
@@ -1013,8 +1013,8 @@ MonoBehaviour:
   - name: seperator
     region:
       serializedVersion: 2
-      x: .454101562
-      y: .880859375
+      x: .3671875
+      y: .951171875
       width: .0263671875
       height: .005859375
     border:
@@ -1030,8 +1030,8 @@ MonoBehaviour:
   - name: tab-disabled
     region:
       serializedVersion: 2
-      x: .62890625
-      y: .32421875
+      x: .7890625
+      y: .2578125
       width: .11328125
       height: .03125
     border:
@@ -1047,8 +1047,8 @@ MonoBehaviour:
   - name: tab-hilite
     region:
       serializedVersion: 2
-      x: .62890625
-      y: .357421875
+      x: .759765625
+      y: 0
       width: .11328125
       height: .03125
     border:
@@ -1064,8 +1064,8 @@ MonoBehaviour:
   - name: tab-normal
     region:
       serializedVersion: 2
-      x: .62890625
-      y: .390625
+      x: .759765625
+      y: .033203125
       width: .11328125
       height: .03125
     border:
@@ -1129,6 +1129,23 @@ MonoBehaviour:
     textureGUID: 127cb97ea34652740b916d5c6661152a
     deleted: 0
     texture: {fileID: 0}
+  - name: tex_TowerCD
+    region:
+      serializedVersion: 2
+      x: .6328125
+      y: 0
+      width: .125
+      height: .125
+    border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    rotated: 0
+    sizeInPixels: {x: 128, y: 128}
+    textureGUID: d55a136d755216e4892f39919a325a96
+    deleted: 0
+    texture: {fileID: 0}
   - name: tex_TowerEmpty
     region:
       serializedVersion: 2
@@ -1149,7 +1166,7 @@ MonoBehaviour:
   - name: textbox-normal
     region:
       serializedVersion: 2
-      x: 0
+      x: .19921875
       y: .966796875
       width: .225585938
       height: .03125
@@ -1166,8 +1183,8 @@ MonoBehaviour:
   - name: text-highlight
     region:
       serializedVersion: 2
-      x: .10546875
-      y: .939453125
+      x: .3046875
+      y: .951171875
       width: .060546875
       height: .013671875
     border:
@@ -1200,7 +1217,7 @@ MonoBehaviour:
   - name: vert-scroll-end
     region:
       serializedVersion: 2
-      x: .16796875
+      x: .418945312
       y: .951171875
       width: .0048828125
       height: .001953125
@@ -1217,8 +1234,8 @@ MonoBehaviour:
   - name: vert-scroll-thumb
     region:
       serializedVersion: 2
-      x: .801757812
-      y: .193359375
+      x: .973632812
+      y: .166015625
       width: .0107421875
       height: .01953125
     border:
@@ -1234,8 +1251,8 @@ MonoBehaviour:
   - name: vert-scroll-track
     region:
       serializedVersion: 2
-      x: .9921875
-      y: 0
+      x: .969726562
+      y: .188476562
       width: .0048828125
       height: .05859375
     border:

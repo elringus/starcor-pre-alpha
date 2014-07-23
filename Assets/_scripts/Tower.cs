@@ -22,7 +22,7 @@ public abstract class Tower : MonoBehaviour
     	
 	}
 
-	public virtual void Activate (TargetingType targetingType)
+	public virtual void Targeting (TargetingType targetingType)
 	{
 
 	}

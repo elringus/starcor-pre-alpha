@@ -71,23 +71,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100008
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400008}
-  - 114: {fileID: 11400014}
-  - 65: {fileID: 6500008}
-  m_Layer: 8
-  m_Name: label_rad-menu_AP
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100010
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +83,7 @@ GameObject:
   - 65: {fileID: 6500010}
   - 114: {fileID: 11400016}
   m_Layer: 8
-  m_Name: button_find-minerals
+  m_Name: button_rocket-volley
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,15 +132,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.230903625, y: .0750198364, z: 0}
+  m_LocalPosition: {x: .13520813, y: .0281524658, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400014}
   - {fileID: 400012}
-  - {fileID: 400010}
-  - {fileID: 400008}
-  - {fileID: 400006}
   - {fileID: 400004}
+  - {fileID: 400014}
+  - {fileID: 400006}
+  - {fileID: 400010}
   - {fileID: 400002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -168,11 +150,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .2420578, y: -.223205566, z: 0}
+  m_LocalPosition: {x: .146720886, y: .151199341, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -180,11 +162,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .225730896, y: .246803284, z: 0}
+  m_LocalPosition: {x: .150367737, y: -.148696899, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
-  m_RootOrder: 5
+  m_RootOrder: 1
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
@@ -192,18 +174,6 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400000}
-  m_RootOrder: 4
---- !u!4 &400008
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -216,11 +186,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.234242767, y: .228230804, z: 0}
+  m_LocalPosition: {x: -.148933411, y: .14705658, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!4 &400012
 Transform:
   m_ObjectHideFlags: 1
@@ -228,11 +198,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.325520843, y: .325520843, z: 0}
+  m_LocalPosition: {x: -.1953125, y: .1953125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &400014
 Transform:
   m_ObjectHideFlags: 1
@@ -240,11 +210,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.231536865, y: -.231048584, z: 0}
+  m_LocalPosition: {x: -.15662384, y: -.150909424, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -255,7 +225,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .911458373, y: .911458373, z: .00100000005}
+  m_Size: {x: .520833373, y: .520833373, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500002
 BoxCollider:
@@ -267,7 +237,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .260416687, y: .260416687, z: .00100000005}
+  m_Size: {x: .15625, y: .15625, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500004
 BoxCollider:
@@ -279,7 +249,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .260416687, y: .260416687, z: .00100000005}
+  m_Size: {x: .15625, y: .15625, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500006
 BoxCollider:
@@ -291,19 +261,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .390625, y: .390625, z: .00100000005}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6500008
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .130208343, y: .130208343, z: .00100000005}
+  m_Size: {x: .260416687, y: .260416687, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500010
 BoxCollider:
@@ -315,7 +273,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .260416687, y: .260416687, z: .00100000005}
+  m_Size: {x: .15625, y: .15625, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500012
 BoxCollider:
@@ -327,8 +285,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .651041687, y: .651041687, z: .00100000005}
-  m_Center: {x: .325520843, y: -.325520843, z: 0}
+  m_Size: {x: .390625, y: .390625, z: .00100000005}
+  m_Center: {x: .1953125, y: -.1953125, z: 0}
 --- !u!65 &6500014
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -339,7 +297,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .260416687, y: .260416687, z: .00100000005}
+  m_Size: {x: .15625, y: .15625, z: .00100000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -365,7 +323,7 @@ MonoBehaviour:
   disabledColor:
     serializedVersion: 2
     rgba: 4294967295
-  size: {x: 350, y: 350}
+  size: {x: 200, y: 200}
   minSize: {x: 0, y: 0}
   maxSize: {x: 0, y: 0}
   clipChildren: 0
@@ -477,8 +435,8 @@ MonoBehaviour:
   autoRun: 0
   skipToEndOnStop: 0
   delayBeforeStarting: 0
-  startValue: {x: 123.492188, y: 125, z: 0}
-  endValue: {x: 217.949219, y: 210.710938, z: 0}
+  startValue: {x: 68.625, y: 68.9765625, z: 0}
+  endValue: {x: 127.71875, y: 125.824219, z: 0}
   direction: 0
 --- !u!114 &11400006
 MonoBehaviour:
@@ -504,7 +462,7 @@ MonoBehaviour:
   disabledColor:
     serializedVersion: 2
     rgba: 4294967295
-  size: {x: 100, y: 100}
+  size: {x: 60, y: 60}
   minSize: {x: 0, y: 0}
   maxSize: {x: 0, y: 0}
   clipChildren: 0
@@ -514,18 +472,18 @@ MonoBehaviour:
   layout:
     anchorStyle: 9
     margins:
-      left: 217.949219
-      top: 210.710938
-      right: 32.0507812
-      bottom: 39.2890625
+      left: 126.339844
+      top: 11.9375
+      right: 13.6601562
+      bottom: 128.0625
     owner: {fileID: 11400006}
   renderOrder: 4
   isLocalized: 0
   hotZoneScale: {x: 1, y: 1}
   allowSignalEvents: 1
   atlas: {fileID: 11400000, guid: 061b63b910d71734eb8a953efb83a358, type: 2}
-  backgroundSprite: OUYA_A 24px
-  hoverSprite: tex_ButtonCancleHover
+  backgroundSprite: tex_LaserBeam
+  hoverSprite: tex_LaserBeam
   disabledSprite: tex_ButtonCancleNormal
   focusSprite: tex_ButtonCancleNormal
   font: {fileID: 11400000, guid: 1bd74a2245f6f9546a7b717a474a36c2, type: 2}
@@ -555,7 +513,7 @@ MonoBehaviour:
     rgba: 4294967295
   hoverColor:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4294955335
   pressedColor:
     serializedVersion: 2
     rgba: 4294967295
@@ -601,7 +559,7 @@ MonoBehaviour:
   disabledColor:
     serializedVersion: 2
     rgba: 4294967295
-  size: {x: 100, y: 100}
+  size: {x: 60, y: 60}
   minSize: {x: 0, y: 0}
   maxSize: {x: 0, y: 0}
   clipChildren: 0
@@ -611,18 +569,18 @@ MonoBehaviour:
   layout:
     anchorStyle: 9
     margins:
-      left: 211.679688
-      top: 30.2265625
-      right: 38.3203125
-      bottom: 219.773438
+      left: 127.742188
+      top: 127.097656
+      right: 12.2578125
+      bottom: 12.9023438
     owner: {fileID: 11400008}
   renderOrder: 5
   isLocalized: 0
   hotZoneScale: {x: 1, y: 1}
   allowSignalEvents: 1
   atlas: {fileID: 11400000, guid: 061b63b910d71734eb8a953efb83a358, type: 2}
-  backgroundSprite: OUYA_O 24px
-  hoverSprite: tex_ButtonSetChronolotHover
+  backgroundSprite: tex_RocketLauncher
+  hoverSprite: tex_RocketLauncher
   disabledSprite: tex_ButtonSetChronolotDisabled
   focusSprite: tex_ButtonSetChronolotNormal
   font: {fileID: 11400000, guid: 1bd74a2245f6f9546a7b717a474a36c2, type: 2}
@@ -652,7 +610,7 @@ MonoBehaviour:
     rgba: 4294967295
   hoverColor:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4294955335
   pressedColor:
     serializedVersion: 2
     rgba: 4294967295
@@ -714,8 +672,8 @@ MonoBehaviour:
   autoRun: 0
   skipToEndOnStop: 0
   delayBeforeStarting: 0
-  startValue: {x: 123.492188, y: 125, z: 0}
-  endValue: {x: 211.679688, y: 30.2265625, z: 0}
+  startValue: {x: 68.8945312, y: 68.546875, z: 0}
+  endValue: {x: 126.207031, y: 13.390625, z: 0}
   direction: 0
 --- !u!114 &11400012
 MonoBehaviour:
@@ -741,7 +699,7 @@ MonoBehaviour:
   disabledColor:
     serializedVersion: 2
     rgba: 4294967295
-  size: {x: 150, y: 150}
+  size: {x: 100, y: 100}
   minSize: {x: 0, y: 0}
   maxSize: {x: 0, y: 0}
   clipChildren: 0
@@ -751,10 +709,10 @@ MonoBehaviour:
   layout:
     anchorStyle: 192
     margins:
-      left: 100
-      top: 100
-      right: 100
-      bottom: 100
+      left: 50
+      top: 50
+      right: 50
+      bottom: 50
     owner: {fileID: 11400012}
   renderOrder: 3
   isLocalized: 0
@@ -766,87 +724,6 @@ MonoBehaviour:
   fillDirection: 0
   fillAmount: 1
   invertFill: 0
---- !u!114 &11400014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60e3359ffaefe124a992e17c8830875c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anchorStyle: 192
-  isEnabled: 1
-  isVisible: 1
-  isInteractive: 0
-  tooltip: 
-  pivot: 4
-  zindex: 6
-  color:
-    serializedVersion: 2
-    rgba: 4278255600
-  disabledColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  size: {x: 50, y: 50}
-  minSize: {x: 0, y: 0}
-  maxSize: {x: 0, y: 0}
-  clipChildren: 0
-  tabIndex: -1
-  canFocus: 0
-  autoFocus: 0
-  layout:
-    anchorStyle: 192
-    margins:
-      left: 150
-      top: 150
-      right: 150
-      bottom: 150
-    owner: {fileID: 11400014}
-  renderOrder: 8
-  isLocalized: 0
-  hotZoneScale: {x: 1, y: 1}
-  allowSignalEvents: 1
-  atlas: {fileID: 11400000, guid: 061b63b910d71734eb8a953efb83a358, type: 2}
-  font: {fileID: 11400000, guid: 1bd74a2245f6f9546a7b717a474a36c2, type: 2}
-  backgroundSprite: text-highlight
-  backgroundColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  autoSize: 0
-  autoHeight: 0
-  wordWrap: 0
-  text: 
-  bottomColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  align: 1
-  vertAlign: 1
-  textScale: 2.5
-  textScaleMode: 0
-  charSpacing: 0
-  colorizeSymbols: 0
-  processMarkup: 0
-  outline: 0
-  outlineWidth: 1
-  enableGradient: 0
-  outlineColor:
-    serializedVersion: 2
-    rgba: 4278190080
-  shadow: 1
-  shadowColor:
-    serializedVersion: 2
-    rgba: 4278190080
-  shadowOffset: {x: 1, y: -1}
-  padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 3
-  tabSize: 48
-  tabStops: 
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -887,8 +764,8 @@ MonoBehaviour:
   autoRun: 0
   skipToEndOnStop: 0
   delayBeforeStarting: 0
-  startValue: {x: 123.492188, y: 125, z: 0}
-  endValue: {x: 35.0507812, y: 37.359375, z: 0}
+  startValue: {x: 68.9882812, y: 68.3007812, z: 0}
+  endValue: {x: 12.8085938, y: 13.53125, z: 0}
   direction: 0
 --- !u!114 &11400018
 MonoBehaviour:
@@ -914,7 +791,7 @@ MonoBehaviour:
   disabledColor:
     serializedVersion: 2
     rgba: 4294967295
-  size: {x: 100, y: 100}
+  size: {x: 60, y: 60}
   minSize: {x: 0, y: 0}
   maxSize: {x: 0, y: 0}
   clipChildren: 0
@@ -924,18 +801,18 @@ MonoBehaviour:
   layout:
     anchorStyle: 6
     margins:
-      left: 35.0507812
-      top: 37.359375
-      right: 214.949219
-      bottom: 212.640625
+      left: 12.8085938
+      top: 13.53125
+      right: 127.191406
+      bottom: 126.46875
     owner: {fileID: 11400018}
   renderOrder: 7
   isLocalized: 0
   hotZoneScale: {x: 1, y: 1}
   allowSignalEvents: 1
   atlas: {fileID: 11400000, guid: 061b63b910d71734eb8a953efb83a358, type: 2}
-  backgroundSprite: tex_ButtonFindMineralsNormal
-  hoverSprite: tex_ButtonFindMineralsHover
+  backgroundSprite: tex_RocketVolley
+  hoverSprite: tex_RocketVolley
   disabledSprite: tex_ButtonFindMineralsDisabled
   focusSprite: tex_ButtonFindMineralsNormal
   font: {fileID: 11400000, guid: 1bd74a2245f6f9546a7b717a474a36c2, type: 2}
@@ -965,7 +842,7 @@ MonoBehaviour:
     rgba: 4294967295
   hoverColor:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4294955335
   pressedColor:
     serializedVersion: 2
     rgba: 4294967295
@@ -1054,7 +931,7 @@ MonoBehaviour:
   disabledColor:
     serializedVersion: 2
     rgba: 4294967295
-  size: {x: 250, y: 250}
+  size: {x: 150, y: 150}
   minSize: {x: 0, y: 0}
   maxSize: {x: 0, y: 0}
   clipChildren: 0
@@ -1064,10 +941,10 @@ MonoBehaviour:
   layout:
     anchorStyle: 192
     margins:
-      left: 50
-      top: 50
-      right: 50
-      bottom: 50
+      left: 25
+      top: 25
+      right: 25
+      bottom: 25
     owner: {fileID: 11400022}
   renderOrder: 2
   isLocalized: 0
@@ -1146,7 +1023,7 @@ MonoBehaviour:
   disabledColor:
     serializedVersion: 2
     rgba: 4294967295
-  size: {x: 100, y: 100}
+  size: {x: 60, y: 60}
   minSize: {x: 0, y: 0}
   maxSize: {x: 0, y: 0}
   clipChildren: 0
@@ -1156,10 +1033,10 @@ MonoBehaviour:
   layout:
     anchorStyle: 6
     margins:
-      left: 36.0898438
-      top: 213.722656
-      right: 213.910156
-      bottom: 36.2773438
+      left: 9.85546875
+      top: 127.949219
+      right: 130.144531
+      bottom: 12.0507812
     owner: {fileID: 11400026}
   renderOrder: 6
   isLocalized: 0

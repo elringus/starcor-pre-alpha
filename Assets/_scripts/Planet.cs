@@ -23,7 +23,6 @@ public class Planet : MonoBehaviour
 
 	private void OnMouseDown ()
 	{
-		if (!dfGUIManager.HitTestAll(Input.mousePosition))
-			DGUI.I.ToggleRadMenu();
+
 	}
 }

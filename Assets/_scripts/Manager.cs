@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 public class Manager : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class Manager : MonoBehaviour
 
 	private void Update () 
 	{
-    	
+
 	}
 
 	private IEnumerator InputSampler ()
@@ -46,7 +47,7 @@ public class Manager : MonoBehaviour
 				else if (Input.GetMouseButtonUp(0)) { SelectedTower.Targeting(TargetingType.Finish); StartedTargetting = false; }
 				else SelectedTower.Targeting(TargetingType.None);
 			}
-			yield return new WaitForSeconds(.002f);
+			yield return null;
 		}
 	}
 }

@@ -26,4 +26,10 @@ public class EnemyBoss : Enemy
 
 		hpBar.Value = Mathf.Lerp(hpBar.Value, HP / MaxHP, Time.deltaTime * 100);
 	}
+
+	protected override void Death ()
+	{
+		dfGUIManager.Destroy(hpBar);
+		base.Death();
+	}
 }

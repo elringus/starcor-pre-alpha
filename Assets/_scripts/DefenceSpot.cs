@@ -32,7 +32,7 @@ public class DefenceSpot : MonoBehaviour
 		{
 			if (CurrentTower)
 			{
-				if (CurrentTower.RechargeTimer == 0)
+				if (CurrentTower.Ready)
 				{
 					Manager.I.StartedTargetting = true;
 					SelectTower();
@@ -51,7 +51,7 @@ public class DefenceSpot : MonoBehaviour
 		TowerIcon.RelativePosition = new Vector2(guiPos.x - TowerIcon.Size.x / 2, guiPos.y - TowerIcon.Size.y / 2);
 		TowerCDIcon.RelativePosition = new Vector2(guiPos.x - TowerCDIcon.Size.x / 2, guiPos.y - TowerCDIcon.Size.y / 2);
 
-		if (CurrentTower) TowerIcon.FillAmount = Mathf.Lerp(TowerIcon.FillAmount, 1 - CurrentTower.RechargeTimer / CurrentTower.RechargeCD, Time.deltaTime * 100);
+        if (CurrentTower) TowerIcon.FillAmount = Mathf.Lerp(TowerIcon.FillAmount, CurrentTower.Progress, Time.deltaTime * 100);
 	}
 
 	public void SpawnTower (TowerType towerType)

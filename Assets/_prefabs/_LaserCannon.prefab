@@ -71,11 +71,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transform: {fileID: 0}
   GameObject: {fileID: 0}
-  RechargeTimer: 0
   Prototype: {fileID: 100000, guid: bfee641106a594e42ae3139c235e66ef, type: 2}
-  RechargeCD: 1
+  RechargeCD: 8
   TargetingRadius: 2.5
   AttackRange: 10
+  RegenHeat: .0500000007
+  HeatPerAttack: .150000006
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

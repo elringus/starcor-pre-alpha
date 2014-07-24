@@ -8,10 +8,18 @@ public class LaserCannon : Tower
     #region Definition
     public float TargetingRadius;
     public float AttackRange = 10f;
+    
+    public float RegenHeat;
+    public float HeatPerAttack;
+
+    private float currHeat;
+    private bool inOverHeating;
 
     private Vector3 direction;
     private Vector3 origin;
     private LineRenderer lineRenderer;
+
+
     #endregion
     #region Base
     protected override void Awake()
@@ -61,11 +69,62 @@ public class LaserCannon : Tower
     }
     private void Produce()
     {
-        base.Produce();
+        HeatUp();
         var destination = (direction - origin).normalized * AttackRange + origin;
         ((GameObject)Instantiate(Prototype, origin, Quaternion.identity)).GetComponent<LaserBeam>().Instantiate(origin, destination);
     }
 
+    protected override void Update()
+    {
+        if(inOverHeating)
+        {
+            if (RechargeTimer > 0)
+                RechargeTimer -= Time.deltaTime;
+            else
+            {
+                RechargeTimer = 0;
+                currHeat = 0;
+                inOverHeating = false;
+            }
+        }
+        else
+            HeatDown();
+    }
+
+    public override bool Ready
+    {
+        get
+        {
+            return !inOverHeating;
+        }
+    }
+
+    public override float Progress
+    {
+        get
+        {
+            if (inOverHeating)
+                return 1 - RechargeTimer / RechargeCD;
+            else
+                return 1 - currHeat;
+        }
+    }
+   
+    private void HeatUp()
+    {
+        currHeat += HeatPerAttack;
+        if (currHeat >= 1)
+        {
+            inOverHeating = true;
+            RechargeTimer = RechargeCD;
+        }
+    }
+
+    private void HeatDown()
+    {
+        if (currHeat > 0)
+            currHeat -= RegenHeat * Time.deltaTime;
+    }
    
     #endregion
 }

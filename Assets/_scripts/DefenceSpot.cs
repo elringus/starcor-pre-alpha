@@ -51,7 +51,11 @@ public class DefenceSpot : MonoBehaviour
 		TowerIcon.RelativePosition = new Vector2(guiPos.x - TowerIcon.Size.x / 2, guiPos.y - TowerIcon.Size.y / 2);
 		TowerCDIcon.RelativePosition = new Vector2(guiPos.x - TowerCDIcon.Size.x / 2, guiPos.y - TowerCDIcon.Size.y / 2);
 
-        if (CurrentTower) TowerIcon.FillAmount = Mathf.Lerp(TowerIcon.FillAmount, CurrentTower.Progress, Time.deltaTime * 100);
+		if (CurrentTower)
+		{
+			TowerIcon.FillAmount = Mathf.Lerp(TowerIcon.FillAmount, CurrentTower.Progress, Time.deltaTime * 100);
+			TowerCDIcon.Color = CurrentTower.Ready ? Color.white : Color.red;
+		}
 	}
 
 	public void SpawnTower (TowerType towerType)

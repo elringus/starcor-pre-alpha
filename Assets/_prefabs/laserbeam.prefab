@@ -42,6 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifeTime: .5
   BeamWidth: .150000006
+  Damage: 8
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -7,6 +7,7 @@ public class LaserBeam : MonoBehaviour
 {
     public float LifeTime;
     public float BeamWidth;
+    public float Damage;
 
     private float currTime;
     private LineRenderer lineRenderer;
@@ -33,8 +34,9 @@ public class LaserBeam : MonoBehaviour
         RaycastHit hit;
         if (Physics.SphereCast(new Ray(origin, destination - origin), BeamWidth / 2, out hit))
         {
-			//if (hit.transform.tag == "Enemy")
-			//	hit.transform.GetComponent<Enemy>().TakeDamage(8);
+            if (hit.transform.GetComponent(typeof(IAttackable)))
+                (hit.transform.GetComponent(typeof(IAttackable)) as IAttackable).RecieveAtatck(new Attack(Damage, FOF.Friend));
+
             return hit.point;
         }
         return null;

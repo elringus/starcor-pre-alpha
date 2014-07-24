@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
 	public GameObject GameObject;
 
 	public float HP;
+	public float Damage;
+	public float HitDistance;
 
 	private NavMeshAgent navMesh;
 	private Planet targetPlanet;
@@ -30,7 +32,10 @@ public class Enemy : MonoBehaviour
 	private void Update () 
 	{
 		navMesh.SetDestination(targetPlanet.Transform.position);
-		if (Vector3.Distance(Transform.position, targetPlanet.Transform.position) < 1) HitPlanet();
+		if (Vector3.Distance(Transform.position, targetPlanet.Transform.position) <= HitDistance)
+		{
+			targetPlanet.HP -= Time.deltaTime * Damage;
+		}
 	}
 
 	private void Randomize ()
@@ -40,12 +45,6 @@ public class Enemy : MonoBehaviour
 
 		float randScale = Random.Range(.1f, .3f);
 		Transform.localScale = new Vector3(randScale, randScale, randScale);
-	}
-
-	private void HitPlanet ()
-	{
-		targetPlanet.HP -= .1f;
-		Destroy(GameObject);
 	}
 
     public void TakeDamage(float dmg)

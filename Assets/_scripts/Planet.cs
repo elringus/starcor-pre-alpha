@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Planet : MonoBehaviour
+public class Planet : MonoBehaviour, IAttackable
 {
 	public Transform Transform;
 	public float HP;
@@ -21,8 +21,11 @@ public class Planet : MonoBehaviour
 		GUILayout.Box("Planet HP: " + HP);
 	}
 
-	private void OnMouseDown ()
+	public void RecieveAtatck (Attack attack)
 	{
-
+		if (attack.Fof == FOF.Foe)
+		{
+			HP -= attack.Damage;
+		}
 	}
 }

@@ -1,21 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, IAttackable
 {
 	[HideInInspector]
 	public Transform Transform;
 	[HideInInspector]
 	public GameObject GameObject;
 
-	public float HP;
+	public float MaxHP;
+	[SerializeField]
+	private float _hp;
+
+	public float HP
+	{
+		get { return _hp; }
+		set
+		{
+			_hp = value;
+			if (_hp <= 0) Death();
+		}
+	}
 	public float Damage;
 	public float HitDistance;
 
-	private NavMeshAgent navMesh;
-	private Planet targetPlanet;
+	public NavMeshAgent navMesh;
+	public Planet targetPlanet;
 
-	private void Awake () 
+	protected virtual void Awake () 
 	{
 		Transform = transform;
 		GameObject = gameObject;
@@ -24,33 +36,28 @@ public class Enemy : MonoBehaviour
 		targetPlanet = GameObject.Find("planet").GetComponent<Planet>();
 	}
 
-	private void Start ()
+	protected virtual void Start ()
 	{
-		Randomize();
+
 	}
 
-	private void Update () 
+	protected virtual void Update () 
 	{
 		navMesh.SetDestination(targetPlanet.Transform.position);
 		if (Vector3.Distance(Transform.position, targetPlanet.Transform.position) <= HitDistance)
 		{
-			targetPlanet.HP -= Time.deltaTime * Damage;
+			targetPlanet.RecieveAtatck(new Attack(Damage, FOF.Foe));
 		}
 	}
 
-	private void Randomize ()
+	public virtual void RecieveAtatck (Attack attack)
 	{
-		navMesh.speed += Random.Range(-.15f, .2f);
-		navMesh.acceleration += Random.Range(-1.5f, 1f);
-
-		float randScale = Random.Range(.1f, .3f);
-		Transform.localScale = new Vector3(randScale, randScale, randScale);
+		if (attack.Fof == FOF.Friend) 
+			HP -= attack.Damage;
 	}
 
-    public void TakeDamage(float dmg)
-    {
-        HP -= dmg;
-        if (HP <= 0)
-            Destroy(GameObject);
-    }
+	protected virtual void Death ()
+	{
+		Destroy(GameObject);
+	}
 }

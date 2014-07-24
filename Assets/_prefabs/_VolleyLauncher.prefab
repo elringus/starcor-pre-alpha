@@ -42,15 +42,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transform: {fileID: 0}
   GameObject: {fileID: 0}
-  Prototype: {fileID: 100000, guid: 5d3118e7260dc374fa0a932509a3a83a, type: 2}
+  Prototype: {fileID: 100000, guid: 0b2bfb5ba82347a4c869e7a76174ee73, type: 2}
   RechargeCD: 8
   StepLength: .25
   DeathDistanse: 10
   InteropFactor: 5
   MinRadius: .5
   OrderVolley: 010000000300000005000000
-  OffsetValue: .25
-  WaveDelay: .25
+  OffsetValue: .100000001
+  WaveDelay: .150000006
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

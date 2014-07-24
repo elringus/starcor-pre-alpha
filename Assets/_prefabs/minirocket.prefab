@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 54: {fileID: 5400000}
   m_Layer: 0
-  m_Name: rocket
+  m_Name: minirocket
   m_TagString: Rocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,11 +87,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObject: {fileID: 0}
   Transform: {fileID: 0}
-  Damage: 20
-  Speed: 1
-  AngularSpeed: 45
-  ThrowPower: 3
-  ExplosionRadius: 1.5
+  Damage: 5
+  Speed: 1.5
+  AngularSpeed: 60
+  ThrowPower: 2
+  ExplosionRadius: .5
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

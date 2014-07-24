@@ -24,6 +24,6 @@ public class EnemyBoss : Enemy
 		hpBar.RelativePosition = new Vector2(guiPos.x - hpBar.Size.x / 2, guiPos.y - hpBar.Size.y / 2);
 		hpBar.RelativePosition = new Vector2(guiPos.x - hpBar.Size.x / 2, guiPos.y - hpBar.Size.y / 2);
 
-		hpBar.Value = Mathf.Lerp(hpBar.Value, HP * 100 / MaxHP, Time.deltaTime * 100);
+		hpBar.Value = Mathf.Lerp(hpBar.Value, HP / MaxHP, Time.deltaTime * 100);
 	}
 }

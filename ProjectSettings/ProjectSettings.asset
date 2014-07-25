@@ -7,7 +7,7 @@ PlayerSettings:
   AndroidProfiler: 0
   defaultScreenOrientation: 3
   targetDevice: 2
-  targetGlesGraphics: 1
+  targetGlesGraphics: 2
   targetResolution: 0
   accelerometerFrequency: 60
   companyName: Saga Games
@@ -70,7 +70,7 @@ PlayerSettings:
   productGUID: 52036703d9a1cf04e9bd592e36eb8a3b
   iPhoneBundleVersion: 1.0
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 9
+  AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2

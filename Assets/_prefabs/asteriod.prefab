@@ -45,7 +45,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a29f1a1fb2e9a9e4abf9479481c49832, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -98,8 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b366bc772c5b94c8aff3e7697e6099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefabs: []
   Transform: {fileID: 0}
   Rigidbody: {fileID: 0}
+  OwnType: 2
 --- !u!208 &20800000
 NavMeshObstacle:
   m_ObjectHideFlags: 1

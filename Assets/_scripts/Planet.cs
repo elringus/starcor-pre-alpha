@@ -5,6 +5,15 @@ public class Planet : MonoBehaviour, IAttackable
 {
 	public Transform Transform;
 	public float HP;
+    public OwnType OwnType = OwnType.Terran; 
+
+    public OwnType GetOwnType
+    {
+        get
+        {
+            return OwnType;
+        }
+    }
 
 	private void Awake () 
 	{
@@ -21,11 +30,8 @@ public class Planet : MonoBehaviour, IAttackable
 		GUILayout.Box("Planet HP: " + HP);
 	}
 
-	public void RecieveAtatck (Attack attack)
-	{
-		if (attack.Fof == FOF.Foe)
-		{
-			HP -= attack.Damage;
-		}
-	}
+    public void RecieveAtatck(Attack attack)
+    {
+        HP -= attack.Damage;
+    }
 }

@@ -90,8 +90,9 @@ MonoBehaviour:
   Damage: 20
   Speed: 1
   AngularSpeed: 45
-  ThrowPower: 3
-  ExplosionRadius: 1.5
+  ThrowPower: 4
+  ExplosionRadius: 2.5
+  AimType: 2
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

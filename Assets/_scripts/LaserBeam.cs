@@ -9,9 +9,13 @@ public class LaserBeam : MonoBehaviour
     public float BeamWidth;
     public float Damage;
 
+    public AimType AimType;
+    private OwnType OwnType = OwnType.Terran;
+
     private float currTime;
     private LineRenderer lineRenderer;
 
+    private Attack attack;
     public void Instantiate(Vector3 origin, Vector3 destination)
     {
         lineRenderer.SetPosition(0, origin);
@@ -27,6 +31,7 @@ public class LaserBeam : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetWidth(BeamWidth, BeamWidth);
+        attack = new Attack(Damage, OwnType, AimType);
     }
 
     private Vector3? GetHitPoint(Vector3 origin, Vector3 destination)
@@ -34,10 +39,8 @@ public class LaserBeam : MonoBehaviour
         RaycastHit hit;
         if (Physics.SphereCast(new Ray(origin, destination - origin), BeamWidth / 2, out hit))
         {
-            if (hit.transform.GetComponent(typeof(IAttackable)))
-                (hit.transform.GetComponent(typeof(IAttackable)) as IAttackable).RecieveAtatck(new Attack(Damage, FOF.Friend));
-
-            return hit.point;
+            if (attack.MakeAttack(hit.transform))
+                return hit.point;
         }
         return null;
     }

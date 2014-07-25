@@ -43,6 +43,7 @@ MonoBehaviour:
   LifeTime: .5
   BeamWidth: .150000006
   Damage: 8
+  AimType: 2
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

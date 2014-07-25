@@ -24,6 +24,16 @@ public abstract class Enemy : MonoBehaviour, IAttackable
 	public float Damage;
 	public float HitDistance;
 
+    public OwnType OwnType = OwnType.Allien;
+
+    public OwnType GetOwnType
+    {
+        get
+        {
+            return OwnType;
+        }
+    }
+
 	public NavMeshAgent navMesh;
 	public Planet targetPlanet;
 
@@ -46,14 +56,13 @@ public abstract class Enemy : MonoBehaviour, IAttackable
 		navMesh.SetDestination(targetPlanet.Transform.position);
 		if (Vector3.Distance(Transform.position, targetPlanet.Transform.position) <= HitDistance)
 		{
-			targetPlanet.RecieveAtatck(new Attack(Damage, FOF.Foe));
+            targetPlanet.RecieveAtatck(new Attack(Damage, OwnType.Allien, AimType.Foe));
 		}
 	}
 
 	public virtual void RecieveAtatck (Attack attack)
 	{
-		if (attack.Fof == FOF.Friend) 
-			HP -= attack.Damage;
+        HP -= attack.Damage;
 	}
 
 	protected virtual void Death ()

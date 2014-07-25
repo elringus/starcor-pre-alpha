@@ -18,14 +18,18 @@ public class Rocket : MonoBehaviour
 	public float ThrowPower;
 	public float ExplosionRadius;
 
+    public AimType AimType;
+
     private int currIndex = 0;
     private int lastIndex = -1;
-
+    private OwnType OwnType = OwnType.Terran;
 	private Vector3[] Waypoints;
     private float stepTime;
     private float currTime = 0;
+    private Attack attack;
 	private void Awake () 
 	{
+        attack = new Attack(Damage, OwnType, AimType);
 		GameObject = gameObject;
 		Transform = transform;
 	}
@@ -67,22 +71,35 @@ public class Rocket : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        if ((col.GetComponent(typeof(IAttackable)) || col.CompareTag("Obstacle")) && col.name!="planet")
-            Explode();
+        if (attack.MakeAttack(col.transform))
+            Explode(attack, col);
     }
 
-    private void Explode()
+    private void Explode(Attack attack, Collider centralTarget)
     {
         var colliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
         foreach (var hit in colliders)
-        {
-            if (hit.GetComponent(typeof(IAttackable)))
-                (hit.GetComponent(typeof(IAttackable)) as IAttackable).RecieveAtatck(new Attack(Damage, FOF.Friend));
+            if (hit != centralTarget)
+                attack.MakeAttack(hit.transform, CalcThrowPower(hit.transform.position), CalcSplashDamage(hit.transform.position));
 
-            if (hit.CompareTag("Obstacle"))
-                hit.rigidbody.AddExplosionForce(ThrowPower, transform.position, ExplosionRadius, 0.1f, ForceMode.Impulse);
-        }
-        Debug.Log("boom");
         Destroy(GameObject);
+    }
+
+    private Vector3 CalcThrowPower(Vector3 target)
+    {
+        Vector3 radius = target - transform.position;
+        if (radius.magnitude < ExplosionRadius)
+            return radius.normalized * (1 - Mathf.Pow((radius.magnitude / ExplosionRadius), 2)) * ThrowPower;
+        else
+            return Vector3.zero;
+    }
+
+    private float CalcSplashDamage(Vector3 target)
+    {
+        Vector3 radius = target - transform.position;
+        if (radius.magnitude < ExplosionRadius)
+            return (1 - Mathf.Pow((radius.magnitude / ExplosionRadius), 1)) * Damage;
+        else
+            return 0;
     }
 }

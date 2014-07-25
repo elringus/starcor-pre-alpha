@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 0}
-  HP: 100
+  HP: 1200
   OwnType: 0
 --- !u!114 &11400002
 MonoBehaviour:

@@ -49,7 +49,7 @@ public class MultyLauncher : Launcher
                 points.Insert(0, StartPoint);
                 points = GetInteropPoints(points);
                 var rocky = ((GameObject)Instantiate(Prototype, points[0], Quaternion.identity));
-                rocky.GetComponent<Rocket>().Initialize(points);
+                rocky.GetComponent<Rocket>().Initialize(points,this);
             }
         }
     }

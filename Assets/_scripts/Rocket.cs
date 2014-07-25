@@ -19,6 +19,8 @@ public class Rocket : MonoBehaviour
 	public float ExplosionRadius;
 
     public AimType AimType;
+    [HideInInspector]
+    public Tower BaseTower;
 
     private int currIndex = 0;
     private int lastIndex = -1;
@@ -44,9 +46,10 @@ public class Rocket : MonoBehaviour
         stepTime = sumLength / (Speed * Waypoints.Length);
     }
 
-    public void Initialize(List<Vector3> points)
+    public void Initialize(List<Vector3> points, Tower baseTower)
     {
         Waypoints = points.ToArray();
+        BaseTower = baseTower;
     }
 
     public void Update()

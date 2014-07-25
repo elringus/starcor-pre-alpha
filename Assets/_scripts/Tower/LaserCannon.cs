@@ -41,7 +41,7 @@ public class LaserCannon : Tower
     }
     protected override void OnTargeting()
     {
-        var p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+        var p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
         direction = new Vector3(p.x, 0, p.z);
 
         if (Vector3.Distance(origin, direction) > TargetingRadius)

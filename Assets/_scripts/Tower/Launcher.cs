@@ -42,7 +42,7 @@ public class Launcher : Tower
     }
     protected override void OnTargeting()
     {
-        var p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+        var p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
         if (Points.Count < maxVertCount)
             AddVertex(new Vector3(p.x, 0, p.z));
     }
@@ -70,7 +70,7 @@ public class Launcher : Tower
         AddDeathPath();
         Points.Insert(0, StartPoint);
         var rocky = ((GameObject)Instantiate(Prototype, Points[0], Quaternion.identity));
-        rocky.GetComponent<Rocket>().Initialize(GetInteropPoints(Points));
+        rocky.GetComponent<Rocket>().Initialize(GetInteropPoints(Points),this);
     }
 
     #endregion

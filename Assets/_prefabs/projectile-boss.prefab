@@ -131,7 +131,7 @@ MonoBehaviour:
   Transform: {fileID: 0}
   Direction: {x: 0, y: 0, z: 0}
   LiveTime: 10
-  Damage: 1
+  Damage: 40
   Speed: 5
   AimType: 0
   OwnType: 0

@@ -103,8 +103,8 @@ MonoBehaviour:
   GameObject: {fileID: 0}
   Projectile: {fileID: 100000, guid: 8a7fc561e8ba632419a9bf80ec1c2f30, type: 2}
   CD: 2
-  MaxHP: 99999
-  _hp: 99999
+  MaxHP: 1500
+  _hp: 1500
   Damage: 1
   HitDistance: 6
   OwnType: 1

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Turret : MonoBehaviour
 {
 	[HideInInspector]
-	public Transform Transform;
+	private Transform Transform;
 	[HideInInspector]
 	public SphereCollider Collider;
 

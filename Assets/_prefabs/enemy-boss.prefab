@@ -111,6 +111,7 @@ MonoBehaviour:
   navMesh: {fileID: 0}
   targetPlanet: {fileID: 0}
   HPBarPrefab: {fileID: 100000, guid: 9d4f018a6ee502646908a592e4c917e6, type: 2}
+  VFXDeath: {fileID: 100000, guid: f65c5c957b6931e43846040b800efd5b, type: 2}
 --- !u!195 &19500000
 NavMeshAgent:
   m_ObjectHideFlags: 1

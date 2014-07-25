@@ -11,6 +11,8 @@ public class Rocket : MonoBehaviour
     [HideInInspector]
 	public Transform Transform;
 
+	public GameObject[] VFX;
+
 	public float Damage;
 	public float Speed;
     public float AngularSpeed;
@@ -74,8 +76,11 @@ public class Rocket : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        if (attack.CanAttack(col.transform) != null)
-            Explode(attack, col);
+		if (attack.CanAttack(col.transform) != null)
+		{
+			Instantiate(VFX[UnityEngine.Random.Range(0, 5)], Transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+			Explode(attack, col);
+		}
     }
 
     private void Explode(Attack attack, Collider centralTarget)

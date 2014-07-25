@@ -87,12 +87,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObject: {fileID: 0}
   Transform: {fileID: 0}
+  VFX:
+  - {fileID: 100000, guid: 194578e4e8985ac46832a121869a6c34, type: 2}
+  - {fileID: 100000, guid: 330db2440c433614a91bf16e7d89c56b, type: 2}
+  - {fileID: 100000, guid: 3c0722f1b5f7c6640b71f7aaea2edee5, type: 2}
+  - {fileID: 100000, guid: 9db989e3c0731df48a03e08a35786878, type: 2}
+  - {fileID: 100000, guid: a0bdacd5203b03044aeb276d427a414f, type: 2}
   Damage: 5
   Speed: 1.5
   AngularSpeed: 60
   ThrowPower: 2
   ExplosionRadius: 1
   AimType: 2
+  BaseTower: {fileID: 0}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

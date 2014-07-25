@@ -88,10 +88,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transform: {fileID: 0}
   GameObject: {fileID: 0}
+  Projectile: {fileID: 100000, guid: cdc9a44947725984680974a14b0afb15, type: 2}
+  CD: .600000024
   MaxHP: 20
   _hp: 20
   Damage: .100000001
-  HitDistance: 3.29999995
+  HitDistance: 5
   OwnType: 1
   navMesh: {fileID: 0}
   targetPlanet: {fileID: 0}

@@ -10,13 +10,13 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  - 195: {fileID: 19500000}
-  - 64: {fileID: 6400000}
+  - 136: {fileID: 13600000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
+  - 96: {fileID: 9600000}
   m_Layer: 0
-  m_Name: enemy-boss
-  m_TagString: Untagged
+  m_Name: projectile-terran
+  m_TagString: Rocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,9 +27,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 1.31083926e-08, y: -.800172389, z: -1.74883237e-08, w: .599770188}
-  m_LocalPosition: {x: -1.43119431, y: .497712404, z: .451710224}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .998902559, y: 0, z: -.822488785}
+  m_LocalScale: {x: 4, y: 4, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,7 +45,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 8100a1b2b824ad54599b38cd0eec8823, type: 2}
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -59,7 +59,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: f8be63edd520032488cf5b981351615d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ae5afd550b0c7554d819ba27c3ca44da, type: 3}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -73,21 +73,49 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!64 &6400000
-MeshCollider:
+--- !u!96 &9600000
+TrailRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: f8be63edd520032488cf5b981351615d, type: 3}
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 1
+  m_StartWidth: .00999999978
+  m_EndWidth: .00999999978
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4279041792
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4287364864
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4285988608
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294964224
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16747264
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,41 +124,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 804b78761e9edf9459109114989daa4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 19d8c8f93ab0ef34caea79c6b39175d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transform: {fileID: 0}
   GameObject: {fileID: 0}
-  Projectile: {fileID: 100000, guid: 8a7fc561e8ba632419a9bf80ec1c2f30, type: 2}
-  CD: 2
-  MaxHP: 99999
-  _hp: 99999
+  Transform: {fileID: 0}
+  Direction: {x: 0, y: 0, z: 0}
+  LiveTime: 10
   Damage: 1
-  HitDistance: 6
-  OwnType: 1
-  navMesh: {fileID: 0}
-  targetPlanet: {fileID: 0}
-  HPBarPrefab: {fileID: 100000, guid: 9d4f018a6ee502646908a592e4c917e6, type: 2}
---- !u!195 &19500000
-NavMeshAgent:
+  Speed: 5
+  AimType: 0
+  OwnType: 0
+--- !u!136 &13600000
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.89999998
-  m_Speed: .200000003
-  m_Acceleration: 2
-  avoidancePriority: 50
-  m_AngularSpeed: 40
-  m_StoppingDistance: 5
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: .5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 0
+  m_Radius: .00449999981
+  m_Height: .0274999999
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: .00200000009}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

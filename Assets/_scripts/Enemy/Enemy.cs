@@ -8,6 +8,12 @@ public abstract class Enemy : MonoBehaviour, IAttackable
 	[HideInInspector]
 	public GameObject GameObject;
 
+	public GameObject Projectile;
+
+	public float CD;
+
+	private float timer;
+
 	public float MaxHP;
 	[SerializeField]
 	private float _hp;
@@ -54,10 +60,20 @@ public abstract class Enemy : MonoBehaviour, IAttackable
 	protected virtual void Update () 
 	{
 		navMesh.SetDestination(targetPlanet.Transform.position);
-		if (Vector3.Distance(Transform.position, targetPlanet.Transform.position) <= HitDistance)
-		{
-            targetPlanet.RecieveAtatck(new Attack(Damage, OwnType.Allien, AimType.Foe));
-		}
+
+		timer = timer > 0 ? timer - Time.deltaTime : 0;
+
+		if (Vector3.Distance(Transform.position, targetPlanet.Transform.position) <= HitDistance && timer == 0) Shoot();
+	}
+
+	private void Shoot ()
+	{
+		timer = CD;
+
+		var projectile = (Instantiate(Projectile, Transform.position, Quaternion.identity) as GameObject).GetComponent<Projectile>();
+		projectile.AimType = AimType.Foe;
+		projectile.OwnType = OwnType.Allien;
+		projectile.Direction = (targetPlanet.transform.position - Transform.position).normalized;
 	}
 
 	public virtual void RecieveAtatck (Attack attack)

@@ -45,7 +45,7 @@ MonoBehaviour:
   Prototype: {fileID: 100000, guid: 0b2bfb5ba82347a4c869e7a76174ee73, type: 2}
   RechargeCD: 8
   StepLength: .25
-  DeathDistanse: 10
+  DeathDistanse: 5
   InteropFactor: 5
   MinRadius: .5
   OrderVolley: 010000000300000005000000

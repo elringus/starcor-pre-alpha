@@ -71,7 +71,7 @@ public class Rocket : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        if (attack.MakeAttack(col.transform))
+        if (attack.CanAttack(col.transform) != null)
             Explode(attack, col);
     }
 
@@ -81,6 +81,8 @@ public class Rocket : MonoBehaviour
         foreach (var hit in colliders)
             if (hit != centralTarget)
                 attack.MakeAttack(hit.transform, CalcThrowPower(hit.transform.position), CalcSplashDamage(hit.transform.position));
+            else
+                attack.MakeAttack(hit.transform, CalcThrowPower(hit.transform.position), Damage);
 
         Destroy(GameObject);
     }

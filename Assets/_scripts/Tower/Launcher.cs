@@ -75,18 +75,36 @@ public class Launcher : Tower
 
     #endregion
     #region Methods
-    protected List<Vector3> GetInteropPoints(List<Vector3> points)
+    protected List<Vector3> GetInteropPoints(List<Vector3> points, float step)
     {
         int iCount;
         List<Vector3> iPoinst = new List<Vector3>();
         for (int i = 0; i < points.Count - 1; i++)
         {
-            iCount = Mathf.CeilToInt(Vector3.Distance(points[i], points[i + 1]) / interopStep);
+            iCount = Mathf.CeilToInt(Vector3.Distance(points[i], points[i + 1]) / step);
             for (int j = 0; j < iCount - 1; j++)
-                iPoinst.Add((points[i + 1] - points[i]).normalized * interopStep * j + points[i]);
+                iPoinst.Add((points[i + 1] - points[i]).normalized * step * j + points[i]);
         }
-
         return iPoinst;
+    }
+
+    protected List<Vector3> GetInteropPoints(List<Vector3> points)
+    {
+        return GetInteropPoints(points, interopStep);
+    }
+
+    protected List<Vector3> GetInteropPoints(Vector3 p1, Vector3 p2, float step)
+    {
+        var points = new List<Vector3>();
+        if (Vector3.Distance(p1, p2) >= 2 * step)
+        {
+            points = GetInteropPoints((new Vector3[] { p1, p2 }).ToList(), step);
+            points.RemoveAt(0);
+        }
+        else
+            points.Add(p2);
+
+        return points;
     }
 
     protected void AddVertex(Vector3 p)
@@ -95,10 +113,12 @@ public class Launcher : Tower
         {
             if (CheckCorrect(p))
             {
+                //p = (p - Points.Last()).normalized * StepLength + Points.Last();
                 if (Points.Count > 0)
-                    p = (p - Points.Last()).normalized * StepLength + Points.Last();
-
-                Points.Add(p);
+                    Points.AddRange(GetInteropPoints(Points.Last(), p, StepLength));
+                else
+                    Points.Add(p);
+                
                 lineRenderer.SetPosition(currVertCount, p);
                 currVertCount++;
             }
@@ -108,17 +128,16 @@ public class Launcher : Tower
             lineRenderer.SetPosition(i, p);
     }
 
-    protected List<Vector3> GetInteropPoints(Vector3 p1, Vector3 p2)
-    {
-        return GetInteropPoints((new Vector3[] { p1, p2 }).ToList());
-    }
+    
 
     protected void AddDeathPath()
     {
-        var v = (Points[Points.Count - 1] - Points[Points.Count - 2]).normalized;
-        var lastpoint = Points[Points.Count - 1];
-        for (int i = 1; i <= Mathf.CeilToInt(DeathDistanse / StepLength); i++)
-            Points.Add(v * StepLength * i + lastpoint);
+        //var v = (Points[Points.Count - 1] - Points[Points.Count - 2]).normalized;
+        //var lastpoint = Points[Points.Count - 1];
+        //for (int i = 1; i <= Mathf.CeilToInt(DeathDistanse / StepLength); i++)
+        //    Points.Add(v * StepLength * i + lastpoint);
+        var deathPoint = (Points[Points.Count - 1] - Points[Points.Count - 2]).normalized * DeathDistanse + Points[Points.Count - 1];
+        Points.AddRange(GetInteropPoints(Points.Last(), deathPoint, StepLength));
     }
 
     private void IntialCorrectValues()
@@ -139,10 +158,6 @@ public class Launcher : Tower
             checkVert = 0;
 
         var nextStep = (p - Points.Last()).normalized * StepLength + Points.Last();
-        //var angle = Mathf.Acos(Vector3.Dot(p - Points.Last(), Points[Points.Count - 1] - Points[Points.Count - 2]));
-        //Debug.Log(angle*Mathf.Rad2Deg+" "+minAngle);
-        //if (Mathf.Abs(angle) < minAngle)
-        //    return false;
 
         for (int i = Points.Count - 2; i >= checkVert; i--)
         {

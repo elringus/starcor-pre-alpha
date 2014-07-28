@@ -20,13 +20,13 @@ public class DefenceSpot : MonoBehaviour
 		TowerIcon.SpriteName = "tex_TowerEmpty";
 		TowerIcon.Pivot = dfPivotPoint.MiddleCenter;
 		TowerIcon.Size = new Vector2(60, 60);
-		TowerIcon.ZOrder = 1;
+		TowerIcon.ZOrder = 2;
 
 		TowerCDIcon = FindObjectOfType<dfGUIManager>().AddControl<dfSprite>();
 		TowerCDIcon.SpriteName = "tex_TowerCD";
 		TowerCDIcon.Pivot = dfPivotPoint.MiddleCenter;
 		TowerCDIcon.Size = new Vector2(60, 60);
-		TowerCDIcon.ZOrder = 0;
+		TowerCDIcon.ZOrder = 1;
 
 		TowerIcon.MouseDown += (c, e) =>
 		{
@@ -55,6 +55,7 @@ public class DefenceSpot : MonoBehaviour
 		{
 			TowerIcon.FillAmount = Mathf.Lerp(TowerIcon.FillAmount, CurrentTower.Progress, Time.deltaTime * 100);
 			TowerCDIcon.Color = CurrentTower.Ready ? Color.white : Color.red;
+			print(CurrentTower.Ready);
 		}
 	}
 

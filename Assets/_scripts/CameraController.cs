@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
 	private void Awake ()
 	{
 		// lock fps to prevent battery wasting
-		Application.targetFrameRate = 60;
+		//Application.targetFrameRate = 60;
 
 		myTransform = transform;
 		distance = MaxDistance;

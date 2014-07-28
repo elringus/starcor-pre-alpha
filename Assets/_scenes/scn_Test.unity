@@ -2231,98 +2231,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1668749390}
   m_RootOrder: 97
---- !u!1 &162013072
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100006, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 162013073}
-  - 114: {fileID: 162013074}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &162013073
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400006, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 162013072}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.84895515, y: 0, z: -2.07675457}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 4
---- !u!114 &162013074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 162013072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
---- !u!1 &164252979
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100012, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 164252980}
-  - 114: {fileID: 164252981}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &164252980
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400012, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 164252979}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.65108776, y: 0, z: -3.39817214}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 2
---- !u!114 &164252981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400012, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 164252979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
 --- !u!1 &169731168
 GameObject:
   m_ObjectHideFlags: 0
@@ -8657,52 +8565,6 @@ Prefab:
   m_RootGameObject: {fileID: 1607149490}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &673177083
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100010, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 673177084}
-  - 114: {fileID: 673177085}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &673177084
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400010, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 673177083}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5827651, y: -1.06381993e-12, z: -5.85964632}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 5
---- !u!114 &673177085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400010, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 673177083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
 --- !u!1001 &681353687
 Prefab:
   m_ObjectHideFlags: 0
@@ -8935,7 +8797,6 @@ Transform:
   - {fileID: 739051094}
   - {fileID: 99853720}
   - {fileID: 1783654634}
-  - {fileID: 1519183408}
   - {fileID: 1789704472}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -9586,52 +9447,6 @@ Prefab:
   m_RootGameObject: {fileID: 883312913}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &778664951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100050, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 778664952}
-  - 114: {fileID: 778664953}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &778664952
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400050, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 778664951}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.50051212, y: 0, z: -2.31649733}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 1
---- !u!114 &778664953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400048, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 778664951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
 --- !u!1001 &781160178
 Prefab:
   m_ObjectHideFlags: 0
@@ -9852,52 +9667,6 @@ Prefab:
   m_RootGameObject: {fileID: 1622707133}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &820221541
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100008, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 820221542}
-  - 114: {fileID: 820221543}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &820221542
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400008, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 820221541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6812377, y: 0, z: -4.83360386}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 3
---- !u!114 &820221543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400008, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 820221541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
 --- !u!1 &830030060
 GameObject:
   m_ObjectHideFlags: 0
@@ -11615,52 +11384,6 @@ Prefab:
   m_RootGameObject: {fileID: 2122141774}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &974401804
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100038, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 974401805}
-  - 114: {fileID: 974401806}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &974401805
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400038, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 974401804}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.61826944, y: 0, z: -1.77359879}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 0
---- !u!114 &974401806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400036, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 974401804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
 --- !u!1001 &976902091
 Prefab:
   m_ObjectHideFlags: 0
@@ -11797,52 +11520,6 @@ Prefab:
   m_RootGameObject: {fileID: 1572751172}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &994265290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100014, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 994265291}
-  - 114: {fileID: 994265292}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &994265291
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400014, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 994265290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.4234066, y: -4.62390109e-13, z: -5.53780079}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 8
---- !u!114 &994265292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400014, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 994265290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
 --- !u!1001 &994561662
 Prefab:
   m_ObjectHideFlags: 0
@@ -12288,52 +11965,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1668749390}
   m_RootOrder: 23
---- !u!1 &1027713599
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100020, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1027713600}
-  - 114: {fileID: 1027713601}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1027713600
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400020, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1027713599}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.98209953, y: -8.55827562e-13, z: -6.22349072}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 9
---- !u!114 &1027713601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400018, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1027713599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
 --- !u!1 &1031774853
 GameObject:
   m_ObjectHideFlags: 0
@@ -12453,52 +12084,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1668749390}
   m_RootOrder: 8
---- !u!1 &1044566102
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100018, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1044566103}
-  - 114: {fileID: 1044566104}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1044566103
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400018, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044566102}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.63330269, y: -3.86150665e-13, z: -3.17292666}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 6
---- !u!114 &1044566104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400016, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044566102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
 --- !u!1 &1047469945
 GameObject:
   m_ObjectHideFlags: 0
@@ -12737,52 +12322,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 104703842}
   m_GameObject: {fileID: 1047505458}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1055340223
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100042, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1055340224}
-  - 114: {fileID: 1055340225}
-  m_Layer: 0
-  m_Name: defence-spot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1055340224
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400042, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1055340223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.82921028, y: -4.04843205e-13, z: -4.48829794}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1519183408}
-  m_RootOrder: 7
---- !u!114 &1055340225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400040, guid: ce923251811a48c4e8baf665224a443f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1055340223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
 --- !u!1 &1057383470
 GameObject:
   m_ObjectHideFlags: 0
@@ -19721,43 +19260,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 390721809}
   m_GameObject: {fileID: 1514014568}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1519183407
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100016, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1519183408}
-  m_Layer: 0
-  m_Name: defence-spots
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1519183408
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400016, guid: ce923251811a48c4e8baf665224a443f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1519183407}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 2.23232698, y: 1.32379711, z: 0}
-  m_LocalScale: {x: .333333343, y: .333333224, z: .333333224}
-  m_Children:
-  - {fileID: 974401805}
-  - {fileID: 778664952}
-  - {fileID: 164252980}
-  - {fileID: 820221542}
-  - {fileID: 162013073}
-  - {fileID: 673177084}
-  - {fileID: 1044566103}
-  - {fileID: 1055340224}
-  - {fileID: 994265291}
-  - {fileID: 1027713600}
-  m_Father: {fileID: 700265627}
-  m_RootOrder: 3
 --- !u!1001 &1528671251
 Prefab:
   m_ObjectHideFlags: 0
@@ -22627,7 +22129,7 @@ Transform:
   m_LocalScale: {x: .166666672, y: .166666657, z: .166666657}
   m_Children: []
   m_Father: {fileID: 700265627}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!135 &1789704473
 SphereCollider:
   m_ObjectHideFlags: 0

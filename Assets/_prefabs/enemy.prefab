@@ -89,10 +89,10 @@ MonoBehaviour:
   Transform: {fileID: 0}
   GameObject: {fileID: 0}
   Projectile: {fileID: 100000, guid: cdc9a44947725984680974a14b0afb15, type: 2}
-  RechargeCD: 1
+  RechargeCD: 2
   MaxHP: 20
   _hp: 20
-  Damage: 4
+  Damage: 12
   Range: 10
   OwnType: 1
   navMesh: {fileID: 0}

@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
 	[HideInInspector]
 	public Transform Transform;
 
+    public GameObject[] VFX;
+
 	public Vector3 Direction;
 	public float LiveTime;
 
@@ -33,7 +35,11 @@ public class Projectile : MonoBehaviour
 
 	public void OnTriggerEnter (Collider col)
 	{
-		if (attack!=null && attack.MakeAttack(col.transform))
-			Destroy(GameObject);
+        if (attack != null && attack.MakeAttack(col.transform))
+        {
+            if (VFX.Length > 0)
+                Instantiate(VFX[UnityEngine.Random.Range(0, VFX.Length)], Transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+            Destroy(GameObject);
+        }
 	}
 }

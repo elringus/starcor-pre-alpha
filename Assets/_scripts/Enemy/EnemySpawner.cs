@@ -9,12 +9,12 @@ public class EnemySpawner : MonoBehaviour
 	public GameObject EnemyPrototype;
 	public float SpawnCD;
 
-	private void Awake () 
+    private void Awake() 
 	{
 		Transform = transform;
 	}
 
-	private void Start ()
+    private void Start()
 	{
 		StartCoroutine(Spawn(Random.Range(1, 100)));
 	}

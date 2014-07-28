@@ -130,11 +130,8 @@ MonoBehaviour:
   GameObject: {fileID: 0}
   Transform: {fileID: 0}
   Direction: {x: 0, y: 0, z: 0}
-  LiveTime: 10
-  Damage: 8
+  LiveTime: 5
   Speed: 5
-  AimType: 0
-  OwnType: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

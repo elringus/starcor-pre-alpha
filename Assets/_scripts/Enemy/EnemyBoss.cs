@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyBoss : Enemy
+public class EnemyBoss : Attacker
 {
 	public GameObject HPBarPrefab;
 	public GameObject VFXDeath;
 
 	private dfProgressBar hpBar;
-
+    
 	protected override void Start ()
 	{
 		base.Start();

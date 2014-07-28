@@ -102,14 +102,13 @@ MonoBehaviour:
   Transform: {fileID: 0}
   GameObject: {fileID: 0}
   Projectile: {fileID: 100000, guid: 8a7fc561e8ba632419a9bf80ec1c2f30, type: 2}
-  CD: 2
-  MaxHP: 1500
-  _hp: 1500
-  Damage: 1
-  HitDistance: 6
+  RechargeCD: 2
+  MaxHP: 600
+  _hp: 600
+  Damage: 40
+  Range: 5
   OwnType: 1
   navMesh: {fileID: 0}
-  targetPlanet: {fileID: 0}
   HPBarPrefab: {fileID: 100000, guid: 9d4f018a6ee502646908a592e4c917e6, type: 2}
   VFXDeath: {fileID: 100000, guid: f65c5c957b6931e43846040b800efd5b, type: 2}
 --- !u!195 &19500000

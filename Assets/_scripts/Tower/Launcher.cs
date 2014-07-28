@@ -144,7 +144,6 @@ public class Launcher : Tower
     {
         stepsInSemicircle = Mathf.CeilToInt(Mathf.PI / (Mathf.Asin(StepLength / (2 * MinRadius))) / 2);
         stepAngle = Mathf.PI / (2 * stepsInSemicircle);
-        Debug.Log(stepsInSemicircle);
     }
 
     protected bool CheckCorrect(Vector3 p)

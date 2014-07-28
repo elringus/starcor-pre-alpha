@@ -11,13 +11,9 @@ public class Projectile : MonoBehaviour
 	public Vector3 Direction;
 	public float LiveTime;
 
-	public float Damage;
 	public float Speed;
 
-	public AimType AimType;
-	public OwnType OwnType;
-
-	private Attack attack;
+    public Attack attack;
 
 	private void Awake () 
 	{
@@ -27,7 +23,6 @@ public class Projectile : MonoBehaviour
 
 	private void Start ()
 	{
-		attack = new Attack(Damage, OwnType, AimType);
 		Destroy(GameObject, LiveTime);
 	}
 
@@ -38,10 +33,7 @@ public class Projectile : MonoBehaviour
 
 	public void OnTriggerEnter (Collider col)
 	{
-		if (attack.MakeAttack(col.transform))
-		{
-			attack.MakeAttack(col.transform);
+		if (attack!=null && attack.MakeAttack(col.transform))
 			Destroy(GameObject);
-		}
 	}
 }

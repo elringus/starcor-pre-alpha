@@ -89,14 +89,13 @@ MonoBehaviour:
   Transform: {fileID: 0}
   GameObject: {fileID: 0}
   Projectile: {fileID: 100000, guid: cdc9a44947725984680974a14b0afb15, type: 2}
-  CD: .600000024
+  RechargeCD: 1
   MaxHP: 20
   _hp: 20
-  Damage: .100000001
-  HitDistance: 5
+  Damage: 4
+  Range: 10
   OwnType: 1
   navMesh: {fileID: 0}
-  targetPlanet: {fileID: 0}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

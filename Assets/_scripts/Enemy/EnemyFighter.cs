@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyFighter : Enemy
+public class EnemyFighter : Attacker
 {
+
+    protected override void Awake()
+    {
+        OwnType = global::OwnType.Allien;
+        base.Awake();
+    }
+
 	protected override void Start ()
 	{
 		base.Start();
-
 		Randomize();
 	}
 

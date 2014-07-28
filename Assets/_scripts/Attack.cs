@@ -7,8 +7,6 @@ public class Attack
     public AimType GetAimType { get; set; }
 	public float Damage { get; set; }
 
-    private OwnType ownType = OwnType.Terran;
-
     public Vector3 ThrowPower = Vector3.zero;
 
 	public Attack (float damage, OwnType _ownType, AimType _aimType)

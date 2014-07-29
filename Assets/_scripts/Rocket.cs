@@ -65,7 +65,7 @@ public class Rocket : MonoBehaviour
             {
                 float angularDistance = Math.Abs(Transform.rotation.eulerAngles.y - eMath.Angle2Dplus(Transform.position, Waypoints[currIndex]) * Mathf.Rad2Deg);
                 if (angularDistance > 180) angularDistance = 360 - angularDistance;
-                GameObject.LookTo(Waypoints[currIndex], angularDistance / AngularSpeed, 0);
+                GameObject.LookUpdate(Waypoints[currIndex], angularDistance / AngularSpeed);
                 lastIndex = currIndex;
             }
         }

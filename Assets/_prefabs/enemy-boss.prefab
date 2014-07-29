@@ -11,11 +11,27 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 195: {fileID: 19500000}
-  - 64: {fileID: 6400000}
+  - 135: {fileID: 13500000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: enemy-boss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400002}
+  - 135: {fileID: 13500002}
+  m_Layer: 8
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,10 +44,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 1.31083926e-08, y: -.800172389, z: -1.74883237e-08, w: .599770188}
-  m_LocalPosition: {x: -1.43119431, y: .497712404, z: .451710224}
+  m_LocalPosition: {x: 6.90349674, y: 1.44156331e-08, z: -.32979089}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400002}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &400002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: -1.31083926e-08, y: .800172389, z: 1.74883237e-08, w: .599770188}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 400000}
   m_RootOrder: 0
 --- !u!23 &2300000
 Renderer:
@@ -75,19 +104,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6400000
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: f8be63edd520032488cf5b981351615d, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,6 +127,30 @@ MonoBehaviour:
   navMesh: {fileID: 0}
   HPBarPrefab: {fileID: 100000, guid: 9d4f018a6ee502646908a592e4c917e6, type: 2}
   VFXDeath: {fileID: 100000, guid: f65c5c957b6931e43846040b800efd5b, type: 2}
+--- !u!135 &13500000
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.73453069
+  m_Center: {x: 0, y: 3.6145437e-16, z: 4.76837158e-07}
+--- !u!135 &13500002
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.70000005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &19500000
 NavMeshAgent:
   m_ObjectHideFlags: 1

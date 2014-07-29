@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 0}
-  EnemyPrototype: {fileID: 100000, guid: 5b70822248ed80649b6ad0c82a9fe8b6, type: 2}
+  EnemyPrototype: {fileID: 100002, guid: 5b70822248ed80649b6ad0c82a9fe8b6, type: 2}
   SpawnCD: 30
 --- !u!1001 &100100000
 Prefab:

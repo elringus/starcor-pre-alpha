@@ -1193,7 +1193,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &68813107
 BoxCollider:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 6500012, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 1225190337}
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   XSpeed: 1
   YSpeed: 10
   ZoomSpeed: 2.5
-  MoveSpeed: 10
+  MoveSpeed: 5
   YMinLimit: -180
   YMaxLimit: 180
   MinDistance: 5
@@ -2309,7 +2309,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &169731171
 BoxCollider:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 6500004, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 1225190337}
@@ -4136,7 +4136,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &282430217
 BoxCollider:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 6500014, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 1225190337}
@@ -8686,7 +8686,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684390249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00130208337, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 516872265}
@@ -10896,7 +10896,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &917291937
 BoxCollider:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 6500000, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 1225190337}
@@ -11154,7 +11154,7 @@ Transform:
   m_RootOrder: 3
 --- !u!65 &961708481
 BoxCollider:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 6500006, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 1225190337}
@@ -19739,7 +19739,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &1544117268
 BoxCollider:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 6500010, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 1225190337}
@@ -22794,7 +22794,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &1830100655
 BoxCollider:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 6500002, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 1225190337}

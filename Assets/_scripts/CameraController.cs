@@ -80,13 +80,22 @@ public class CameraController : MonoBehaviour
 			//}
 			if (Input.touchCount == 1)
 			{
-				if (Time.time < doubleTapTimer + .3f)
+				Touch touch = Input.GetTouch(0);
+
+				if (touch.phase == TouchPhase.Ended)
 				{
-					targetOffset = Vector3.zero;
+					if (Time.time < doubleTapTimer + .3f) 
+						targetOffset = Vector3.zero;
+					doubleTapTimer = Time.time;
 				}
-				doubleTapTimer = Time.time;
+
+				if (touch.phase == TouchPhase.Moved && !dfGUIManager.HitTestAll(touch.rawPosition))
+				{
+					targetOffset = new Vector3(targetOffset.x - touch.deltaPosition.x / MoveSpeed, 0, targetOffset.z - touch.deltaPosition.y / MoveSpeed);
+					targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -20 * myTransform.position.y / 30, 20 * myTransform.position.y / 30), 0, Mathf.Clamp(targetOffset.z, -15 * myTransform.position.y / 30, 15 * myTransform.position.y / 30));
+				}
 			}
-			if (Input.touchCount == 2)
+			else if (Input.touchCount == 2)
 			{
 				Touch touch1 = Input.GetTouch(0), touch2 = Input.GetTouch(1);
 				if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
@@ -103,12 +112,6 @@ public class CameraController : MonoBehaviour
 					prevPinch = pinch;
 				}
 				else prevPinch = 0;
-			}
-			else if (Input.touchCount > 2)
-			{
-				Touch touch1 = Input.GetTouch(0), touch2 = Input.GetTouch(1);
-				targetOffset = new Vector3(targetOffset.x - touch1.deltaPosition.x / MoveSpeed, 0, targetOffset.z - touch1.deltaPosition.y / MoveSpeed);
-				targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -20 * myTransform.position.y / 30, 20 * myTransform.position.y / 30), 0, Mathf.Clamp(targetOffset.z, -15 * myTransform.position.y / 30, 15 * myTransform.position.y / 30));
 			}
 			#endregion
 

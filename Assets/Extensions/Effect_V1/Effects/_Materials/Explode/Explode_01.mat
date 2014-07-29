@@ -24,7 +24,11 @@ Material:
       data:
         first:
           name: _InvFade
-        second: 1
+        second: 2.65517855
+      data:
+        first:
+          name: _EmissionGain
+        second: 0
     m_Colors:
       data:
         first:
@@ -33,4 +37,4 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: .604477644, g: .604477644, b: .604477644, a: .501960814}
+        second: {r: .801470578, g: .801470578, b: .801470578, a: .686274529}

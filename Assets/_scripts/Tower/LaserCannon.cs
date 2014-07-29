@@ -37,7 +37,7 @@ public class LaserCannon : Tower
     {
         InProcess = true;
         lineRenderer.enabled = true;
-        transform.localScale = new Vector3(TargetingRadius * 2, 0, TargetingRadius * 2);
+        //Transform.localScale = new Vector3(TargetingRadius * 2, 0, TargetingRadius * 2);
     }
     protected override void OnTargeting()
     {
@@ -55,16 +55,17 @@ public class LaserCannon : Tower
             return;
 
         lineRenderer.enabled = false;
-        Transform.localScale = new Vector3(0, 0, 0);
+        //Transform.localScale = new Vector3(0, 0, 0);
 
         InProcess = false;
         Produce();
+		audio.Play();
     }
 
     protected override void CancelTargeting()
     {
         lineRenderer.enabled = false;
-        Transform.localScale = new Vector3(0, 0, 0);
+        //Transform.localScale = new Vector3(0, 0, 0);
         InProcess = false;
     }
     private void Produce()

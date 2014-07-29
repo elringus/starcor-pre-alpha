@@ -78,7 +78,7 @@ public class Rocket : MonoBehaviour
     {
 		if (attack.CanAttack(col.transform) != null)
 		{
-			Instantiate(VFX[UnityEngine.Random.Range(0, VFX.Length)], Transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+			Instantiate(VFX[UnityEngine.Random.Range(0, VFX.Length)], Transform.position + new Vector3(0, 1, 0), Quaternion.identity);
 			Explode(attack, col);
 		}
     }

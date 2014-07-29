@@ -55,7 +55,6 @@ public class DefenceSpot : MonoBehaviour
 		{
 			TowerIcon.FillAmount = Mathf.Lerp(TowerIcon.FillAmount, CurrentTower.Progress, Time.deltaTime * 100);
 			TowerCDIcon.Color = CurrentTower.Ready ? Color.white : Color.red;
-			print(CurrentTower.Ready);
 		}
 	}
 

@@ -34,5 +34,10 @@ public class Asteriod : MonoBehaviour, IAttackable
             rigidbody.AddForce(attack.ThrowPower, ForceMode.Impulse);
     }
 
+    private void OnCollisionEnter(Collision col)
+    {
+
+    }
+
 
 }

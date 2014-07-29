@@ -34,4 +34,13 @@ public class Planet : MonoBehaviour, IAttackable
     {
         HP -= attack.Damage;
     }
+
+    public void OnTriggerEnter(Collider col)
+    {
+        if(col.GetComponent<FloatingBody>())
+        {
+            HP -= col.rigidbody.velocity.magnitude * col.rigidbody.mass * 100;
+            col.GetComponent<FloatingBody>().Death();
+        }
+    }
 }

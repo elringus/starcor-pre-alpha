@@ -8,14 +8,14 @@ public class FloatingBody : MonoBehaviour, IAttackable
     [HideInInspector]
 	public Rigidbody Rigidbody;
 
-    const float G = 2.0f;
+    const float G = 50.0f;
 
-    public OwnType OwnType = OwnType.None;
-
-    private Vector3 StartVelocity;
+    private float LifeTime = 100;
 
     private Transform GravityCenter;
+    public GameObject[] VFX;
 
+    public OwnType OwnType = OwnType.None;
     public OwnType GetOwnType
     {
         get
@@ -23,6 +23,8 @@ public class FloatingBody : MonoBehaviour, IAttackable
             return OwnType;
         }
     }
+
+    public float MaxHP;
 
     [SerializeField]
     private float _hp;
@@ -43,33 +45,40 @@ public class FloatingBody : MonoBehaviour, IAttackable
 		Rigidbody = rigidbody;
         GravityCenter = GameObject.Find("planet").transform;
         Transform.eulerAngles = new Vector3(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180));
-        StartVelocity = new Vector3(Random.Range(-100f, 100f), 0, Random.Range(-100f, 100f)).normalized * Random.Range(1f, 2f);
+        float randomScale = Random.Range(0.15f, 0.65f);
+        Transform.localScale = new Vector3(randomScale, randomScale, randomScale);
+        Rigidbody.mass = randomScale.P(3) * 8; ;
+        Destroy(gameObject, 100);
 	}
+
+    public void Instantiate(Vector3 startVelocity)
+    {
+        Rigidbody.AddForce(startVelocity, ForceMode.VelocityChange);
+    }
 
     private void Start()
     {
-        Rigidbody.AddForce(StartVelocity, ForceMode.Impulse);
+        
     }
 
     private void FixedUpdate()
     {
-        //rigidbody.AddForce(new Vector3(1, 0, 1) * Time.deltaTime, ForceMode.Force);
-        
         Vector3 gDirection = (GravityCenter.position - Transform.position).normalized;
-        float gValue = G / (Vector3.Distance(GravityCenter.position, Transform.position).P(2));
-        //float mForce=
-        Rigidbody.AddForce(gDirection * gValue, ForceMode.Force);
+        float gValue = G / (Vector3.Distance(GravityCenter.position, Transform.position).P(2)) * Time.fixedDeltaTime;
+        Rigidbody.AddForce(gValue * gDirection , ForceMode.Acceleration);
     }
 
     public void RecieveAtatck(Attack attack)
     {
         if (attack.ThrowPower.magnitude != 0)
             Rigidbody.AddForce(attack.ThrowPower, ForceMode.Impulse);
+        HP -= attack.Damage;
     }
 
-    private void Death()
+    public void Death()
     {
         Destroy(gameObject);
+        Instantiate(VFX[UnityEngine.Random.Range(0, VFX.Length)], Transform.position + new Vector3(0, 0, 0), Quaternion.identity);
     }
 
 }

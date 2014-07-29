@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
 	public float XSpeed;
 	public float YSpeed;
 	public float ZoomSpeed;
+	public float MoveSpeed;
 
 	public float YMinLimit;
 	public float YMaxLimit;
@@ -14,12 +15,17 @@ public class CameraController : MonoBehaviour
 	public float MinDistance;
 	public float MaxDistance;
 
+	public float EasingAmount;
+
 	private Transform myTransform;
 	private float distance;
 	private float x;
 	private float y;
 	private float prevPinch;
 	private Vector2 prevTouchPos;
+	private Vector3 targetOffset;
+
+	private float doubleTapTimer;
 
 	private void Awake ()
 	{
@@ -57,36 +63,52 @@ public class CameraController : MonoBehaviour
 			#endregion
 
 			#region TOUCH_INPUT
-			if (!Application.isEditor)
+			//if (!Application.isEditor)
+			//{
+			// swipe moving
+			//if (Input.touchCount == 1)
+			//{
+			//	Touch touch = Input.GetTouch(0);
+			//	if (touch.phase == TouchPhase.Moved)
+			//	{
+			//		if (prevTouchPos == Vector2.zero) prevTouchPos = touch.position;
+			//		x += (touch.position.x - prevTouchPos.x) * XSpeed / 10 * distance;
+			//		y -= (touch.position.y - prevTouchPos.y) * YSpeed / 10;
+			//		prevTouchPos = touch.position;
+			//	}
+			//	else prevTouchPos = Vector2.zero;
+			//}
+			if (Input.touchCount == 1)
 			{
-				// swipe moving
-				//if (Input.touchCount == 1)
-				//{
-				//	Touch touch = Input.GetTouch(0);
-				//	if (touch.phase == TouchPhase.Moved)
-				//	{
-				//		if (prevTouchPos == Vector2.zero) prevTouchPos = touch.position;
-				//		x += (touch.position.x - prevTouchPos.x) * XSpeed / 10 * distance;
-				//		y -= (touch.position.y - prevTouchPos.y) * YSpeed / 10;
-				//		prevTouchPos = touch.position;
-				//	}
-				//	else prevTouchPos = Vector2.zero;
-				//}
-
-				// pinch zooming
-				if (Input.touchCount == 2)
+				if (Time.time < doubleTapTimer + .3f)
 				{
-					Touch touch1 = Input.GetTouch(0), touch2 = Input.GetTouch(1);
-					if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
+					targetOffset = Vector3.zero;
+				}
+				doubleTapTimer = Time.time;
+			}
+			if (Input.touchCount == 2)
+			{
+				Touch touch1 = Input.GetTouch(0), touch2 = Input.GetTouch(1);
+				if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
+				{
+					float pinch = Vector2.Distance(touch1.position, touch2.position);
+					if (prevPinch == 0) prevPinch = pinch;
+
+					if (prevPinch != pinch)
 					{
-						float pinch = Vector2.Distance(touch1.position, touch2.position);
-						if (prevPinch == 0) prevPinch = pinch;
 						distance -= (pinch - prevPinch) * ZoomSpeed / 100;
 						distance = Mathf.Clamp(distance, MinDistance, MaxDistance);
-						prevPinch = pinch;
 					}
-					else prevPinch = 0;
+
+					prevPinch = pinch;
 				}
+				else prevPinch = 0;
+			}
+			else if (Input.touchCount > 2)
+			{
+				Touch touch1 = Input.GetTouch(0), touch2 = Input.GetTouch(1);
+				targetOffset = new Vector3(targetOffset.x - touch1.deltaPosition.x / MoveSpeed, 0, targetOffset.z - touch1.deltaPosition.y / MoveSpeed);
+				targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -20 * myTransform.position.y / 30, 20 * myTransform.position.y / 30), 0, Mathf.Clamp(targetOffset.z, -15 * myTransform.position.y / 30, 15 * myTransform.position.y / 30));
 			}
 			#endregion
 
@@ -94,7 +116,7 @@ public class CameraController : MonoBehaviour
 			Quaternion rotation = Quaternion.Euler(y, x, 0);
 
 			Vector3 negDistance = new Vector3(0, 0, -distance);
-			Vector3 position = rotation * negDistance + Target.position;
+			Vector3 position = Vector3.Lerp(myTransform.position, rotation * negDistance + Target.position + targetOffset, Time.deltaTime * EasingAmount);
 
 			myTransform.rotation = rotation;
 			myTransform.position = position;

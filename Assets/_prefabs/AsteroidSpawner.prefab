@@ -41,6 +41,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prototypes:
   - {fileID: 100000, guid: 032441510c83fe74b9ae9e8252010811, type: 2}
+  - {fileID: 100000, guid: c6085722d2998944aa3feb4f153f4970, type: 2}
+  - {fileID: 100000, guid: d60ee31df3e8b9f4fa9781f6e39d6864, type: 2}
+  - {fileID: 100000, guid: 24992c53fdd535143bc11eefa6b84feb, type: 2}
+  - {fileID: 100000, guid: 2b4408c9fe4d11348acb73f5b0c5ec70, type: 2}
   SpawnCD: 2
   MinRadius: 25
   MaxRadius: 30

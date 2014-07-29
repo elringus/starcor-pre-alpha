@@ -8,9 +8,13 @@ public class FloatingBody : MonoBehaviour, IAttackable
     [HideInInspector]
 	public Rigidbody Rigidbody;
 
-    const float G = 50.0f;
+    public GameObject Children;
 
-    private float LifeTime = 100;
+    public int ChildrenCount;
+
+    const float G = 10.0f;
+
+    private float LifeTime = 300;
 
     private Transform GravityCenter;
     public GameObject[] VFX;
@@ -29,7 +33,7 @@ public class FloatingBody : MonoBehaviour, IAttackable
     [SerializeField]
     private float _hp;
 
-    public float HP
+    public float CurrHP
     {
         get { return _hp; }
         set
@@ -45,10 +49,11 @@ public class FloatingBody : MonoBehaviour, IAttackable
 		Rigidbody = rigidbody;
         GravityCenter = GameObject.Find("planet").transform;
         Transform.eulerAngles = new Vector3(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180));
-        float randomScale = Random.Range(0.15f, 0.65f);
-        Transform.localScale = new Vector3(randomScale, randomScale, randomScale);
-        Rigidbody.mass = randomScale.P(3) * 8; ;
-        Destroy(gameObject, 100);
+
+        MaxHP = 25 * Rigidbody.mass;
+        CurrHP = MaxHP;
+
+        Destroy(gameObject, LifeTime);
 	}
 
     public void Instantiate(Vector3 startVelocity)
@@ -72,13 +77,38 @@ public class FloatingBody : MonoBehaviour, IAttackable
     {
         if (attack.ThrowPower.magnitude != 0)
             Rigidbody.AddForce(attack.ThrowPower, ForceMode.Impulse);
-        HP -= attack.Damage;
+        CurrHP -= attack.Damage;
     }
 
     public void Death()
     {
+        CreateChildrens();
+        ((GameObject)Instantiate(VFX[UnityEngine.Random.Range(0, VFX.Length)], Transform.position + new Vector3(0, 0, 0), Quaternion.identity)).transform.localScale = Transform.localScale * 4;
         Destroy(gameObject);
-        Instantiate(VFX[UnityEngine.Random.Range(0, VFX.Length)], Transform.position + new Vector3(0, 0, 0), Quaternion.identity);
     }
 
+    private void CreateChildrens()
+    {
+        if (!Children)
+            return;
+
+        //int n = 0;
+        //if (Rigidbody.mass == 3f)
+        //    n = 1;
+        //if (Rigidbody.mass == 5f)
+        //    n = 2;
+        //if (Rigidbody.mass == 8f)
+        //    n = 3;
+        //if (Rigidbody.mass == 10f)
+        //    n = 5;
+        
+        //Debug.Log(n);
+        
+
+        for (int i = 0; i < ChildrenCount; i++)
+        {
+            Debug.Log("boom");
+            Instantiate(Children, Transform.position, Quaternion.identity);
+        }
+    }
 }

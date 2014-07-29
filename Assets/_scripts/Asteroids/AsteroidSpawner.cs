@@ -12,6 +12,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     public float TargetRadius;
     private Vector3 center;
+    private float Velocity = 0.25f;
     
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class AsteroidSpawner : MonoBehaviour
         Vector3 position = new Vector3(center.x + Mathf.Cos(Random.Range(0, Mathf.PI * 2)) * r, 0, center.z + Mathf.Sin(Random.Range(0, Mathf.PI * 2)) * r);
         Vector3 destination = new Vector3(center.x + Mathf.Cos(Random.Range(0, Mathf.PI * 2)) * TargetRadius, 0, center.z + Mathf.Sin(Random.Range(0, Mathf.PI * 2)) * TargetRadius);
         int n=Random.Range(0, Prototypes.Length);
-        Vector3 startVelocity = (destination - position).normalized * 1;
+        Vector3 startVelocity = (destination - position).normalized * Velocity;
 
         FloatingBody fBody = ((GameObject)Instantiate(Prototypes[n], position, Quaternion.identity)).GetComponent<FloatingBody>();
         fBody.Instantiate(startVelocity);

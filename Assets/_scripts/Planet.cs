@@ -39,7 +39,7 @@ public class Planet : MonoBehaviour, IAttackable
     {
         if(col.GetComponent<FloatingBody>())
         {
-            HP -= col.rigidbody.velocity.magnitude * col.rigidbody.mass * 100;
+            HP -= col.rigidbody.mass * 50;
             col.GetComponent<FloatingBody>().Death();
         }
     }

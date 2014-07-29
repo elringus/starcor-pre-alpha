@@ -1193,7 +1193,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &68813107
 BoxCollider:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500012, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 831487963}
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   MoveSpeed: 20
   YMinLimit: -180
   YMaxLimit: 180
+  FrameLimit: {x: 15, y: 10}
   MinDistance: 5
   MaxDistance: 15
   EasingAmount: 3
@@ -2309,7 +2310,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &169731171
 BoxCollider:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500004, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 831487963}
@@ -4136,7 +4137,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &282430217
 BoxCollider:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500014, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 831487963}
@@ -11040,7 +11041,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &917291937
 BoxCollider:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500000, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 831487963}
@@ -11298,7 +11299,7 @@ Transform:
   m_RootOrder: 3
 --- !u!65 &961708481
 BoxCollider:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500006, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 831487963}
@@ -19695,7 +19696,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &1544117268
 BoxCollider:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500010, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 831487963}
@@ -22750,7 +22751,7 @@ MonoBehaviour:
   direction: 0
 --- !u!65 &1830100655
 BoxCollider:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500002, guid: d1d97913b0f6787458d3c03100685567,
     type: 2}
   m_PrefabInternal: {fileID: 831487963}

@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
 	public float YMinLimit;
 	public float YMaxLimit;
 
+	public Vector2 FrameLimit;
+
 	public float MinDistance;
 	public float MaxDistance;
 
@@ -52,11 +54,18 @@ public class CameraController : MonoBehaviour
 			{
 				if (Input.GetMouseButton(1))
 				{
-					Screen.lockCursor = true;
-					x += Input.GetAxis("Mouse X") * XSpeed * distance;
-					y -= Input.GetAxis("Mouse Y") * YSpeed;
+					//Screen.lockCursor = true;
+					//x += Input.GetAxis("Mouse X") * XSpeed * distance;
+					//y -= Input.GetAxis("Mouse Y") * YSpeed;
+
+					if (!dfGUIManager.HitTestAll(Input.mousePosition))
+					{
+						targetOffset = new Vector3(targetOffset.x + Input.GetAxis("Mouse X"), 0, targetOffset.z + Input.GetAxis("Mouse Y"));
+						targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -FrameLimit.x * myTransform.position.y / 30, FrameLimit.x * myTransform.position.y / 30), 0,
+							Mathf.Clamp(targetOffset.z, -FrameLimit.y * myTransform.position.y / 30, FrameLimit.y * myTransform.position.y / 30));
+					}
 				}
-				else Screen.lockCursor = false;
+				//else Screen.lockCursor = false;
 
 				distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * ZoomSpeed, MinDistance, MaxDistance);
 			}
@@ -78,41 +87,45 @@ public class CameraController : MonoBehaviour
 			//	}
 			//	else prevTouchPos = Vector2.zero;
 			//}
-			if (Input.touchCount == 1)
+			else
 			{
-				Touch touch = Input.GetTouch(0);
-
-				if (touch.phase == TouchPhase.Ended)
+				if (Input.touchCount == 1)
 				{
-					if (Time.time < doubleTapTimer + .3f) 
-						targetOffset = Vector3.zero;
-					doubleTapTimer = Time.time;
-				}
+					Touch touch = Input.GetTouch(0);
 
-				if (touch.phase == TouchPhase.Moved && !dfGUIManager.HitTestAll(touch.rawPosition))
-				{
-					targetOffset = new Vector3(targetOffset.x - touch.deltaPosition.x / MoveSpeed, 0, targetOffset.z - touch.deltaPosition.y / MoveSpeed);
-					targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -20 * myTransform.position.y / 30, 20 * myTransform.position.y / 30), 0, Mathf.Clamp(targetOffset.z, -15 * myTransform.position.y / 30, 15 * myTransform.position.y / 30));
-				}
-			}
-			else if (Input.touchCount == 2)
-			{
-				Touch touch1 = Input.GetTouch(0), touch2 = Input.GetTouch(1);
-				if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
-				{
-					float pinch = Vector2.Distance(touch1.position, touch2.position);
-					if (prevPinch == 0) prevPinch = pinch;
-
-					if (prevPinch != pinch)
+					if (touch.phase == TouchPhase.Ended)
 					{
-						distance -= (pinch - prevPinch) * ZoomSpeed / 100;
-						distance = Mathf.Clamp(distance, MinDistance, MaxDistance);
+						if (Time.time < doubleTapTimer + .3f)
+							targetOffset = Vector3.zero;
+						doubleTapTimer = Time.time;
 					}
 
-					prevPinch = pinch;
+					if (touch.phase == TouchPhase.Moved && !dfGUIManager.HitTestAll(touch.rawPosition))
+					{
+						targetOffset = new Vector3(targetOffset.x - touch.deltaPosition.x / MoveSpeed, 0, targetOffset.z - touch.deltaPosition.y / MoveSpeed);
+						targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -FrameLimit.x * myTransform.position.y / 30, FrameLimit.x * myTransform.position.y / 30), 0,
+							Mathf.Clamp(targetOffset.z, -FrameLimit.y * myTransform.position.y / 30, FrameLimit.y * myTransform.position.y / 30));
+					}
 				}
-				else prevPinch = 0;
 			}
+			//else if (Input.touchCount == 2)
+			//{
+			//	Touch touch1 = Input.GetTouch(0), touch2 = Input.GetTouch(1);
+			//	if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
+			//	{
+			//		float pinch = Vector2.Distance(touch1.position, touch2.position);
+			//		if (prevPinch == 0) prevPinch = pinch;
+
+			//		if (prevPinch != pinch)
+			//		{
+			//			distance -= (pinch - prevPinch) * ZoomSpeed / 100;
+			//			distance = Mathf.Clamp(distance, MinDistance, MaxDistance);
+			//		}
+
+			//		prevPinch = pinch;
+			//	}
+			//	else prevPinch = 0;
+			//}
 			#endregion
 
 			y = ClampAngle(y, YMinLimit, YMaxLimit);

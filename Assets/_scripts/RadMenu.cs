@@ -22,6 +22,7 @@ public class RadMenu : MonoBehaviour
 	public dfButton buttonRocketLauncher;
 	public dfButton buttonLaserBeam;
 	public dfButton buttonRocketVolley;
+	public dfButton buttonTurretBuilder;
 
 	private void Awake () 
 	{
@@ -40,6 +41,12 @@ public class RadMenu : MonoBehaviour
 		buttonLaserBeam.Click += (c, e) =>
 		{
 			selectedDefenceSpot.SpawnTower(TowerType.LaserBeam);
+			ToggleRadMenu(null);
+		};
+
+		buttonTurretBuilder.Click += (c, e) =>
+		{
+			selectedDefenceSpot.SpawnTower(TowerType.TurretBuilder);
 			ToggleRadMenu(null);
 		};
 	}

@@ -3,5 +3,6 @@ public enum TowerType
 {
 	RocketLauncher,
 	RocketVolley,
-	LaserBeam
+	LaserBeam,
+	TurretBuilder
 }

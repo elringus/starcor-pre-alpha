@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: defence-spot
+  m_Name: _TurretBuilder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,16 +36,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4b7749e4a4914ba666146558853d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a515342b6e0fa7459ab103d5490d07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketLauncher: {fileID: 11400000, guid: ced21ab153ce532438878da0214f4d6c, type: 2}
-  RocketVolley: {fileID: 11400000, guid: 130be3452b748ba4eb7bf673f57cb5c9, type: 2}
-  LaserBeam: {fileID: 11400000, guid: df0af123023bc264b8486d1f0e7e96d5, type: 2}
-  TurretBuilder: {fileID: 11400000, guid: f41b8df6dcf18e64dafbf04846848a71, type: 2}
-  TowerIcon: {fileID: 0}
-  TowerCDIcon: {fileID: 0}
-  CurrentTower: {fileID: 0}
+  Transform: {fileID: 0}
+  GameObject: {fileID: 0}
+  Prototype: {fileID: 0}
+  RechargeCD: 30
+  TurretPrototype: {fileID: 100000, guid: 778521af98a9d594198175ec27b94313, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

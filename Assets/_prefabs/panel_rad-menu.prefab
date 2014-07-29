@@ -119,7 +119,7 @@ GameObject:
   - 65: {fileID: 6500014}
   - 114: {fileID: 11400024}
   m_Layer: 8
-  m_Name: button_find-artifacts
+  m_Name: button_turret-builder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.15662384, y: -.150909424, z: 0}
+  m_LocalPosition: {x: -.15041098, y: -.145261139, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -223,9 +223,9 @@ BoxCollider:
   m_GameObject: {fileID: 100000}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: .520833373, y: .520833373, z: .00100000005}
+  m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500002
 BoxCollider:
@@ -235,9 +235,9 @@ BoxCollider:
   m_GameObject: {fileID: 100002}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: .15625, y: .15625, z: .00100000005}
+  m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500004
 BoxCollider:
@@ -247,9 +247,9 @@ BoxCollider:
   m_GameObject: {fileID: 100004}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: .15625, y: .15625, z: .00100000005}
+  m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500006
 BoxCollider:
@@ -259,9 +259,9 @@ BoxCollider:
   m_GameObject: {fileID: 100006}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: .260416687, y: .260416687, z: .00100000005}
+  m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500010
 BoxCollider:
@@ -271,9 +271,9 @@ BoxCollider:
   m_GameObject: {fileID: 100010}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: .15625, y: .15625, z: .00100000005}
+  m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500012
 BoxCollider:
@@ -283,9 +283,9 @@ BoxCollider:
   m_GameObject: {fileID: 100012}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: .390625, y: .390625, z: .00100000005}
+  m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: .1953125, y: -.1953125, z: 0}
 --- !u!65 &6500014
 BoxCollider:
@@ -295,9 +295,9 @@ BoxCollider:
   m_GameObject: {fileID: 100014}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: .15625, y: .15625, z: .00100000005}
+  m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -312,14 +312,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorStyle: 0
   isEnabled: 1
-  isVisible: 1
+  isVisible: 0
   isInteractive: 1
   tooltip: 
   pivot: 4
   zindex: 6
   color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   disabledColor:
     serializedVersion: 2
     rgba: 4294967295
@@ -996,8 +996,8 @@ MonoBehaviour:
   autoRun: 0
   skipToEndOnStop: 0
   delayBeforeStarting: 0
-  startValue: {x: 123.492188, y: 125, z: 0}
-  endValue: {x: 36.0898438, y: 213.722656, z: 0}
+  startValue: {x: 68.4023438, y: 69, z: 0}
+  endValue: {x: 12.2421875, y: 125.78125, z: 0}
   direction: 0
 --- !u!114 &11400026
 MonoBehaviour:
@@ -1033,17 +1033,17 @@ MonoBehaviour:
   layout:
     anchorStyle: 6
     margins:
-      left: 9.85546875
-      top: 127.949219
-      right: 130.144531
-      bottom: 12.0507812
+      left: 12.2421875
+      top: 125.78125
+      right: 127.757812
+      bottom: 14.21875
     owner: {fileID: 11400026}
   renderOrder: 6
   isLocalized: 0
   hotZoneScale: {x: 1, y: 1}
   allowSignalEvents: 1
   atlas: {fileID: 11400000, guid: 061b63b910d71734eb8a953efb83a358, type: 2}
-  backgroundSprite: tex_ButtonFindArtifactsNormal
+  backgroundSprite: tex_Turret
   hoverSprite: tex_ButtonFindArtifactsHover
   disabledSprite: tex_ButtonFindArtifactsDisabled
   focusSprite: tex_ButtonFindArtifactsNormal

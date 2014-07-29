@@ -6,6 +6,7 @@ public class DefenceSpot : MonoBehaviour
 	public Tower RocketLauncher;
 	public Tower RocketVolley;
 	public Tower LaserBeam;
+	public Tower TurretBuilder;
 
 	[HideInInspector]
 	public dfRadialSprite TowerIcon;
@@ -73,6 +74,10 @@ public class DefenceSpot : MonoBehaviour
 			case TowerType.LaserBeam:
 				CurrentTower = GameObject.Instantiate(LaserBeam, transform.position, Quaternion.identity) as Tower;
 				TowerIcon.SpriteName = "tex_LaserBeam";
+				break;
+			case TowerType.TurretBuilder:
+				CurrentTower = GameObject.Instantiate(TurretBuilder, transform.position, Quaternion.identity) as Tower;
+				TowerIcon.SpriteName = "tex_Turret";
 				break;
 		}
 	}

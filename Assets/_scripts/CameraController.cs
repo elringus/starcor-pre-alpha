@@ -42,13 +42,16 @@ public class CameraController : MonoBehaviour
 	private Vector2 prevTouchPos;
 	private Vector3 targetOffset;
 	private float doubleTapTimer;
+	private Transform innerCamera;
+	private float shakeFactor;
 
 	private void Awake ()
 	{
 		// lock fps to prevent battery wasting
 		//Application.targetFrameRate = 60;
 
-		myTransform = transform;
+		myTransform = transform.parent;
+		innerCamera = transform;
 		distance = MaxDistance;
 	}
 
@@ -63,8 +66,8 @@ public class CameraController : MonoBehaviour
 	{
 		if (ShakeAmount > 0)
 		{
-			myTransform.localPosition = Random.insideUnitSphere * .5f;
-			myTransform.localPosition = new Vector3(myTransform.localPosition.x, 10, myTransform.localPosition.z);
+			innerCamera.localPosition = Random.insideUnitSphere * shakeFactor;
+			innerCamera.localPosition = new Vector3(innerCamera.localPosition.x, 0, innerCamera.localPosition.z);
 			ShakeAmount -= Time.deltaTime * 1.5f;
 		}
 		else ShakeAmount = 0;
@@ -169,5 +172,11 @@ public class CameraController : MonoBehaviour
 		if (angle < -360F) angle += 360F;
 		if (angle > 360F) angle -= 360F;
 		return Mathf.Clamp(angle, min, max);
+	}
+
+	public void Shake (float amount, float length)
+	{
+		ShakeAmount = length;
+		shakeFactor = amount;
 	}
 }

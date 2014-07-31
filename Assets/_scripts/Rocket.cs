@@ -79,7 +79,8 @@ public class Rocket : MonoBehaviour
 		{
 			Instantiate(VFX[UnityEngine.Random.Range(0, VFX.Length)], Transform.position + new Vector3(0, 1, 0), Quaternion.identity);
 			print(gameObject.name);
-			if (gameObject.name == "rocket(Clone)") CameraController.I.ShakeAmount = .25f;
+			if (gameObject.name == "rocket(Clone)") CameraController.I.Shake(.65f, 0.25f);
+			else CameraController.I.Shake(.05f, 0.1f);
 			Explode(attack, col);
 		}
     }

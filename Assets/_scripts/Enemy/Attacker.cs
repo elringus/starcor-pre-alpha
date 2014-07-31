@@ -79,8 +79,6 @@ public abstract class Attacker : MonoBehaviour, IAttackable
 
     protected virtual bool FindTarget()
     {
-		if (currTarget != null) return false;
-
 		timerCD = 3;
 
         IAttackable possibleTarget = null;

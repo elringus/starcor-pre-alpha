@@ -11,5 +11,13 @@ public class Turret : Attacker
 
     protected override void Start()
     {
+
+
     }
+
+	protected override void Shoot ()
+	{
+		base.Shoot();
+		Transform.LookAt((((MonoBehaviour)currTarget).transform.position));
+	}
 }

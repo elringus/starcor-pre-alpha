@@ -13,6 +13,7 @@ GameObject:
   - 136: {fileID: 13600000}
   - 114: {fileID: 11400002}
   - 54: {fileID: 5400000}
+  - 96: {fileID: 9600000}
   m_Layer: 0
   m_Name: minirocket
   m_TagString: Rocket
@@ -74,6 +75,47 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!96 &9600000
+TrailRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: e6fee82e090728b4295864da37ac4cc9, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 3
+  m_StartWidth: .0149999997
+  m_EndWidth: 0
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 2348766720
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 1845463808
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 1342166272
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 553642496
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

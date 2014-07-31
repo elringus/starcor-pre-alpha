@@ -69,8 +69,7 @@ public class Rocket : MonoBehaviour
                 lastIndex = currIndex;
             }
         }
-        else
-            Destroy(GameObject);
+        else Destroy(GameObject);
         
     }
 

@@ -1202,7 +1202,6 @@ GameObject:
   - 124: {fileID: 78972219}
   - 81: {fileID: 78972218}
   - 114: {fileID: 78972223}
-  - 114: {fileID: 78972224}
   m_Layer: 0
   m_Name: _camera
   m_TagString: MainCamera
@@ -1297,22 +1296,6 @@ MonoBehaviour:
   MinDistance: 5
   MaxDistance: 15
   EasingAmount: 3
---- !u!114 &78972224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 78972217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c12500f3afdeb24d9444042960a4cb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloomIntensity: .0149999997
-  shader: {fileID: 4800000, guid: 6581f8d2f208b8340b8d59c7bf38cc9a, type: 3}
-  lensDirtTexture: {fileID: 2800000, guid: 8279120499888f0459f22a619fc51ab6, type: 3}
-  lensDirtIntensity: .0500000007
-  inputIsHDR: 1
 --- !u!1 &86099332
 GameObject:
   m_ObjectHideFlags: 0
@@ -8596,7 +8579,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684390249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .00130208337, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 516872265}

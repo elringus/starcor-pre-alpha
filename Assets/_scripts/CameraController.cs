@@ -3,6 +3,19 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
+	#region SINGLETON
+	private static CameraController _instance;
+	public static CameraController I
+	{
+		get
+		{
+			if (_instance == null) _instance = FindObjectOfType(typeof(CameraController)) as CameraController;
+			return _instance;
+		}
+	}
+	private void OnApplicationQuit () { _instance = null; }
+	#endregion
+
 	public Transform Target;
 	public float XSpeed;
 	public float YSpeed;
@@ -19,6 +32,8 @@ public class CameraController : MonoBehaviour
 
 	public float EasingAmount;
 
+	public float ShakeAmount;
+
 	private Transform myTransform;
 	private float distance;
 	private float x;
@@ -26,7 +41,6 @@ public class CameraController : MonoBehaviour
 	private float prevPinch;
 	private Vector2 prevTouchPos;
 	private Vector3 targetOffset;
-
 	private float doubleTapTimer;
 
 	private void Awake ()
@@ -43,6 +57,17 @@ public class CameraController : MonoBehaviour
 		Vector3 angles = myTransform.eulerAngles;
 		x = angles.y;
 		y = angles.x;
+	}
+
+	private void Update ()
+	{
+		if (ShakeAmount > 0)
+		{
+			myTransform.localPosition = Random.insideUnitSphere * .5f;
+			myTransform.localPosition = new Vector3(myTransform.localPosition.x, 10, myTransform.localPosition.z);
+			ShakeAmount -= Time.deltaTime * 1.5f;
+		}
+		else ShakeAmount = 0;
 	}
 
 	private void LateUpdate ()

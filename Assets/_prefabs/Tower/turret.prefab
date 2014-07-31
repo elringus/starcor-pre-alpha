@@ -75,10 +75,11 @@ MonoBehaviour:
   RechargeCD: .5
   MaxHP: 300
   _hp: 300
-  Damage: 6
-  Range: 5
+  Damage: 2
+  Range: 4
   OwnType: 0
-  navMesh: {fileID: 0}
+  navAgent: {fileID: 0}
+  VFXDeath: {fileID: 0}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

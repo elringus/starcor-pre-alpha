@@ -73,16 +73,20 @@ public abstract class Attacker : MonoBehaviour, IAttackable
         timerCD = timerCD > 0 ? timerCD - Time.deltaTime : 0;
 
         if (timerCD == 0)
-            if (FindTarget())
+            if (FindTarget() || currTarget != null)
                 Shoot();
     }
 
     protected virtual bool FindTarget()
     {
+		if (currTarget != null) return false;
+
+		timerCD = 3;
+
         IAttackable possibleTarget = null;
         IAttackable target = null;
         bool miss = true;
-        foreach (var hit in Physics.OverlapSphere(transform.position, Range))
+        foreach (var hit in Physics.OverlapSphere(Transform.position, Range))
         {
             target = attack.CanAttack(hit.transform);
             if (target != null)
@@ -133,11 +137,15 @@ public abstract class Attacker : MonoBehaviour, IAttackable
 
 	protected virtual void Shoot ()
 	{
-		timerCD = RechargeCD;
-		var projectile = (Instantiate(Projectile, Transform.position, Quaternion.identity) as GameObject).GetComponent<Projectile>();
-        projectile.attack = new Attack(Damage, OwnType, AimType.NonFriend);
-        projectile.Transform.LookAt(((MonoBehaviour)currTarget).transform.position);
-        projectile.Direction = new Vector3(0, 0, 1);
+		try
+		{
+			timerCD = RechargeCD;
+			var projectile = (Instantiate(Projectile, Transform.position, Quaternion.identity) as GameObject).GetComponent<Projectile>();
+			projectile.attack = new Attack(Damage, OwnType, AimType.NonFriend);
+			projectile.Transform.LookAt(((MonoBehaviour)currTarget).transform.position);
+			projectile.Direction = new Vector3(0, 0, 1);
+		}
+		catch { FindTarget(); }
 	}
 
 	public virtual void RecieveAtatck (Attack attack)

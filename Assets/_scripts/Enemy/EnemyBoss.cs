@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemyBoss : Attacker
 {
 	public GameObject HPBarPrefab;
-	public GameObject VFXDeath;
 
 	private dfProgressBar hpBar;
     
@@ -30,7 +29,6 @@ public class EnemyBoss : Attacker
 
 	protected override void Death ()
 	{
-		Instantiate(VFXDeath, Transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
 		dfGUIManager.Destroy(hpBar);
 		base.Death();
 	}

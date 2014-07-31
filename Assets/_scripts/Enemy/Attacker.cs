@@ -42,7 +42,9 @@ public abstract class Attacker : MonoBehaviour, IAttackable
     }
 
     private Attack attack;
-	public NavMeshAgent navMesh;
+	public NavMeshAgent navAgent;
+
+	public GameObject VFXDeath;
 
 	protected Transform mainTarget;
     protected IAttackable currTarget;
@@ -52,7 +54,7 @@ public abstract class Attacker : MonoBehaviour, IAttackable
 		Transform = transform;
 		GameObject = gameObject;
         attack = new Attack(Damage, OwnType, AimType.Foe);
-		navMesh = GetComponent<NavMeshAgent>();
+		navAgent = GetComponent<NavMeshAgent>();
 
         if (OwnType == OwnType.Allien)
             mainTarget = GameObject.Find("planet").transform;
@@ -65,8 +67,8 @@ public abstract class Attacker : MonoBehaviour, IAttackable
 
     protected virtual void Update()
     {
-        if (navMesh != null)
-            navMesh.SetDestination(mainTarget.position);
+        if (navAgent != null)
+            navAgent.SetDestination(mainTarget.position);
 
         timerCD = timerCD > 0 ? timerCD - Time.deltaTime : 0;
 
@@ -145,6 +147,7 @@ public abstract class Attacker : MonoBehaviour, IAttackable
 
 	protected virtual void Death ()
 	{
+		if (VFXDeath) Instantiate(VFXDeath, Transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
 		Destroy(GameObject);
 	}
 }

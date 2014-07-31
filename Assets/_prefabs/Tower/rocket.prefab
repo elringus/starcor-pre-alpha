@@ -93,7 +93,7 @@ MonoBehaviour:
   Speed: 3
   AngularSpeed: 45
   ThrowPower: 4
-  ExplosionRadius: 5
+  ExplosionRadius: 3.5
   AimType: 2
   BaseTower: {fileID: 0}
 --- !u!136 &13600000

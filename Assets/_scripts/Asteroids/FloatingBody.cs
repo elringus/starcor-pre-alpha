@@ -8,9 +8,7 @@ public class FloatingBody : MonoBehaviour, IAttackable
     [HideInInspector]
 	public Rigidbody Rigidbody;
 
-    public GameObject Children;
-
-    public int ChildrenCount;
+    public GameObject[] Shards;
 
     const float G = 10.0f;
 
@@ -50,9 +48,6 @@ public class FloatingBody : MonoBehaviour, IAttackable
         GravityCenter = GameObject.Find("planet").transform;
         Transform.eulerAngles = new Vector3(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180));
 
-        MaxHP = 25 * Rigidbody.mass;
-        CurrHP = MaxHP;
-
         Destroy(gameObject, LifeTime);
 	}
 
@@ -89,26 +84,9 @@ public class FloatingBody : MonoBehaviour, IAttackable
 
     private void CreateChildrens()
     {
-        if (!Children)
-            return;
+        if (Shards.Length == 0) return;
 
-        //int n = 0;
-        //if (Rigidbody.mass == 3f)
-        //    n = 1;
-        //if (Rigidbody.mass == 5f)
-        //    n = 2;
-        //if (Rigidbody.mass == 8f)
-        //    n = 3;
-        //if (Rigidbody.mass == 10f)
-        //    n = 5;
-        
-        //Debug.Log(n);
-        
-
-        for (int i = 0; i < ChildrenCount; i++)
-        {
-            Debug.Log("boom");
-            Instantiate(Children, Transform.position, Quaternion.identity);
-        }
+        for (int i = 0; i < Shards.Length; i++) 
+			Instantiate(Shards[i], Transform.position, Quaternion.identity);
     }
 }

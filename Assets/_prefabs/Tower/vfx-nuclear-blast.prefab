@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keepMeshSize: 0
-  size: {x: 5, y: 5, z: 5}
+  size: {x: 7, y: 7, z: 7}
   speedGrowing: .200000003
   billboarding: 0
   randomRotation: 1

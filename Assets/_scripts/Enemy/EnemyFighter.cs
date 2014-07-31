@@ -18,8 +18,8 @@ public class EnemyFighter : Attacker
 
 	private void Randomize ()
 	{
-		navMesh.speed += Random.Range(-.15f, .2f);
-		navMesh.acceleration += Random.Range(-1.5f, 1f);
+		navAgent.speed += Random.Range(-.15f, .2f);
+		navAgent.acceleration += Random.Range(-1.5f, 1f);
 
 		//float randScale = Random.Range(.1f, .3f);
 		//Transform.localScale = new Vector3(randScale, randScale, randScale);

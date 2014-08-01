@@ -27,7 +27,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: .00999999978
@@ -44,7 +44,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
   tangentSpace:
-    normalSmoothAngle: 78
+    normalSmoothAngle: 180
     splitTangentsAcrossUV: 1
     normalImportMode: 1
     tangentImportMode: 1

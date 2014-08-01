@@ -16,7 +16,6 @@ public class LaserCannon : Tower
     private bool inOverHeating;
 
     private Vector3 direction;
-    private Vector3 origin;
     private LineRenderer lineRenderer;
 
 
@@ -25,13 +24,12 @@ public class LaserCannon : Tower
     protected override void Awake()
     {
         base.Awake();
-        origin = Transform.position;
         
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
         lineRenderer.SetVertexCount(2);
-        lineRenderer.SetPosition(0, origin);
-        Transform.localScale = new Vector3(0, 0, 0);
+        lineRenderer.SetPosition(0, Transform.position);
+       // Transform.localScale = new Vector3(0, 0, 0);
     }
     protected override void StartTargeting()
     {
@@ -44,7 +42,7 @@ public class LaserCannon : Tower
         var p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
         direction = new Vector3(p.x, 0, p.z);
 
-        if (Vector3.Distance(origin, direction) > TargetingRadius)
+		if (Vector3.Distance(Transform.position, direction) > TargetingRadius)
             FinishTargeting();
         else
             lineRenderer.SetPosition(1, direction);
@@ -71,8 +69,8 @@ public class LaserCannon : Tower
     private void Produce()
     {
         HeatUp();
-        var destination = (direction - origin).normalized * AttackRange + origin;
-        ((GameObject)Instantiate(Prototype, origin, Quaternion.identity)).GetComponent<LaserBeam>().Instantiate(origin, destination);
+		var destination = (direction - Transform.position).normalized * AttackRange + Transform.position;
+		((GameObject)Instantiate(Prototype, Transform.position, Quaternion.identity)).GetComponent<LaserBeam>().Instantiate(Transform.position, destination);
     }
 
     protected override void Update()

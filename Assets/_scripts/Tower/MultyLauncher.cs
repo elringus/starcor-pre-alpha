@@ -16,7 +16,7 @@ public class MultyLauncher : Launcher
     {
         RechargeTimer = RechargeCD;
         AddDeathPath();
-        Points.Insert(0, StartPoint);
+		Points.Insert(0, Transform.position);
         StartCoroutine(GenVolleys());
     }
 
@@ -46,7 +46,7 @@ public class MultyLauncher : Launcher
             if (correction == 0 || i != 0)
             {
                 var points = OffsetPoints(Points, OffsetValue * i - Mathf.Sign(i) * correction);
-                points.Insert(0, StartPoint);
+				points.Insert(0, Transform.position);
                 points = GetInteropPoints(points);
                 var rocky = ((GameObject)Instantiate(Prototype, points[0], Quaternion.identity));
                 rocky.GetComponent<Rocket>().Initialize(points,this);

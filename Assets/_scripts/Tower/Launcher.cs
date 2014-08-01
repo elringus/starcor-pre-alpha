@@ -15,7 +15,6 @@ public class Launcher : Tower
     protected LineRenderer lineRenderer;
     protected int maxVertCount = 200;
     protected int currVertCount = 0;
-    protected Vector3 StartPoint;
 
     private int stepsInSemicircle;
     private float stepAngle;
@@ -30,7 +29,6 @@ public class Launcher : Tower
         lineRenderer.enabled = false;
         lineRenderer.SetVertexCount(maxVertCount);
         interopStep = StepLength / InteropFactor;
-        StartPoint = Transform.position;
         IntialCorrectValues();
     }
     protected override void StartTargeting()
@@ -68,7 +66,7 @@ public class Launcher : Tower
     {
         base.Produce();
         AddDeathPath();
-        Points.Insert(0, StartPoint);
+        Points.Insert(0, Transform.position);
         var rocky = ((GameObject)Instantiate(Prototype, Points[0], Quaternion.identity));
         rocky.GetComponent<Rocket>().Initialize(GetInteropPoints(Points),this);
     }

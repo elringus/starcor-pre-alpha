@@ -24,6 +24,8 @@ public class RadMenu : MonoBehaviour
 	public dfButton buttonRocketVolley;
 	public dfButton buttonTurretBuilder;
 
+	private DefenceSpot targetSpot;
+
 	private void Awake () 
 	{
 		buttonRocketLauncher.Click += (c, e) =>
@@ -53,20 +55,19 @@ public class RadMenu : MonoBehaviour
 
 	private void Update () 
 	{
-    	
+		if (panelRadialMenu.IsVisible) 
+			panelRadialMenu.RelativePosition = panelRadialMenu.GetManager().WorldPointToGUI(targetSpot.transform.position) - (Vector2)panelRadialMenu.Size * .5f;
 	}
 
 	public void ToggleRadMenu (DefenceSpot defenceSpot)
 	{
 		selectedDefenceSpot = defenceSpot;
 
-		if (panelRadialMenu.IsVisible)
-		{
+		if (panelRadialMenu.IsVisible) 
 			panelRadialMenu.IsVisible = false;
-		}
 		else
 		{
-			panelRadialMenu.RelativePosition = (Vector2)defenceSpot.TowerIcon.RelativePosition - (Vector2)panelRadialMenu.Size * .35f;
+			targetSpot = defenceSpot;
 			panelRadialMenu.IsVisible = true;
 			panelRadialMenu.GetComponent<dfTweenFloat>().Play();
 			foreach (dfControl but in panelRadialMenu.Controls) if (but is dfButton) but.GetComponent<dfTweenVector3>().Play();

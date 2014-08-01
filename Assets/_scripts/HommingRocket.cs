@@ -9,7 +9,8 @@ public class HommingRocket : Rocket
     public float SearchRadius;
     public float SearchPeriod;
 
-    public float HomingAcceleration;
+    public float SpeedAcceleration;
+    public float AngularAcceleration;
 
     private bool isTrajectoryFlight;
     private float lifeTime = 3;
@@ -27,13 +28,12 @@ public class HommingRocket : Rocket
         if (isTrajectoryFlight)
             base.Update();
         else
-          if(currTarget==null)
-          {
-              Transform.Translate(new Vector3(0, 0, 1) * Speed * Time.deltaTime);
-              lifeTime -= Time.deltaTime;
-              if (lifeTime <= 0)
-                  Explode(attack, null);
-          }
+        {
+            if (currTarget == null) Transform.Translate(new Vector3(0, 0, 1) * Speed * Time.deltaTime);
+            lifeTime -= Time.deltaTime;
+            if (lifeTime <= 0)
+                Explode(attack, null);
+        }
     }
 
     private IEnumerator Homming()
@@ -51,7 +51,8 @@ public class HommingRocket : Rocket
     {
         iTween.Stop(GameObject);
         isTrajectoryFlight = false;
-        Speed += HomingAcceleration;
+        Speed += SpeedAcceleration;
+        AngularSpeed += AngularAcceleration;
         trailRenderer.startWidth = 0.33f;
         trailRenderer.endWidth = 0.05f;
     }

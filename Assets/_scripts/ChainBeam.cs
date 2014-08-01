@@ -9,9 +9,9 @@ public class ChainBeam : LaserBeam
     public float MissPerJump;
     public int TargetsCount;
     
-    //private int currVertCount;
     private int maxVertCount;
-    private float jumpDelay = 0.15f;
+    private float jumpDelay = 0.125f;
+    private Vector3 lastOrigin;
 
     private List<Transform> previousTargets = new List<Transform>();
     protected override void Awake()
@@ -19,7 +19,6 @@ public class ChainBeam : LaserBeam
         base.Awake();
         maxVertCount = TargetsCount + 1;
         lineRenderer.SetVertexCount(maxVertCount);
-        //currVertCount = 1;
     }
 
     public override void Instantiate(Vector3 origin, Vector3 destination)
@@ -31,17 +30,23 @@ public class ChainBeam : LaserBeam
         if (hitTarget == null)
             lineRenderer.SetPosition(1, destination);
         else
+            StartCoroutine(GoJumping());
+    }
+
+    protected override RaycastHit? GetTarget(Vector3 origin, Vector3 destination)
+    {
+        var hit = base.GetTarget(origin, destination);
+
+        if(hit!=null)
         {
-            previousTargets.Add(hitTarget.Value.transform);
+            previousTargets.Add(hit.Value.transform);
+            lastOrigin = hit.Value.transform.position;
             for (int i = 1; i < maxVertCount; i++)
                 lineRenderer.SetPosition(i, previousTargets[0].position);
-
-            FindTargets(hitTarget.Value.transform.position);
-            LifeTime = jumpDelay * (previousTargets.Count+1);
-            StartCoroutine(GoJump());
         }
+
+        return hit;
     }
-   
 
     private void FindTargets(Vector3 origin)
     {
@@ -58,19 +63,36 @@ public class ChainBeam : LaserBeam
         }
     }
 
-    private IEnumerator GoJump()
+    private IEnumerator GoJumping()
     {
-        for (int i = 1; i < previousTargets.Count; i++)
+        while (JumpToNextTarget(lastOrigin) && previousTargets.Count <= TargetsCount)
         {
-            for (int j = i+1; j < maxVertCount;j++ )
-                lineRenderer.SetPosition(j, previousTargets[i].position);
-            
-            attack.Damage *= (1 - MissPerJump);
-            attack.MakeAttack(previousTargets[i]);
-
-                yield return new WaitForSeconds(jumpDelay);
+            LifeTime += jumpDelay;
+            yield return new WaitForSeconds(jumpDelay);
         }
     }
 
+    private bool JumpToNextTarget(Vector3 origin)
+    {
+        foreach (var hit in Physics.OverlapSphere(origin, JumpRadius))
+        {
+            if (!previousTargets.Contains(hit.transform))
+                if (attack.CanAttack(hit.transform) != null)
+                {
+                    previousTargets.Add(hit.transform);
+                    lastOrigin = hit.transform.position;
+
+                    for (int i = previousTargets.Count; i < maxVertCount; i++)
+                        lineRenderer.SetPosition(i, previousTargets.Last().position);
+
+                    attack.Damage *= (1 - MissPerJump);
+                    attack.MakeAttack(previousTargets.Last());
+
+                    return true;
+                }
+        }
+
+        return false;
+    }
 
 }

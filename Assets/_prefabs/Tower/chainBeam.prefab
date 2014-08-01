@@ -40,9 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f556688a59cd224ca5705e34d1922c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeTime: .5
+  LifeTime: .300000012
   BeamWidth: .100000001
-  Damage: 30
+  Damage: 20
   AimType: 2
   JumpRadius: 5
   MissPerJump: .150000006

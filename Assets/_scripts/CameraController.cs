@@ -29,6 +29,7 @@ public class CameraController : MonoBehaviour
 
 	public float MinDistance;
 	public float MaxDistance;
+	public float DefaultDistance;
 
 	public float EasingAmount;
 
@@ -52,7 +53,7 @@ public class CameraController : MonoBehaviour
 
 		myTransform = transform.parent;
 		innerCamera = transform;
-		distance = MaxDistance;
+		distance = DefaultDistance;
 	}
 
 	private void Start ()
@@ -75,96 +76,91 @@ public class CameraController : MonoBehaviour
 
 	private void LateUpdate ()
 	{
-		if (Target)
+		if (!Target) return;
+
+		bool inputting = ColliderRelay.IsInputting();
+
+		#region MOUSE_INPUT
+		if (Application.isEditor)
 		{
-			#region MOUSE_INPUT
-			if (Application.isEditor)
+			if (Input.GetMouseButton(1) && !inputting)
 			{
-				if (Input.GetMouseButton(1))
+				if (!dfGUIManager.HitTestAll(Input.mousePosition))
 				{
-					//Screen.lockCursor = true;
-					//x += Input.GetAxis("Mouse X") * XSpeed * distance;
-					//y -= Input.GetAxis("Mouse Y") * YSpeed;
-
-					if (!dfGUIManager.HitTestAll(Input.mousePosition))
-					{
-						targetOffset = new Vector3(targetOffset.x + Input.GetAxis("Mouse X"), 0, targetOffset.z + Input.GetAxis("Mouse Y"));
-						targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -FrameLimit.x * myTransform.position.y / 30, FrameLimit.x * myTransform.position.y / 30), 0,
-							Mathf.Clamp(targetOffset.z, -FrameLimit.y * myTransform.position.y / 30, FrameLimit.y * myTransform.position.y / 30));
-					}
-				}
-				//else Screen.lockCursor = false;
-
-				distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * ZoomSpeed, MinDistance, MaxDistance);
-			}
-			#endregion
-
-			#region TOUCH_INPUT
-			//if (!Application.isEditor)
-			//{
-			// swipe moving
-			//if (Input.touchCount == 1)
-			//{
-			//	Touch touch = Input.GetTouch(0);
-			//	if (touch.phase == TouchPhase.Moved)
-			//	{
-			//		if (prevTouchPos == Vector2.zero) prevTouchPos = touch.position;
-			//		x += (touch.position.x - prevTouchPos.x) * XSpeed / 10 * distance;
-			//		y -= (touch.position.y - prevTouchPos.y) * YSpeed / 10;
-			//		prevTouchPos = touch.position;
-			//	}
-			//	else prevTouchPos = Vector2.zero;
-			//}
-			else
-			{
-				if (Input.touchCount == 1)
-				{
-					Touch touch = Input.GetTouch(0);
-
-					if (touch.phase == TouchPhase.Ended)
-					{
-						if (Time.time < doubleTapTimer + .3f)
-							targetOffset = Vector3.zero;
-						doubleTapTimer = Time.time;
-					}
-
-					if (touch.phase == TouchPhase.Moved && !dfGUIManager.HitTestAll(touch.rawPosition))
-					{
-						targetOffset = new Vector3(targetOffset.x - touch.deltaPosition.x / MoveSpeed, 0, targetOffset.z - touch.deltaPosition.y / MoveSpeed);
-						targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -FrameLimit.x * myTransform.position.y / 30, FrameLimit.x * myTransform.position.y / 30), 0,
-							Mathf.Clamp(targetOffset.z, -FrameLimit.y * myTransform.position.y / 30, FrameLimit.y * myTransform.position.y / 30));
-					}
+					targetOffset = new Vector3(targetOffset.x + Input.GetAxis("Mouse X"), 0, targetOffset.z + Input.GetAxis("Mouse Y"));
+					targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -FrameLimit.x * Camera.main.orthographicSize / 10, FrameLimit.x * Camera.main.orthographicSize / 10), 0,
+						Mathf.Clamp(targetOffset.z, -FrameLimit.y * Camera.main.orthographicSize / 10, FrameLimit.y * Camera.main.orthographicSize / 10));
 				}
 			}
-			//else if (Input.touchCount == 2)
-			//{
-			//	Touch touch1 = Input.GetTouch(0), touch2 = Input.GetTouch(1);
-			//	if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
-			//	{
-			//		float pinch = Vector2.Distance(touch1.position, touch2.position);
-			//		if (prevPinch == 0) prevPinch = pinch;
 
-			//		if (prevPinch != pinch)
-			//		{
-			//			distance -= (pinch - prevPinch) * ZoomSpeed / 100;
-			//			distance = Mathf.Clamp(distance, MinDistance, MaxDistance);
-			//		}
+			if (Input.GetMouseButtonDown(1) && !inputting) DoubleTapHandler();
 
-			//		prevPinch = pinch;
-			//	}
-			//	else prevPinch = 0;
-			//}
-			#endregion
-
-			y = ClampAngle(y, YMinLimit, YMaxLimit);
-			Quaternion rotation = Quaternion.Euler(y, x, 0);
-
-			Vector3 negDistance = new Vector3(0, 0, -distance);
-			Vector3 position = Vector3.Lerp(myTransform.position, rotation * negDistance + Target.position + targetOffset, Time.deltaTime * EasingAmount);
-
-			myTransform.rotation = rotation;
-			myTransform.position = position;
+			distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * ZoomSpeed, MinDistance, MaxDistance);
 		}
+		#endregion
+
+		#region TOUCH_INPUT
+		//if (!Application.isEditor)
+		//{
+		// swipe moving
+		//if (Input.touchCount == 1)
+		//{
+		//	Touch touch = Input.GetTouch(0);
+		//	if (touch.phase == TouchPhase.Moved)
+		//	{
+		//		if (prevTouchPos == Vector2.zero) prevTouchPos = touch.position;
+		//		x += (touch.position.x - prevTouchPos.x) * XSpeed / 10 * distance;
+		//		y -= (touch.position.y - prevTouchPos.y) * YSpeed / 10;
+		//		prevTouchPos = touch.position;
+		//	}
+		//	else prevTouchPos = Vector2.zero;
+		//}
+		else
+		{
+			if (Input.touchCount == 1 && !inputting)
+			{
+				Touch touch = Input.GetTouch(0);
+
+				if (touch.phase == TouchPhase.Ended) DoubleTapHandler();
+
+				if (touch.phase == TouchPhase.Moved && !dfGUIManager.HitTestAll(touch.rawPosition))
+				{
+					targetOffset = new Vector3(targetOffset.x - touch.deltaPosition.x / MoveSpeed, 0, targetOffset.z - touch.deltaPosition.y / MoveSpeed);
+					targetOffset = new Vector3(Mathf.Clamp(targetOffset.x, -FrameLimit.x * Camera.main.orthographicSize / 10, FrameLimit.x * Camera.main.orthographicSize / 10), 0,
+						Mathf.Clamp(targetOffset.z, -FrameLimit.y * Camera.main.orthographicSize / 10, FrameLimit.y * Camera.main.orthographicSize / 10));
+				}
+			}
+			else if (Input.touchCount == 2 && !inputting)
+			{
+				Touch touch1 = Input.GetTouch(0), touch2 = Input.GetTouch(1);
+				if (touch1.phase == TouchPhase.Moved && touch2.phase == TouchPhase.Moved)
+				{
+					float pinch = Vector2.Distance(touch1.position, touch2.position);
+					if (prevPinch == 0) prevPinch = pinch;
+
+					if (prevPinch != pinch)
+					{
+						distance -= (pinch - prevPinch) * ZoomSpeed / 100;
+						distance = Mathf.Clamp(distance, MinDistance, MaxDistance);
+					}
+
+					prevPinch = pinch;
+				}
+				else prevPinch = 0;
+			}
+		}
+		#endregion
+
+		y = ClampAngle(y, YMinLimit, YMaxLimit);
+		Quaternion rotation = Quaternion.Euler(y, x, 0);
+
+		Vector3 negDistance = new Vector3(0, 0, -10);
+		Vector3 position = Vector3.Lerp(myTransform.position, rotation * negDistance + Target.position + targetOffset, Time.deltaTime * EasingAmount);
+
+		Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, distance, Time.deltaTime * EasingAmount);
+
+		myTransform.rotation = rotation;
+		myTransform.position = position;
 	}
 
 	private float ClampAngle (float angle, float min, float max)
@@ -178,5 +174,15 @@ public class CameraController : MonoBehaviour
 	{
 		ShakeAmount = length;
 		shakeFactor = amount;
+	}
+
+	private void DoubleTapHandler ()
+	{
+		if (Time.time < doubleTapTimer + .3f)
+		{
+			targetOffset = Vector3.zero;
+			distance = DefaultDistance;
+		}
+		doubleTapTimer = Time.time;
 	}
 }

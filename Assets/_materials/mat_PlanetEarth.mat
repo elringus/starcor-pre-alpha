@@ -52,11 +52,11 @@ Material:
       data:
         first:
           name: _LightScale
-        second: 2
+        second: 10
       data:
         first:
           name: _AtmosFalloff
-        second: 2
+        second: 1.79999995
       data:
         first:
           name: _InvFade

@@ -2660,6 +2660,7 @@ GameObject:
   - 23: {fileID: 516872267}
   - 33: {fileID: 516872266}
   - 114: {fileID: 516872271}
+  - 114: {fileID: 516872272}
   m_Layer: 5
   m_Name: UI Root
   m_TagString: Untagged
@@ -2787,6 +2788,18 @@ MonoBehaviour:
   buttonLaserBeam: {fileID: 1830100656}
   buttonRocketVolley: {fileID: 1544117269}
   buttonTurretBuilder: {fileID: 282430218}
+--- !u!114 &516872272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 516872264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8a037a5e1dbda4e8945cd035dc88c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonRestart: {fileID: 973676386}
 --- !u!1001 &527690034
 Prefab:
   m_ObjectHideFlags: 0
@@ -5523,7 +5536,7 @@ Light:
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: 1, g: .985496938, b: .904411793, a: 1}
-  m_Intensity: .300000012
+  m_Intensity: .469999999
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -5554,7 +5567,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1181627263}
-  m_LocalRotation: {x: -.209409624, y: .730192065, z: -.255709499, w: -.597979844}
+  m_LocalRotation: {x: -.0285575185, y: .966753423, z: -.221416071, w: -.124688603}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

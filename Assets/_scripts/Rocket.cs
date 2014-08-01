@@ -30,15 +30,17 @@ public class Rocket : MonoBehaviour
 	private Vector3[] Waypoints;
     private float stepTime;
     private float currTime = 0;
-    private Attack attack;
+    protected TrailRenderer trailRenderer;
+    protected Attack attack;
 	private void Awake () 
 	{
         attack = new Attack(Damage, OwnType, AimType);
+        trailRenderer = GetComponent<TrailRenderer>();
 		GameObject = gameObject;
 		Transform = transform;
 	}
 
-    private void Start()
+    protected virtual void Start()
     {
         float sumLength = 0;
         for (int i = 0; i < Waypoints.Length - 1; i++)
@@ -54,7 +56,7 @@ public class Rocket : MonoBehaviour
         BaseTower = baseTower;
     }
 
-    public void Update()
+    protected virtual void Update()
     {
         currTime += Time.deltaTime;
 
@@ -73,19 +75,25 @@ public class Rocket : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider col)
+    protected void OnTriggerEnter(Collider col)
     {
+        attack.GetAimType = global::AimType.NonFriend; //жуткий костыль
 		if (attack.CanAttack(col.transform) != null)
 		{
-			Instantiate(VFX[UnityEngine.Random.Range(0, VFX.Length)], Transform.position + new Vector3(0, 1, 0), Quaternion.identity);
-			if (gameObject.name == "rocket(Clone)") CameraController.I.Shake(.8f, .5f);
-			else CameraController.I.Shake(.05f, 0.1f);
 			Explode(attack, col);
 		}
+        attack.GetAimType = global::AimType.Foe; //жуткий костыль
     }
 
-    private void Explode(Attack attack, Collider centralTarget)
+    protected void Explode(Attack attack, Collider centralTarget)
     {
+        Instantiate(VFX[UnityEngine.Random.Range(0, VFX.Length)], Transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+
+        if (gameObject.name == "rocket(Clone)")
+            CameraController.I.Shake(.8f, .5f);
+        else
+            CameraController.I.Shake(.05f, 0.1f);
+
         var colliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
         foreach (var hit in colliders)
             if (hit != centralTarget)

@@ -40,6 +40,9 @@ public class Attack
 
     public IAttackable CanAttack(Transform transform)
     {
+        if (transform == null)
+            return null;
+
         if (transform.GetComponent(typeof(IAttackable)))
             return CanAttack(transform.GetComponent(typeof(IAttackable)) as IAttackable);
         else

@@ -13,34 +13,37 @@ public class LaserBeam : MonoBehaviour
     private OwnType OwnType = OwnType.Terran;
 
     private float currTime;
-    private LineRenderer lineRenderer;
-
-    private Attack attack;
-    public void Instantiate(Vector3 origin, Vector3 destination)
+    protected LineRenderer lineRenderer;
+    protected Transform Transform;
+    protected GameObject GameObject;
+    protected Attack attack;
+    public virtual void Instantiate(Vector3 origin, Vector3 destination)
     {
         lineRenderer.SetPosition(0, origin);
-        var hitPoint = GetHitPoint(origin, destination);
-        if (hitPoint == null)
+        var hitTarget = GetTarget(origin, destination);
+        if (hitTarget == null)
             lineRenderer.SetPosition(1, destination);
         else
-            lineRenderer.SetPosition(1, hitPoint.Value);
+            lineRenderer.SetPosition(1, hitTarget.Value.point);
         
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
+        Transform = transform;
+        GameObject = gameObject;
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetWidth(BeamWidth, BeamWidth);
         attack = new Attack(Damage, OwnType, AimType);
     }
 
-    private Vector3? GetHitPoint(Vector3 origin, Vector3 destination)
+    protected virtual RaycastHit? GetTarget(Vector3 origin, Vector3 destination)
     {
         RaycastHit hit;
         if (Physics.SphereCast(new Ray(origin, destination - origin), BeamWidth / 2, out hit))
         {
             if (attack.MakeAttack(hit.transform))
-                return hit.point;
+                return hit;
         }
         return null;
     }
